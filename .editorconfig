@@ -12,4 +12,5 @@ trim_trailing_whitespace = false
 
 [*.fs]
 fsharp_single_argument_web_mode = true
+fsharp_multiline_block_brackets_on_same_column = true
 indent_size = 4

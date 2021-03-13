@@ -1,0 +1,55 @@
+namespace PlanetZooApp
+
+open FSharp.Json
+open FsHttp.DslCE
+open System.IO
+
+open Types
+
+module FileManagement =
+    let animalDataPath = "./mixed-data.json"
+
+    let loadFile () =
+        match File.Exists animalDataPath with
+        | false -> []
+        | true ->
+            File.ReadAllText animalDataPath
+            |> Json.deserialize<ZooAnimalJson list>
+
+    type ImageDownloadResult =
+        | AlreadyDownloaded of string
+        | HasToBeDownloaded of (unit -> Async<string>)
+
+    let downloadImage (AnimalKey key) url =
+        let imgPath =
+            $"{Path.GetTempPath()}/planetzooapp/img/%s{key}.jpg"
+
+        if File.Exists imgPath then
+            AlreadyDownloaded imgPath
+        else
+            let job () =
+                async {
+                    do! Async.Sleep 100
+
+                    let response =
+                        http {
+                            GET url
+                            CacheControl "no-cache"
+                        }
+
+                    let! imgData =
+                        response.content.ReadAsByteArrayAsync()
+                        |> Async.AwaitTask
+
+                    // Wir legen den Ordner an
+                    imgPath
+                    |> Path.GetDirectoryName
+                    |> Directory.CreateDirectory
+                    |> ignore
+
+                    File.WriteAllBytes(imgPath, imgData)
+
+                    return imgPath
+                }
+
+            HasToBeDownloaded job
