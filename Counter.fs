@@ -29,6 +29,7 @@ module Counter =
         | DownloadImage of (AnimalKey * string)
         | SaveImage of (AnimalKey * string)
         | AsyncError of exn
+        | ShowAnimalList
 
     let init animalMap =
         let state =
@@ -83,6 +84,18 @@ module Counter =
 
             state, Cmd.ofMsg LookForImageJob
         | AsyncError ex -> raise ex
+        | ShowAnimalList ->
+            let state = { state with detailViewOf = None }
+            state, Cmd.none
+
+
+    let animalImage (imgPath: string) height width =
+        Image.create [
+            Image.height height
+            Image.width width
+            Image.source (new Bitmap(imgPath))
+        ]
+
 
     let animalItemView (animal: ZooAnimal) =
         StackPanel.create [
@@ -90,35 +103,73 @@ module Counter =
             StackPanel.spacing 5.
             StackPanel.children [
                 match animal.image_path with
-                | Some imgPath ->
-                    Image.create [
-                        Image.height 50.0
-                        Image.width 50.0
-                        Image.source (new Bitmap(imgPath))
-                    ]
+                | Some imgPath -> animalImage imgPath 50. 80.
                 | None -> () // TODO: irgendwas tun
                 TextBlock.create [
-                    TextBlock.fontSize 14.0
+                    TextBlock.padding (0., 10.)
+                    TextBlock.fontSize 20.0
                     TextBlock.text (animal.name)
                 ]
             ]
         ]
 
-    let viewAnimalDetails (animal: ZooAnimal) : IView =
-        ScrollViewer.create [
-            ScrollViewer.dock Dock.Bottom
-            ScrollViewer.horizontalScrollBarVisibility ScrollBarVisibility.Disabled
-            ScrollViewer.content (
-                StackPanel.create [
-                    StackPanel.orientation Orientation.Vertical
-                    StackPanel.children [
-                        TextBlock.create [
-                            TextBlock.fontSize 14.0
-                            TextBlock.text ($"{animal}")
-                        ]
-                    ]
+    let viewAnimalDetails (animal: ZooAnimal) dispatch : IView =
+        DockPanel.create [
+            DockPanel.children [
+                Button.create [
+                    DockPanel.dock Dock.Top
+                    Button.content "Zurück"
+                    Button.onClick (fun _ -> dispatch ShowAnimalList)
                 ]
-            )
+                ScrollViewer.create [
+                    ScrollViewer.horizontalScrollBarVisibility ScrollBarVisibility.Disabled
+                    ScrollViewer.content (
+                        StackPanel.create [
+                            StackPanel.orientation Orientation.Vertical
+                            StackPanel.children [
+                                StackPanel.create [
+                                    StackPanel.orientation Orientation.Horizontal
+                                    StackPanel.children [
+                                        match animal.image_path with
+                                        | Some imgPath -> animalImage imgPath 160. 200.
+                                        | None -> () // TODO: irgendwas tun
+
+                                        StackPanel.create [
+                                            StackPanel.orientation Orientation.Vertical
+                                            //StackPanel.spacing 10.
+                                            StackPanel.children [
+                                                TextBlock.create [
+                                                    TextBlock.fontSize 20.
+                                                    TextBlock.padding (5., 5.)
+                                                    TextBlock.text (animal.name)
+                                                ]
+                                                TextBlock.create [
+                                                    TextBlock.fontSize 14.0
+                                                    TextBlock.padding (5., 5.)
+                                                    TextBlock.text (animal.latin_name)
+                                                ]
+                                                TextBlock.create [
+                                                    TextBlock.fontSize 12.
+                                                    TextBlock.lineHeight 16.
+                                                    TextBlock.maxWidth 500.
+                                                    TextBlock.padding (5., 5.)
+                                                    TextBlock.textWrapping Avalonia.Media.TextWrapping.Wrap
+                                                    TextBlock.textTrimming Avalonia.Media.TextTrimming.WordEllipsis
+                                                    TextBlock.text (animal.description)
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                                TextBlock.create [
+                                    TextBlock.fontSize 14.0
+                                    TextBlock.text ($"{animal}")
+                                ]
+                            ]
+                        ]
+                    )
+                ]
+            ]
         ]
         :> IView
 
@@ -146,7 +197,7 @@ module Counter =
                     ListBox.itemTemplate (DataTemplateView<ZooAnimal>.create animalItemView)
                     ListBox.onSelectedIndexChanged (
                         (fun index ->
-                            if index > 0 then
+                            if index >= 0 then
                                 animalList.Item index |> ChooseAnimal |> dispatch),
                         Always
                     )
@@ -158,4 +209,4 @@ module Counter =
     let view state dispatch =
         match state.detailViewOf with
         | None -> listView state dispatch
-        | Some currentAnimal -> viewAnimalDetails (currentAnimal)
+        | Some currentAnimal -> viewAnimalDetails (currentAnimal) dispatch

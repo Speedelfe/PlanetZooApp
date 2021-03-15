@@ -16,8 +16,8 @@ type MainWindow() as this =
 
     do
         base.Title <- "PlanetZooApp"
-        base.Width <- 400.0
-        base.Height <- 400.0
+        base.Width <- 800.0
+        base.Height <- 600.0
 
         //this.VisualRoot.VisualRoot.Renderer.DrawFps <- true
         //this.VisualRoot.VisualRoot.Renderer.DrawDirtyRects <- true
