@@ -113,6 +113,68 @@ module Counter =
             ]
         ]
 
+    let viewAnimalDetailsContentHeader (animal: ZooAnimal) : IView =
+        StackPanel.create [
+            StackPanel.orientation Orientation.Horizontal
+            StackPanel.children [
+                match animal.image_path with
+                | Some imgPath -> animalImage imgPath 160. 200.
+                | None -> () // TODO: irgendwas tun
+
+                StackPanel.create [
+                    StackPanel.orientation Orientation.Vertical
+                    StackPanel.children [
+                        TextBlock.create [
+                            TextBlock.fontSize 20.
+                            TextBlock.padding (5., 5.)
+                            TextBlock.text animal.name
+                        ]
+                        TextBlock.create [
+                            TextBlock.fontSize 14.0
+                            TextBlock.padding (5., 5.)
+                            TextBlock.text animal.latin_name
+                        ]
+                        TextBlock.create [
+                            TextBlock.fontSize 12.
+                            TextBlock.lineHeight 16.
+                            TextBlock.maxWidth 500.
+                            TextBlock.padding (5., 5.)
+                            TextBlock.textWrapping Avalonia.Media.TextWrapping.Wrap
+                            TextBlock.text animal.description
+                        ]
+                    ]
+                ]
+            ]
+        ]
+        :> IView
+
+    let viewAnimalDetailsContentHabitatRequirements (habitatRequirements: HabitatRequirements) : IView =
+        TextBlock.create [
+            TextBlock.text ($"{habitatRequirements}")
+        ]
+        :> IView
+
+    let viewAnimalDetailsContent (animal: ZooAnimal) dispatch : IView =
+        ScrollViewer.create [
+            ScrollViewer.horizontalScrollBarVisibility ScrollBarVisibility.Disabled
+            ScrollViewer.content (
+                StackPanel.create [
+                    StackPanel.orientation Orientation.Vertical
+                    StackPanel.children [
+                        viewAnimalDetailsContentHeader animal
+
+                        viewAnimalDetailsContentHabitatRequirements animal.habitat_requirements
+
+                        TextBlock.create [
+                            TextBlock.fontSize 14.0
+                            TextBlock.text ($"{animal}")
+                        ]
+                    ]
+                ]
+            )
+        ]
+        :> IView
+
     let viewAnimalDetails (animal: ZooAnimal) dispatch : IView =
         DockPanel.create [
             DockPanel.children [
@@ -121,54 +183,7 @@ module Counter =
                     Button.content "Zurück"
                     Button.onClick (fun _ -> dispatch ShowAnimalList)
                 ]
-                ScrollViewer.create [
-                    ScrollViewer.horizontalScrollBarVisibility ScrollBarVisibility.Disabled
-                    ScrollViewer.content (
-                        StackPanel.create [
-                            StackPanel.orientation Orientation.Vertical
-                            StackPanel.children [
-                                StackPanel.create [
-                                    StackPanel.orientation Orientation.Horizontal
-                                    StackPanel.children [
-                                        match animal.image_path with
-                                        | Some imgPath -> animalImage imgPath 160. 200.
-                                        | None -> () // TODO: irgendwas tun
-
-                                        StackPanel.create [
-                                            StackPanel.orientation Orientation.Vertical
-                                            //StackPanel.spacing 10.
-                                            StackPanel.children [
-                                                TextBlock.create [
-                                                    TextBlock.fontSize 20.
-                                                    TextBlock.padding (5., 5.)
-                                                    TextBlock.text (animal.name)
-                                                ]
-                                                TextBlock.create [
-                                                    TextBlock.fontSize 14.0
-                                                    TextBlock.padding (5., 5.)
-                                                    TextBlock.text (animal.latin_name)
-                                                ]
-                                                TextBlock.create [
-                                                    TextBlock.fontSize 12.
-                                                    TextBlock.lineHeight 16.
-                                                    TextBlock.maxWidth 500.
-                                                    TextBlock.padding (5., 5.)
-                                                    TextBlock.textWrapping Avalonia.Media.TextWrapping.Wrap
-                                                    TextBlock.textTrimming Avalonia.Media.TextTrimming.WordEllipsis
-                                                    TextBlock.text (animal.description)
-                                                ]
-                                            ]
-                                        ]
-                                    ]
-                                ]
-                                TextBlock.create [
-                                    TextBlock.fontSize 14.0
-                                    TextBlock.text ($"{animal}")
-                                ]
-                            ]
-                        ]
-                    )
-                ]
+                viewAnimalDetailsContent animal dispatch
             ]
         ]
         :> IView
