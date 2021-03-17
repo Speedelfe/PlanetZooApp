@@ -3,6 +3,7 @@
 open Elmish
 open Avalonia
 open Avalonia.Controls.ApplicationLifetimes
+open Avalonia.Diagnostics
 open Avalonia.Input
 open Avalonia.FuncUI
 open Avalonia.FuncUI.Elmish
@@ -21,6 +22,11 @@ type MainWindow() as this =
 
         //this.VisualRoot.VisualRoot.Renderer.DrawFps <- true
         //this.VisualRoot.VisualRoot.Renderer.DrawDirtyRects <- true
+
+#if DEBUG
+        DevTools.Attach(this, KeyGesture(Key.F12))
+        |> ignore
+#endif
 
         let animalMap =
             loadFile ()
