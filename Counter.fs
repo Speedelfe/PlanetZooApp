@@ -149,8 +149,46 @@ module Counter =
         :> IView
 
     let viewAnimalDetailsContentHabitatRequirements (habitatRequirements: HabitatRequirements) : IView =
-        TextBlock.create [
-            TextBlock.text ($"{habitatRequirements}")
+        StackPanel.create [
+            StackPanel.orientation Orientation.Vertical
+            StackPanel.children [
+                TextBlock.create [
+                    TextBlock.fontSize 14.0
+                    TextBlock.text "Habitat min requirements"
+                ]
+                StackPanel.create [
+                    StackPanel.orientation Orientation.Horizontal
+                    StackPanel.children [
+                        TextBlock.create [
+                            TextBlock.padding (5., 0.)
+                            TextBlock.text "Land:"
+                        ]
+                        TextBlock.create [
+                            TextBlock.padding (5., 0.)
+                            match habitatRequirements.land_ with
+                            | Some landArea -> TextBlock.text ($"{landArea}")
+                            | None -> ()
+                        ]
+                        TextBlock.create [ TextBlock.text "m²" ]
+                    ]
+                ]
+                StackPanel.create [
+                    StackPanel.orientation Orientation.Horizontal
+                    StackPanel.children [
+                        TextBlock.create [
+                            TextBlock.padding (5., 0.)
+                            TextBlock.text "Water:"
+                        ]
+                        TextBlock.create [
+                            TextBlock.padding (5., 0.)
+                            match habitatRequirements.water with
+                            | Some waterArea -> TextBlock.text ($"{waterArea}")
+                            | None -> ()
+                        ]
+                        TextBlock.create [ TextBlock.text "m²" ]
+                    ]
+                ]
+            ]
         ]
         :> IView
 
