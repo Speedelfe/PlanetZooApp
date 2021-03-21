@@ -6,7 +6,7 @@ module Counter =
     open Avalonia.FuncUI.DSL
     open Avalonia.FuncUI.Types
     open Avalonia.Layout
-    open PlanetZooApp.FileManagement
+    open PlanetZooApp.Functions
     open PlanetZooApp.Types
     open Avalonia.FuncUI.Components
     open Avalonia.FuncUI.Components.Hosts
@@ -21,6 +21,7 @@ module Counter =
             animalMap: Map<AnimalKey, ZooAnimal>
             // Wenn wir hier ein Tier haben, zeigen wir die Details an und nicht die Liste
             detailViewOf: ZooAnimal option
+            continentListFilter: Continent List option
         }
 
     type Msg =
@@ -30,12 +31,15 @@ module Counter =
         | SaveImage of (AnimalKey * string)
         | AsyncError of exn
         | ShowAnimalList
+        | FilterAnimalListByContinent of Continent List
+        | CLearFilterContinent
 
     let init animalMap =
         let state =
             {
                 animalMap = animalMap
                 detailViewOf = None
+                continentListFilter = None
             }
 
         state, (Cmd.ofMsg LookForImageJob)
@@ -86,6 +90,20 @@ module Counter =
         | AsyncError ex -> raise ex
         | ShowAnimalList ->
             let state = { state with detailViewOf = None }
+            state, Cmd.none
+        | FilterAnimalListByContinent continentList ->
+            let state =
+                { state with
+                    continentListFilter = Some continentList
+                }
+
+            state, Cmd.none
+        | CLearFilterContinent ->
+            let state =
+                { state with
+                    continentListFilter = None
+                }
+
             state, Cmd.none
 
 
@@ -147,6 +165,10 @@ module Counter =
             ]
         ]
         :> IView
+
+    // let blaa (text: string) =
+    //     text.Replace()
+    //     text.Trim()
 
     let viewAnimalDetailsContentHabitatRequirements (habitatRequirements: HabitatRequirements) : IView =
         StackPanel.create [
@@ -238,12 +260,24 @@ module Counter =
                             TextBox.text "Suche nach Name" //TODO: Funktion zum Suchen nach Animal Name
                         ]
                         Button.create [
-                            Button.content "Filter" //TODO: Click Event -> Filter "Fenster" öffnen
+                            Button.content "Filter Europa" //TODO: Click Event -> Filter "Fenster" öffnen
+                            Button.onClick (
+                                (fun _ ->
+                                    match state.continentListFilter with
+                                    | Some _ -> dispatch CLearFilterContinent
+                                    | None -> FilterAnimalListByContinent [ Europe ] |> dispatch),
+                                OnChangeOf state.continentListFilter
+                            )
                         ]
                     ]
                 ]
-                let animalList =
+                let fullanimalList =
                     state.animalMap |> Map.toList |> List.map snd
+
+                let animalList =
+                    match state.continentListFilter with
+                    | None -> fullanimalList
+                    | Some continentListFilter -> filtercontinent fullanimalList continentListFilter
 
                 ListBox.create [
                     ListBox.dataItems animalList
@@ -252,10 +286,12 @@ module Counter =
                         (fun index ->
                             if index >= 0 then
                                 animalList.Item index |> ChooseAnimal |> dispatch),
-                        Always
+                        OnChangeOf animalList
                     )
                 ]
+
             ]
+
         ]
         :> IView
 

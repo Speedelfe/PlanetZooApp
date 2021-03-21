@@ -9,7 +9,7 @@ open Avalonia.FuncUI
 open Avalonia.FuncUI.Elmish
 open Avalonia.FuncUI.Components.Hosts
 
-open PlanetZooApp.FileManagement
+open PlanetZooApp.Functions
 open PlanetZooApp.Types
 
 type MainWindow() as this =
