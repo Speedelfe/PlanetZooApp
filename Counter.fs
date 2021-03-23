@@ -178,6 +178,29 @@ module Counter =
     //     text.Replace()
     //     text.Trim()
 
+    let optionToString unt op =
+        match op with
+        | Some value -> $"%i{value}{unt}"
+        | None -> ""
+
+    let tempToString (temperature: Temperature) =
+        $"{temperature.min}°C - {temperature.max}°C"
+
+    let renderBlaaLabel label info =
+        StackPanel.create [
+            StackPanel.orientation Orientation.Horizontal
+            StackPanel.children [
+                TextBlock.create [
+                    TextBlock.padding (5., 0.)
+                    TextBlock.text $"%s{label}:"
+                ]
+                TextBlock.create [
+                    TextBlock.padding (5., 0.)
+                    TextBlock.text (info)
+                ]
+            ]
+        ]
+
     let viewAnimalDetailsContentHabitatRequirements (habitatRequirements: HabitatRequirements) : IView =
         StackPanel.create [
             StackPanel.orientation Orientation.Vertical
@@ -186,38 +209,9 @@ module Counter =
                     TextBlock.fontSize 14.0
                     TextBlock.text "Habitat min requirements"
                 ]
-                StackPanel.create [
-                    StackPanel.orientation Orientation.Horizontal
-                    StackPanel.children [
-                        TextBlock.create [
-                            TextBlock.padding (5., 0.)
-                            TextBlock.text "Land:"
-                        ]
-                        TextBlock.create [
-                            TextBlock.padding (5., 0.)
-                            match habitatRequirements.land_ with
-                            | Some landArea -> TextBlock.text ($"{landArea}")
-                            | None -> ()
-                        ]
-                        TextBlock.create [ TextBlock.text "m²" ]
-                    ]
-                ]
-                StackPanel.create [
-                    StackPanel.orientation Orientation.Horizontal
-                    StackPanel.children [
-                        TextBlock.create [
-                            TextBlock.padding (5., 0.)
-                            TextBlock.text "Water:"
-                        ]
-                        TextBlock.create [
-                            TextBlock.padding (5., 0.)
-                            match habitatRequirements.water with
-                            | Some waterArea -> TextBlock.text ($"{waterArea}")
-                            | None -> ()
-                        ]
-                        TextBlock.create [ TextBlock.text "m²" ]
-                    ]
-                ]
+                renderBlaaLabel "Land" (optionToString "m²" habitatRequirements.land_)
+                renderBlaaLabel "Water" (optionToString "m²" habitatRequirements.water)
+                renderBlaaLabel "Temperature" (tempToString habitatRequirements.temperature)
             ]
         ]
         :> IView
