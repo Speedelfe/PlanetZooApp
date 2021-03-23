@@ -16,12 +16,16 @@ module Counter =
     open Avalonia.Media.Imaging
     open Elmish
 
+    type ViewMode =
+        | ListView
+        | DetailView of ZooAnimal
+        | FilterView
+
     type State =
         {
             animalMap: Map<AnimalKey, ZooAnimal>
-            // Wenn wir hier ein Tier haben, zeigen wir die Details an und nicht die Liste
-            detailViewOf: ZooAnimal option
             continentListFilter: Continent List option
+            viewMode: ViewMode
         }
 
     type Msg =
@@ -33,13 +37,14 @@ module Counter =
         | ShowAnimalList
         | FilterAnimalListByContinent of Continent List
         | CLearFilterContinent
+        | ShowFilterView
 
     let init animalMap =
         let state =
             {
                 animalMap = animalMap
-                detailViewOf = None
                 continentListFilter = None
+                viewMode = ListView
             }
 
         state, (Cmd.ofMsg LookForImageJob)
@@ -49,7 +54,7 @@ module Counter =
         | ChooseAnimal animal ->
             let state =
                 { state with
-                    detailViewOf = Some animal
+                    viewMode = DetailView animal
                 }
 
             state, Cmd.none
@@ -89,7 +94,7 @@ module Counter =
             state, Cmd.ofMsg LookForImageJob
         | AsyncError ex -> raise ex
         | ShowAnimalList ->
-            let state = { state with detailViewOf = None }
+            let state = { state with viewMode = ListView }
             state, Cmd.none
         | FilterAnimalListByContinent continentList ->
             let state =
@@ -104,6 +109,9 @@ module Counter =
                     continentListFilter = None
                 }
 
+            state, Cmd.none
+        | ShowFilterView ->
+            let state = { state with viewMode = FilterView }
             state, Cmd.none
 
 
@@ -248,6 +256,27 @@ module Counter =
         ]
         :> IView
 
+    let filterView (state: State) dispatch : IView =
+        DockPanel.create [
+            DockPanel.children [
+                Button.create [
+                    Button.content "Zurück"
+                    Button.onClick (fun _ -> dispatch ShowAnimalList)
+                ]
+                Button.create [
+                    Button.content "Filter nach Continent"
+                    Button.onClick (
+                        (fun _ ->
+                            match state.continentListFilter with
+                            | Some _ -> dispatch CLearFilterContinent
+                            | None -> FilterAnimalListByContinent [ Europe ] |> dispatch),
+                        OnChangeOf state.continentListFilter
+                    )
+                ]
+            ]
+        ]
+        :> IView
+
     let listView (state: State) dispatch : IView =
         DockPanel.create [
             DockPanel.children [
@@ -261,15 +290,12 @@ module Counter =
                         ]
                         Button.create [
                             Button.content "Filter Europa" //TODO: Click Event -> Filter "Fenster" öffnen
-                            Button.onClick (
-                                (fun _ ->
-                                    match state.continentListFilter with
-                                    | Some _ -> dispatch CLearFilterContinent
-                                    | None -> FilterAnimalListByContinent [ Europe ] |> dispatch),
-                                OnChangeOf state.continentListFilter
-                            )
+                            Button.onClick (fun _ -> dispatch ShowFilterView)
+
                         ]
+
                     ]
+
                 ]
                 let fullanimalList =
                     state.animalMap |> Map.toList |> List.map snd
@@ -296,6 +322,7 @@ module Counter =
         :> IView
 
     let view state dispatch =
-        match state.detailViewOf with
-        | None -> listView state dispatch
-        | Some currentAnimal -> viewAnimalDetails (currentAnimal) dispatch
+        match state.viewMode with
+        | ListView -> listView state dispatch
+        | DetailView currentAnimal -> viewAnimalDetails (currentAnimal) dispatch
+        | FilterView -> filterView state dispatch
