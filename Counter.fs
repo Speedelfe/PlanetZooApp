@@ -180,13 +180,17 @@ module Counter =
 
     let optionToString unt op =
         match op with
-        | Some value -> $"%i{value}{unt}"
+        | Some value -> $"{value}{unt}"
         | None -> ""
 
-    let tempToString (temperature: Temperature) =
-        $"{temperature.min}°C - {temperature.max}°C"
+    let tempToString (min: int) (max: int) (unity: string) = $"{min}{unity} - {max}{unity}"
 
-    let renderBlaaLabel label info =
+    let groupToString (group: GroupMixed option) =
+        match group with
+        | Some value -> $"{value.size}"
+        | None -> ""
+
+    let renderAnimalInfo label info =
         StackPanel.create [
             StackPanel.orientation Orientation.Horizontal
             StackPanel.children [
@@ -209,9 +213,24 @@ module Counter =
                     TextBlock.fontSize 14.0
                     TextBlock.text "Habitat min requirements"
                 ]
-                renderBlaaLabel "Land" (optionToString "m²" habitatRequirements.land_)
-                renderBlaaLabel "Water" (optionToString "m²" habitatRequirements.water)
-                renderBlaaLabel "Temperature" (tempToString habitatRequirements.temperature)
+                if not habitatRequirements.exhibit then // Vivarien Tier?!
+                    renderAnimalInfo "Land" (optionToString "m²" habitatRequirements.land_)
+                    renderAnimalInfo "Water" (optionToString "m²" habitatRequirements.water)
+                    renderAnimalInfo "Climbable" (optionToString "m²" habitatRequirements.climbable)
+                    renderAnimalInfo "Guest Enter" (optionToString "" habitatRequirements.guest_enter)
+                // TODO: ?!
+                // land_additional: int option
+                // water_additional: int option
+                // climbable_additional: int option
+                // fence: Fence Option
+                else
+                    renderAnimalInfo "Temperature" (tempToString habitatRequirements.humidity.min habitatRequirements.humidity.max "%")
+                renderAnimalInfo "Temperature" (tempToString habitatRequirements.temperature.min habitatRequirements.temperature.max "°C")
+
+                // group_male: GroupMale option
+                // group_female: GroupFemale option
+                // group_mixed: GroupMixed option
+                renderAnimalInfo "Temperature" (groupToString habitatRequirements.group_mixed)
             ]
         ]
         :> IView
