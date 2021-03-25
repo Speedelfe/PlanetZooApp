@@ -37,9 +37,7 @@ module Types =
         }
 
     type Size = { min: int; max: int }
-    type GroupMale = { size: Size }
-    type GroupFemale = { size: Size }
-
+    type GroupBachelor = { size: Size }
     type GroupMixed = { size: Size; male: int; female: int }
 
     type HabitatRequirements =
@@ -56,8 +54,8 @@ module Types =
             humidity: Humidity
             temperature: Temperature
             fence: Fence Option
-            group_male: GroupMale option
-            group_female: GroupFemale option
+            group_male: GroupBachelor option
+            group_female: GroupBachelor option
             group_mixed: GroupMixed option
         }
 

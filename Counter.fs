@@ -183,12 +183,24 @@ module Counter =
         | Some value -> $"{value}{unt}"
         | None -> ""
 
-    let tempToString (min: int) (max: int) (unity: string) = $"{min}{unity} - {max}{unity}"
+    let rangeToString (min: int) (max: int) (unity: string) = $"{min}{unity} - {max}{unity}"
 
-    let groupToString (group: GroupMixed option) =
+    let groupSizeToString (group: GroupMixed option) =
         match group with
-        | Some value -> $"{value.size}"
+        | Some value -> $"{value.size.min}-{value.size.max} (up to {value.male} males, up to {value.female} females)"
         | None -> ""
+
+    let groupBachelortoString (group: GroupBachelor option) =
+        match group with
+        | Some value -> $"{value.size.min}-{value.size.max}"
+        | None -> ""
+
+    let fencetoString (fence: Fence option) =
+        match fence with
+        | Some ({ climbproof = true } as value) -> $"Grade {value.grade}, >{value.height}m, Climb Proof"
+        | Some ({ climbproof = false } as value) -> $"Grade {value.grade}, >{value.height}m"
+        | None -> ""
+
 
     let renderAnimalInfo label info =
         StackPanel.create [
@@ -213,24 +225,25 @@ module Counter =
                     TextBlock.fontSize 14.0
                     TextBlock.text "Habitat min requirements"
                 ]
-                if not habitatRequirements.exhibit then // Vivarien Tier?!
+                if habitatRequirements.exhibit then
+                    // Vivarien Tier
+                    renderAnimalInfo "Humidity" (rangeToString habitatRequirements.humidity.min habitatRequirements.humidity.max "%")
+                else
+                    // Gehege Tier
                     renderAnimalInfo "Land" (optionToString "m²" habitatRequirements.land_)
                     renderAnimalInfo "Water" (optionToString "m²" habitatRequirements.water)
                     renderAnimalInfo "Climbable" (optionToString "m²" habitatRequirements.climbable)
                     renderAnimalInfo "Guest Enter" (optionToString "" habitatRequirements.guest_enter)
+                    renderAnimalInfo "Fence" (fencetoString habitatRequirements.fence)
                 // TODO: ?!
                 // land_additional: int option
                 // water_additional: int option
                 // climbable_additional: int option
-                // fence: Fence Option
-                else
-                    renderAnimalInfo "Temperature" (tempToString habitatRequirements.humidity.min habitatRequirements.humidity.max "%")
-                renderAnimalInfo "Temperature" (tempToString habitatRequirements.temperature.min habitatRequirements.temperature.max "°C")
 
-                // group_male: GroupMale option
-                // group_female: GroupFemale option
-                // group_mixed: GroupMixed option
-                renderAnimalInfo "Temperature" (groupToString habitatRequirements.group_mixed)
+                renderAnimalInfo "Temperature" (rangeToString habitatRequirements.temperature.min habitatRequirements.temperature.max "°C")
+                renderAnimalInfo "Group Size" (groupSizeToString habitatRequirements.group_mixed)
+                renderAnimalInfo "Male bachelor group size" (groupBachelortoString habitatRequirements.group_male)
+                renderAnimalInfo "Female bachelor group size" (groupBachelortoString habitatRequirements.group_female)
             ]
         ]
         :> IView
