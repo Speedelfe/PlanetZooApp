@@ -6,7 +6,10 @@
   <ItemGroup>
     <Compile Include="Types.fs" />
     <Compile Include="Functions.fs" />
-    <Compile Include="Counter.fs" />
+    <Compile Include="View/ViewHelpers.fs" />
+    <Compile Include="View/ViewHabitatRequirements.fs" />
+    <Compile Include="View/DetailView.fs" />
+    <Compile Include="View/Counter.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>

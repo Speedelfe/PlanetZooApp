@@ -124,5 +124,28 @@ module Types =
                 slug = json.slug
             }
 
-//type ZooAnimal = NormalAnimal of NormalAnimal
-(*| VAnimal of VAnimal*)
+    //type ZooAnimal = NormalAnimal of NormalAnimal
+    (*| VAnimal of VAnimal*)
+
+    type ViewMode =
+        | ListView
+        | DetailView of ZooAnimal
+        | FilterView
+
+    type State =
+        {
+            animalMap: Map<AnimalKey, ZooAnimal>
+            continentListFilter: Continent List option
+            viewMode: ViewMode
+        }
+
+    type Msg =
+        | ChooseAnimal of ZooAnimal
+        | LookForImageJob
+        | DownloadImage of (AnimalKey * string)
+        | SaveImage of (AnimalKey * string)
+        | AsyncError of exn
+        | ShowAnimalList
+        | FilterAnimalListByContinent of Continent List
+        | CLearFilterContinent
+        | ShowFilterView
