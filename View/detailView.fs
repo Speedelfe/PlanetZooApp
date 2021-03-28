@@ -29,7 +29,6 @@ module DetailView =
                 TextBlock.create [
                     TextBlock.fontSize 12.
                     TextBlock.lineHeight 16.
-                    //TextBlock.maxWidth 500.
                     TextBlock.textWrapping Avalonia.Media.TextWrapping.Wrap
                     TextBlock.text animal.description
                 ]

@@ -50,4 +50,5 @@ module ViewHelpers =
             Image.height height
             Image.width width
             Image.source (new Bitmap(imgPath))
+            Image.horizontalAlignment HorizontalAlignment.Left
         ]
