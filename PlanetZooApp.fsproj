@@ -4,14 +4,14 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Types.fs" />
-    <Compile Include="Functions.fs" />
-    <Compile Include="View/ViewHelpers.fs" />
-    <Compile Include="View/ViewNaturalHabitat.fs" />
-    <Compile Include="View/ViewSpeciesData.fs" />
-    <Compile Include="View/DetailView.fs" />
-    <Compile Include="View/Counter.fs" />
-    <Compile Include="Program.fs" />
+    <Compile Include="src/Core/Types.fs" />
+    <Compile Include="src/Core/Functions.fs" />
+    <Compile Include="src/View/ViewHelpers.fs" />
+    <Compile Include="src/View/ViewNaturalHabitat.fs" />
+    <Compile Include="src/View/ViewSpeciesData.fs" />
+    <Compile Include="src/View/DetailView.fs" />
+    <Compile Include="src/View/Counter.fs" />
+    <Compile Include="src/Core/Program.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia.Desktop" Version="0.10.0" />
