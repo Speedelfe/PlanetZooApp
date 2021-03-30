@@ -10,6 +10,7 @@ module MainView =
     open PlanetZooApp.Types
     open PlanetZooApp.ViewHelpers
     open PlanetZooApp.DetailView
+    open PlanetZooApp.FilterView
     open Avalonia.FuncUI.Components
     open Elmish
 
@@ -105,28 +106,6 @@ module MainView =
             ]
         ]
 
-
-    let filterView (state: State) dispatch : IView =
-        DockPanel.create [
-            DockPanel.children [
-                Button.create [
-                    Button.content "Zurück"
-                    Button.onClick (fun _ -> dispatch ShowAnimalList)
-                ]
-                Button.create [
-                    Button.content "Filter nach Continent"
-                    Button.onClick (
-                        (fun _ ->
-                            match state.continentListFilter with
-                            | Some _ -> dispatch CLearFilterContinent
-                            | None -> FilterAnimalListByContinent [ Europe ] |> dispatch),
-                        OnChangeOf state.continentListFilter
-                    )
-                ]
-            ]
-        ]
-        :> IView
-
     let listView (state: State) dispatch : IView =
         DockPanel.create [
             DockPanel.children [
@@ -175,4 +154,4 @@ module MainView =
         match state.viewMode with
         | ListView -> listView state dispatch
         | DetailView currentAnimal -> viewAnimalDetails (currentAnimal) dispatch
-        | FilterView -> filterView state dispatch
+        | FilterView -> viewFilterView state dispatch

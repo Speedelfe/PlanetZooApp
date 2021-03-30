@@ -10,6 +10,7 @@
     <Compile Include="src/View/ViewNaturalHabitat.fs" />
     <Compile Include="src/View/ViewSpeciesData.fs" />
     <Compile Include="src/View/DetailView.fs" />
+    <Compile Include="src/View/FilterView.fs" />
     <Compile Include="src/View/MainView.fs" />
     <Compile Include="src/Core/Program.fs" />
   </ItemGroup>
