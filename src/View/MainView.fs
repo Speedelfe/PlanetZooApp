@@ -1,6 +1,6 @@
 ﻿namespace PlanetZooApp
 
-module Counter =
+module MainView =
     open Avalonia.Controls
     open Avalonia.Controls.Primitives
     open Avalonia.FuncUI.DSL

@@ -36,7 +36,7 @@ type MainWindow() as this =
                     Map.add (AnimalKey animalJson.key) animal map)
                 Map.empty
 
-        Program.mkProgram (fun () -> Counter.init animalMap) Counter.update Counter.view
+        Program.mkProgram (fun () -> MainView.init animalMap) MainView.update MainView.view
         |> Program.withHost this
 #if DEBUG
         |> Program.withTrace (fun msg _ -> printfn $"Got Message: {msg}")
