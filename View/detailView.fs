@@ -5,10 +5,12 @@ module DetailView =
     open Avalonia.Controls.Primitives
     open Avalonia.FuncUI.DSL
     open Avalonia.FuncUI.Types
+    open Avalonia.Input
     open Avalonia.Layout
     open PlanetZooApp.Types
     open PlanetZooApp.ViewHelpers
-    open PlanetZooApp.ViewHabitatRequirements
+    open PlanetZooApp.ViewNaturalHabitat
+    open PlanetZooApp.ViewSpeciesData
 
     let viewAnimalDetailsContentHeader (animal: ZooAnimal) : IView =
         StackPanel.create [
@@ -39,12 +41,19 @@ module DetailView =
     let tabs (animal: ZooAnimal) : IView list =
         [
             TabItem.create [
+                TabItem.padding 5.0
                 TabItem.header "Basics"
                 TabItem.content (viewAnimalDetailsContentHeader animal)
             ]
             TabItem.create [
-                TabItem.header "Habitat Requirements"
-                TabItem.content (viewAnimalDetailsContentHabitatRequirements animal.habitat_requirements)
+                TabItem.padding 5.0
+                TabItem.header "Natural habitat"
+                TabItem.content (viewAnimalDetailsTabNaturalHabitat animal.habitat_requirements)
+            ]
+            TabItem.create [
+                TabItem.padding 5.0
+                TabItem.header "Species data"
+                TabItem.content (viewAnimalDetailsTabSpeciesData animal)
             ]
         ]
 
@@ -68,10 +77,16 @@ module DetailView =
     let viewAnimalDetails (animal: ZooAnimal) dispatch : IView =
         DockPanel.create [
             DockPanel.children [
-                Button.create [
-                    DockPanel.dock Dock.Top
-                    Button.content "Zurück"
-                    Button.onClick (fun _ -> dispatch ShowAnimalList)
+                StackPanel.create [
+                    StackPanel.dock Dock.Bottom
+                    StackPanel.orientation Orientation.Horizontal
+                    StackPanel.children [
+                        Button.create [
+                            Button.content "Zurück"
+                            Button.cursor (Cursor.Parse "wait")
+                            Button.onClick (fun _ -> dispatch ShowAnimalList)
+                        ]
+                    ]
                 ]
                 viewAnimalDetailsContent animal dispatch
             ]

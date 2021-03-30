@@ -1,6 +1,6 @@
 namespace PlanetZooApp
 
-module ViewHabitatRequirements =
+module ViewNaturalHabitat =
     open Avalonia.Controls
     open Avalonia.FuncUI.DSL
     open Avalonia.FuncUI.Types
@@ -8,7 +8,7 @@ module ViewHabitatRequirements =
     open PlanetZooApp.Types
     open PlanetZooApp.ViewHelpers
 
-    let viewAnimalDetailsContentHabitatRequirements (habitatRequirements: HabitatRequirements) : IView =
+    let viewAnimalDetailsTabNaturalHabitat (habitatRequirements: HabitatRequirements) : IView =
         StackPanel.create [
             StackPanel.orientation Orientation.Vertical
             StackPanel.children [
@@ -24,7 +24,7 @@ module ViewHabitatRequirements =
                     renderAnimalInfo "Land" (optionToString "m²" habitatRequirements.land_)
                     renderAnimalInfo "Water" (optionToString "m²" habitatRequirements.water)
                     renderAnimalInfo "Climbable" (optionToString "m²" habitatRequirements.climbable)
-                    renderAnimalInfo "Guest Enter" (optionToString "" habitatRequirements.guest_enter)
+
                     renderAnimalInfo "Fence" (fencetoString habitatRequirements.fence)
                 // TODO: ?!
                 // land_additional: int option
@@ -32,9 +32,6 @@ module ViewHabitatRequirements =
                 // climbable_additional: int option
 
                 renderAnimalInfo "Temperature" (rangeToString habitatRequirements.temperature.min habitatRequirements.temperature.max "°C")
-                renderAnimalInfo "Group Size" (groupSizeToString habitatRequirements.group_mixed)
-                renderAnimalInfo "Male bachelor group size" (groupBachelortoString habitatRequirements.group_male)
-                renderAnimalInfo "Female bachelor group size" (groupBachelortoString habitatRequirements.group_female)
             ]
         ]
         :> IView

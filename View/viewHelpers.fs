@@ -12,6 +12,12 @@ module ViewHelpers =
         | Some value -> $"{value}{unt}"
         | None -> ""
 
+    let boolOptionToString (op: bool option) =
+        match op with
+        | Some true -> "Yes"
+        | Some false -> "No"
+        | None -> ""
+
     let rangeToString (min: int) (max: int) (unity: string) = $"{min}{unity} - {max}{unity}"
 
     let groupSizeToString (group: GroupMixed option) =
