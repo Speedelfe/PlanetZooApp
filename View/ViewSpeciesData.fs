@@ -19,16 +19,10 @@ module ViewSpeciesData =
                 renderAnimalInfo "Group Size (without young) " (groupSizeToString animal.habitat_requirements.group_mixed)
                 renderAnimalInfo "Male bachelor group size (without young) " (groupBachelortoString animal.habitat_requirements.group_male)
                 renderAnimalInfo "Female bachelor group size (without young) " (groupBachelortoString animal.habitat_requirements.group_female)
-                //Dominanz
-                //Paarungsverhalten
-                //Beziehung zu Menschen
+                renderAnimalInfo "Dominance" animal.dominance
+                renderAnimalInfo "Mating system" animal.mating_system
+                renderAnimalInfo "Relationship with humans" (stringOptionToSTring animal.relationship_human)
                 renderAnimalInfo "Guest Enter" (boolOptionToString animal.habitat_requirements.guest_enter)
-
-
-
             ]
-
-
-
         ]
         :> IView

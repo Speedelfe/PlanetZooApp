@@ -12,6 +12,11 @@ module ViewHelpers =
         | Some value -> $"{value}{unt}"
         | None -> ""
 
+    let stringOptionToSTring (op: string option) =
+        match op with
+        | Some value -> $"{value}"
+        | None -> ""
+
     let boolOptionToString (op: bool option) =
         match op with
         | Some true -> "Yes"
@@ -42,10 +47,15 @@ module ViewHelpers =
             StackPanel.children [
                 TextBlock.create [
                     TextBlock.padding (5., 0.)
+                    TextBlock.fontSize 12.
+                    TextBlock.lineHeight 16.
                     TextBlock.text $"%s{label}:"
                 ]
                 TextBlock.create [
                     TextBlock.padding (5., 0.)
+                    TextBlock.fontSize 12.
+                    TextBlock.lineHeight 16.
+                    TextBlock.textWrapping Avalonia.Media.TextWrapping.Wrap
                     TextBlock.text (info)
                 ]
             ]
