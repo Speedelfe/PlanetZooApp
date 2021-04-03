@@ -34,6 +34,10 @@ module DetailView =
                     TextBlock.textWrapping Avalonia.Media.TextWrapping.Wrap
                     TextBlock.text animal.description
                 ]
+                TextBlock.create [
+                    TextBlock.margin 10.
+                    TextBlock.text (dlcToString animal.dlc)
+                ]
             ]
         ]
         :> IView

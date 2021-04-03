@@ -48,6 +48,11 @@ module ViewHelpers =
         | Some ({ climbproof = false } as value) -> $"Grade {value.grade}, >{value.height}m"
         | None -> ""
 
+    let dlcToString (dlc: Dlc option) =
+        match dlc with
+        | Some dlc -> $" DLC: {dlc}"
+        | None -> ""
+
     let continentToString (continent: Continent) =
         match continent with
         | NorthAmerica -> "North America"
