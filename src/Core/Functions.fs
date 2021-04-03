@@ -3,6 +3,7 @@ namespace PlanetZooApp
 open FSharp.Json
 open FsHttp.DslCE
 open System.IO
+open PlanetZooApp.ZooAnimal
 
 open Types
 
@@ -53,6 +54,7 @@ module Functions =
                 }
 
             HasToBeDownloaded job
+
 
     let filtercontinent (animalList: ZooAnimal List) (continentList: Continent List) : ZooAnimal List =
         let mutable resultList : ZooAnimal list = []

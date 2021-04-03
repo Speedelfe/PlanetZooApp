@@ -5,6 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="src/Core/Types.fs" />
+    <Compile Include="src/Core/ZooAnimal.fs"/>
     <Compile Include="src/Core/Functions.fs" />
     <Compile Include="src/View/ViewHelpers.fs" />
     <Compile Include="src/View/ViewNaturalHabitat.fs" />

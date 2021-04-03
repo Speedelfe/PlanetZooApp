@@ -11,6 +11,7 @@ open Avalonia.FuncUI.Components.Hosts
 
 open PlanetZooApp.Functions
 open PlanetZooApp.Types
+open PlanetZooApp.ZooAnimal
 
 type MainWindow() as this =
     inherit HostWindow()
@@ -32,7 +33,8 @@ type MainWindow() as this =
             loadFile ()
             |> List.fold
                 (fun map animalJson ->
-                    let animal = (ZooAnimal.createFromJson animalJson)
+                    let animal = (createZooAnimalFromJson animalJson)
+
                     Map.add (AnimalKey animalJson.key) animal map)
                 Map.empty
 
