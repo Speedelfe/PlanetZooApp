@@ -23,6 +23,13 @@ module Types =
         | Tropical
         | Tundra
 
+    type Dlc =
+        | Aquatic
+        | Arctic
+        | Australia
+        | [<JsonUnionCase(Case = "South America")>] SouthAmerica
+        | [<JsonUnionCase(Case = "Southeast Asia")>] SoutheastAsia
+
     type LifeExpectancy = { male: int; female: int }
 
     type Humidity = { min: int; max: int }
@@ -85,7 +92,9 @@ module Types =
         {
             name: string
             continent: Continent list
+            region: string list option
             biome: Biome list
+            dlc: Dlc option
             can_swim: bool
             status: string
             exhibit: bool
@@ -108,6 +117,8 @@ module Types =
                 name = json.name
                 continent = json.continent
                 biome = json.biome
+                region = None
+                dlc = None
                 can_swim = json.can_swim |> Option.defaultValue false
                 status = json.status
                 exhibit = json.exhibit
@@ -147,5 +158,6 @@ module Types =
         | AsyncError of exn
         | ShowAnimalList
         | FilterAnimalListByContinent of Continent List
+        | RemoveContinentFromFilterList of Continent
         | CLearFilterContinent
         | ShowFilterView

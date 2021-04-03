@@ -79,13 +79,28 @@ module MainView =
                 }
 
             state, Cmd.none
+        | RemoveContinentFromFilterList continent ->
+            let newContinentList : Continent List =
+                match state.continentListFilter with
+                | Some continentList -> (List.except [ continent ] continentList)
+                | None -> [] // Fall trifft nie zu deshalb egal
+
+            let state =
+                { state with
+                    continentListFilter =
+                        match newContinentList with
+                        | [] -> None
+                        | continentList -> Some continentList
+                }
+
+            state, Cmd.none
         | CLearFilterContinent ->
             let state =
                 { state with
                     continentListFilter = None
                 }
 
-            state, Cmd.none
+            state, Cmd.ofMsg ShowAnimalList
         | ShowFilterView ->
             let state = { state with viewMode = FilterView }
             state, Cmd.none
@@ -118,7 +133,7 @@ module MainView =
                             TextBox.text "Suche nach Name" //TODO: Funktion zum Suchen nach Animal Name
                         ]
                         Button.create [
-                            Button.content "Filter Europa" //TODO: Click Event -> Filter "Fenster" öffnen
+                            Button.content "Filter" //TODO: Click Event -> Filter "Fenster" öffnen
                             Button.onClick (fun _ -> dispatch ShowFilterView)
 
                         ]
