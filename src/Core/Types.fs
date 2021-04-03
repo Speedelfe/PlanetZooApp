@@ -93,6 +93,7 @@ module Types =
     type ZooAnimal =
         {
             name: string
+            nameGerman: string
             continent: Continent list
             region: Region list option
             biome: Biome list
