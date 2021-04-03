@@ -118,6 +118,11 @@ module MainView =
                     TextBlock.fontSize 20.0
                     TextBlock.text (animal.name)
                 ]
+                TextBlock.create [
+                    TextBlock.padding (0., 10.)
+                    TextBlock.fontSize 20.0
+                    TextBlock.text ($"({animal.nameGerman})")
+                ]
             ]
         ]
 
