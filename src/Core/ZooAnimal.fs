@@ -14,8 +14,49 @@ module ZooAnimal =
         match animal.name with
         | "Aardvark" ->
             { animal with
-                region = Some [ "Subsahara" ]
-                dlc = Some Dlc.Arctic
+                region = Some [ "Subsahara-Afrika" ]
+                dlc = None
+            }
+        | "African Buffalo" ->
+            { animal with
+                region = Some [ "Subsahara-Afrika" ]
+                dlc = None
+            }
+        | "African Elephant" ->
+            { animal with
+                region =
+                    Some [
+                        "Subsahara-Afrika: Kenia, Tansania, Botswana, Simbabw, Namibia, Angola"
+                    ]
+                dlc = None
+            }
+        | "African Wild Dog" ->
+            { animal with
+                region = Some [ "Subsahara-Afrika " ]
+                dlc = None
+            }
+        | "Aldabra Giant Tortoise" ->
+            { animal with
+                region = Some [ "Sechellen" ]
+                dlc = None
+            }
+        | "Amazonian Giant Centipede" ->
+            { animal with
+                region =
+                    Some [
+                        "Überall in Südamerika und der Karibik"
+                    ]
+                dlc = None
+            }
+        | "American Bison" ->
+            { animal with
+                region = Some [ "Kanada, USA" ]
+                dlc = None
+            }
+        | "Arctic Wolf" ->
+            { animal with
+                region = Some [ "Kanada, Grönland" ]
+                dlc = Some Arctic
             }
         | _ -> animal
 
