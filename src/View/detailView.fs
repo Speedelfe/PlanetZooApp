@@ -48,7 +48,7 @@ module DetailView =
             TabItem.create [
                 TabItem.padding 5.0
                 TabItem.header "Natural habitat"
-                TabItem.content (viewAnimalDetailsTabNaturalHabitat animal.habitat_requirements)
+                TabItem.content (viewAnimalDetailsTabNaturalHabitat animal)
             ]
             TabItem.create [
                 TabItem.padding 5.0

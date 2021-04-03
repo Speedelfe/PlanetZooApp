@@ -23,6 +23,8 @@ module Types =
         | Tropical
         | Tundra
 
+    type Region = string
+
     type Dlc =
         | Aquatic
         | Arctic
@@ -92,7 +94,7 @@ module Types =
         {
             name: string
             continent: Continent list
-            region: string list option
+            region: Region list option
             biome: Biome list
             dlc: Dlc option
             can_swim: bool
@@ -112,6 +114,15 @@ module Types =
         }
 
     module ZooAnimal =
+        let nacharbeiten (animal: ZooAnimal) =
+            match animal.name with
+            | "Aardvark" ->
+                { animal with
+                    region = Some [ "Subsahara" ]
+                    dlc = Some Dlc.Arctic
+                }
+            | _ -> animal
+
         let createFromJson (json: ZooAnimalJson) =
             {
                 name = json.name
@@ -134,6 +145,7 @@ module Types =
                 image_path = None
                 slug = json.slug
             }
+            |> nacharbeiten
 
     //type ZooAnimal = NormalAnimal of NormalAnimal
     (*| VAnimal of VAnimal*)

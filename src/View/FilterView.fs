@@ -59,7 +59,7 @@ module FilterView =
                         renderToggleFilterButton Asia continentList dispatch
                         renderToggleFilterButton CentralAmerica continentList dispatch
                         renderToggleFilterButton Europe continentList dispatch
-                        renderToggleFilterButton SouthAmerica continentList dispatch
+                        renderToggleFilterButton Continent.SouthAmerica continentList dispatch
                         renderToggleFilterButton NorthAmerica continentList dispatch
                         renderToggleFilterButton Oceania continentList dispatch
                     ]

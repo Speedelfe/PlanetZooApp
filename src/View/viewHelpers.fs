@@ -41,6 +41,29 @@ module ViewHelpers =
         | Some ({ climbproof = false } as value) -> $"Grade {value.grade}, >{value.height}m"
         | None -> ""
 
+    let fencetoString2 (fence: Fence option) =
+        fence
+        |> function
+        | Some ({ climbproof = true } as value) -> $"Grade {value.grade}, >{value.height}m, Climb Proof"
+        | Some ({ climbproof = false } as value) -> $"Grade {value.grade}, >{value.height}m"
+        | None -> ""
+
+    let continentToString (continent: Continent) =
+        match continent with
+        | NorthAmerica -> "North America"
+        | Continent.SouthAmerica -> "South America"
+        | CentralAmerica -> "Central America"
+        | continent -> string continent
+
+    let listToString elToString (someList: 'a List) =
+        someList
+        |> List.map elToString
+        |> String.concat ", "
+
+    let continentListToString = listToString continentToString
+    let biomeListToString = listToString string<Biome>
+    let regionListToString = listToString string<Region>
+
     let renderAnimalInfo label info =
         StackPanel.create [
             StackPanel.orientation Orientation.Horizontal
