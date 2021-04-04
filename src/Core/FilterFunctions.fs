@@ -20,6 +20,18 @@ module FilterFunctions =
 
         List.rev resultList
 
+    let filterDLC (animalList: ZooAnimal list) (dlcList: Dlc list) : ZooAnimal List =
+        let mutable resultList : ZooAnimal list = []
+
+        for animal in animalList do
+            match animal.dlc with
+            | None -> ()
+            | Some dlc ->
+                for wantedDLC in dlcList do
+                    if dlc = wantedDLC then
+                        resultList <- animal :: resultList
+
+        List.rev resultList
 (*let doIWantThisAnimal (animal: ZooAnimal) =
                 List.exists (fun continent -> List.contains continent continentList) animal.continent
 

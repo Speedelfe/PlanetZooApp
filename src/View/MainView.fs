@@ -21,6 +21,7 @@ module MainView =
             {
                 animalMap = Map.empty
                 continentListFilter = None
+                dlcListFilter = None
                 viewMode = ListView
             }
 
@@ -101,13 +102,16 @@ module MainView =
                 }
 
             state, Cmd.none
-        | CLearFilterContinent ->
+        | ClearFilterContinent ->
             let state =
                 { state with
                     continentListFilter = None
                 }
 
             state, Cmd.ofMsg ShowAnimalList
+        | FilterAnimalListByDLC dlcList -> // TODO: ausprogrammieren
+            state, Cmd.none
+        | RemoveDlcFromFilterList dlc -> state, Cmd.none
         | ShowFilterView ->
             let state = { state with viewMode = FilterView }
             state, Cmd.none

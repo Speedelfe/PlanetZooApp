@@ -79,20 +79,3 @@ module Functions =
                 }
 
             HasToBeDownloaded job
-
-
-    let filtercontinent (animalList: ZooAnimal List) (continentList: Continent List) : ZooAnimal List =
-        let mutable resultList : ZooAnimal list = []
-
-        for animal in animalList do
-            for continent in animal.continent do
-                for wantedContinent in continentList do
-                    if continent = wantedContinent then
-                        resultList <- animal :: resultList
-
-        List.rev resultList
-
-(*let doIWantThisAnimal (animal: ZooAnimal) =
-            List.exists (fun continent -> List.contains continent continentList) animal.continent
-
-        List.filter doIWantThisAnimal animalList*)

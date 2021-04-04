@@ -13,7 +13,7 @@ module FilterView =
     open Avalonia.FuncUI.Components
     open Elmish
 
-    let renderToggleFilterButton (continent: Continent) (continentList: Continent List) dispatch : IView =
+    let renderToggleFilterButtonContinent (continent: Continent) (continentList: Continent List) dispatch : IView =
         let continentInState = (List.contains continent continentList)
 
         ToggleButton.create [
@@ -37,6 +37,17 @@ module FilterView =
         ]
         :> IView
 
+    let renderToggleFilterButtonDLC (dlc: Dlc) (dlcList: Dlc List) dispatch : IView =
+        let dlcInState = (List.contains dlc dlcList)
+
+        ToggleButton.create [
+            ToggleButton.isChecked dlcInState
+            ToggleButton.content dlc
+            ToggleButton.margin 10.
+            ToggleButton.padding (40., 14.)
+        ]
+        :> IView
+
     let viewContinentsFilterOptions (state: State) dispatch : IView =
         let continentList : Continent List =
             match state.continentListFilter with
@@ -55,18 +66,50 @@ module FilterView =
                     WrapPanel.dock Dock.Top
                     WrapPanel.margin (20., 10.)
                     WrapPanel.children [
-                        renderToggleFilterButton Africa continentList dispatch
-                        renderToggleFilterButton Asia continentList dispatch
-                        renderToggleFilterButton CentralAmerica continentList dispatch
-                        renderToggleFilterButton Europe continentList dispatch
-                        renderToggleFilterButton Continent.SouthAmerica continentList dispatch
-                        renderToggleFilterButton NorthAmerica continentList dispatch
-                        renderToggleFilterButton Oceania continentList dispatch
+                        renderToggleFilterButtonContinent Africa continentList dispatch
+                        renderToggleFilterButtonContinent Asia continentList dispatch
+                        renderToggleFilterButtonContinent CentralAmerica continentList dispatch
+                        renderToggleFilterButtonContinent Europe continentList dispatch
+                        renderToggleFilterButtonContinent Continent.SouthAmerica continentList dispatch
+                        renderToggleFilterButtonContinent NorthAmerica continentList dispatch
+                        renderToggleFilterButtonContinent Oceania continentList dispatch
                     ]
                 ]
             ]
         ]
         :> IView
+
+    let viewDLCFilterOption (state: State) dispatch : IView =
+        let dlcList : Dlc List =
+            match state.dlcListFilter with
+            | Some dlcList -> dlcList
+            | None -> []
+
+        DockPanel.create [
+            DockPanel.dock Dock.Top
+            DockPanel.children [
+                TextBlock.create [
+                    TextBlock.dock Dock.Top
+                    TextBlock.fontSize 20.
+                    TextBlock.text "DLCs"
+                ]
+                WrapPanel.create [
+                    WrapPanel.dock Dock.Top
+                    WrapPanel.margin (20., 10.)
+                    WrapPanel.children [
+                        renderToggleFilterButtonDLC Arctic dlcList dispatch
+                        renderToggleFilterButtonDLC Aquatic dlcList dispatch
+                        renderToggleFilterButtonDLC Australia dlcList dispatch
+                        renderToggleFilterButtonDLC Arctic dlcList dispatch
+                        renderToggleFilterButtonDLC Deluxe dlcList dispatch
+                        renderToggleFilterButtonDLC SouthAmerica dlcList dispatch
+                        renderToggleFilterButtonDLC SoutheastAsia dlcList dispatch
+                    ]
+                ]
+            ]
+        ]
+        :> IView
+
 
     let viewFilterView (state: State) dispatch : IView =
         DockPanel.create [
@@ -85,13 +128,15 @@ module FilterView =
                                 (fun _ ->
                                     match state.continentListFilter with
                                     | Some _ -> dispatch ShowAnimalList
-                                    | None -> CLearFilterContinent |> dispatch),
+                                    | None -> ClearFilterContinent |> dispatch),
                                 OnChangeOf state.continentListFilter
                             )
                         ]
                     ]
                 ]
+
                 viewContinentsFilterOptions state dispatch
+                viewDLCFilterOption state dispatch
                 StackPanel.create []
             ]
         ]

@@ -127,6 +127,7 @@ module Types =
         {
             animalMap: Map<AnimalKey, ZooAnimal>
             continentListFilter: Continent List option
+            dlcListFilter: Dlc List Option
             viewMode: ViewMode
         }
 
@@ -140,5 +141,7 @@ module Types =
         | ShowAnimalList
         | FilterAnimalListByContinent of Continent List
         | RemoveContinentFromFilterList of Continent
-        | CLearFilterContinent
+        | ClearFilterContinent
+        | FilterAnimalListByDLC of Dlc List
+        | RemoveDlcFromFilterList of Dlc
         | ShowFilterView
