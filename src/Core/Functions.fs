@@ -3,12 +3,22 @@ namespace PlanetZooApp
 open FSharp.Json
 open FsHttp.DslCE
 open System.IO
+open System.Net
 open PlanetZooApp.ZooAnimal
 
 open Types
 
 module Functions =
-    let animalDataPath = "./mixed-data.json"
+    let dataUrl =
+        "https://raw.githubusercontent.com/olmobuining/zoopedia-data/master/mixed-data.json"
+
+    let animalDataPath = "./animal-data.json"
+
+    let downloadFile () =
+        let wc = new WebClient()
+
+        wc.DownloadFileTaskAsync(dataUrl, animalDataPath)
+        |> Async.AwaitTask
 
     let loadFile () =
         match File.Exists animalDataPath with
@@ -16,6 +26,21 @@ module Functions =
         | true ->
             File.ReadAllText animalDataPath
             |> Json.deserialize<ZooAnimalJson list>
+
+    let loadAnimalData () =
+        async {
+            if not (File.Exists animalDataPath) then
+                do! downloadFile ()
+
+            return
+                loadFile ()
+                |> List.fold
+                    (fun map animalJson ->
+                        let animal = (createZooAnimalFromJson animalJson)
+
+                        Map.add (AnimalKey animalJson.key) animal map)
+                    Map.empty
+        }
 
     type ImageDownloadResult =
         | AlreadyDownloaded of string

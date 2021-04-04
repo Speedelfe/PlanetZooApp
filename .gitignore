@@ -6,6 +6,7 @@
 # Eigene File Einstellungen
 *.JPG
 *.PNG
+animal-data.json
 
 # User-specific files
 *.rsuser

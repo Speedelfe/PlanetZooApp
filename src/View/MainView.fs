@@ -15,18 +15,24 @@ module MainView =
     open Elmish
 
 
-    let init animalMap =
+    let init () =
         let state =
             {
-                animalMap = animalMap
+                animalMap = Map.empty
                 continentListFilter = None
                 viewMode = ListView
             }
 
-        state, (Cmd.ofMsg LookForImageJob)
+        (*loadFile ()*)
+
+        state, (Cmd.OfAsync.either loadAnimalData () SaveAnimalData AsyncError)
 
     let update (msg: Msg) (state: State) =
         match msg with
+        | SaveAnimalData map ->
+            let state = { state with animalMap = map }
+
+            state, Cmd.ofMsg LookForImageJob
         | ChooseAnimal animal ->
             let state =
                 { state with

@@ -29,16 +29,7 @@ type MainWindow() as this =
         |> ignore
 #endif
 
-        let animalMap =
-            loadFile ()
-            |> List.fold
-                (fun map animalJson ->
-                    let animal = (createZooAnimalFromJson animalJson)
-
-                    Map.add (AnimalKey animalJson.key) animal map)
-                Map.empty
-
-        Program.mkProgram (fun () -> MainView.init animalMap) MainView.update MainView.view
+        Program.mkProgram MainView.init MainView.update MainView.view
         |> Program.withHost this
 #if DEBUG
         |> Program.withTrace (fun msg _ -> printfn $"Got Message: {msg}")

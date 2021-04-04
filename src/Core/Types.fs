@@ -131,6 +131,7 @@ module Types =
         }
 
     type Msg =
+        | SaveAnimalData of Map<AnimalKey, ZooAnimal>
         | ChooseAnimal of ZooAnimal
         | LookForImageJob
         | DownloadImage of (AnimalKey * string)
