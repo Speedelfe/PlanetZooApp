@@ -541,7 +541,7 @@ module ZooAnimal =
                 nameGerman = "Mexikanische Rotknie-Vogelspinne"
             }
         // N
-        | "Nil Monitor" ->
+        | "Nile Monitor" ->
             { animal with
                 region = Some [ "Subsahara-Afrika" ]
                 dlc = None
@@ -769,7 +769,7 @@ module ZooAnimal =
                 dlc = None
                 nameGerman = "Westlicher Simpanse"
             }
-        | "Western Diamandback Rattlesnake" ->
+        | "Western Diamondback Rattlesnake" ->
             { animal with
                 region = Some [ "USA, Mexiko" ]
                 dlc = None
@@ -785,7 +785,7 @@ module ZooAnimal =
                 nameGerman = "Westlicher Flachlandgorilla"
             }
         // Y
-        | "Yallow Anaconda" ->
+        | "Yellow Anaconda" ->
             { animal with
                 region =
                     Some [
