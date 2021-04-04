@@ -72,7 +72,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Mongolei, China, Himalaya und Sibirien"
+                        "Mongolei, China, Himalaya, Sibirien"
                     ]
                 dlc = None
                 nameGerman = "Trampeltier"
@@ -154,6 +154,79 @@ module ZooAnimal =
                 region = Some [ "Brasilien" ]
                 dlc = None
                 nameGerman = "Brasilianische Riesenvogelspinne"
+            }
+        // C
+        | "Cheetah" ->
+            { animal with
+                region =
+                    Some [
+                        "Niger, Sudan, Äthiopien, Kenia, Tansania, Namibia, Botswana"
+                    ]
+                dlc = None
+                nameGerman = "Gepard"
+            }
+        | "Chinese Pangolin" ->
+            { animal with
+                region =
+                    Some [
+                        "Indien, Nepal, Bhutan, Bangladesch, Myanmar, Süden von China, Hainan, Taiwan"
+                    ]
+                dlc = None
+                nameGerman = "Chinesisches Schuppentier"
+            }
+        | "Clouded Leopard" -> // TODO: muss noch komplett gesetzt werden
+            { animal with
+                region =
+                    Some [
+                        "Malaysia, Thailand, Kambodscha, Vietnam, Laos, Myanmar, China, Nepal, Bhutan, Bangladesch, Indien"
+                    ]
+                dlc = Some SoutheastAsia
+                nameGerman = "Nebelparder"
+            }
+        | "Colombian White-Faced Capuchin Monkey" ->
+            { animal with
+                region = Some [ "Panama, Kolumbien, Ecuador" ]
+                dlc = Some Dlc.SouthAmerica
+                nameGerman = "Weißschulter-Kapuzineraffe"
+            }
+        | "Common Death Adder" ->
+            { animal with
+                region = Some [ "Australien" ]
+                dlc = None
+                nameGerman = "Todesotter"
+            }
+        | "Common Ostrich" ->
+            { animal with
+                region =
+                    Some [
+                        "Ganz Afrika, mit Ausnahme der Wüsten und Regenwälder"
+                    ]
+                dlc = None
+                nameGerman = "Afrikanischer Strauß"
+            }
+        | "Common Warthog" ->
+            { animal with
+                region = Some [ "Subsahara-Afrika" ]
+                dlc = None
+                nameGerman = "Warzenschwein"
+            }
+        | "Crey Seal" ->
+            { animal with
+                region =
+                    Some [
+                        "Großbritanien, Irland, Island, Norwegen, Dändemark, Frankreich, Niederlande, Berlgien, Deutschland, Schweden, Finnland, Estland, Lettland, Litauen, Polen, Russland, Kanada, USA"
+                    ]
+                dlc = Some Aquatic
+                nameGerman = "Kegelrobbe"
+            }
+        | "Cuvier's Dwarf Caiman" ->
+            { animal with
+                region =
+                    Some [
+                        "Bolivien, Brasilien, Ecuador, Französisch-Guyana, Guyana, Kolumbien, Paraguay, Peru, Suriname, Venezuela"
+                    ]
+                dlc = Some Aquatic
+                nameGerman = "Brauen-Glattstirnkaiman"
             }
         | _ -> animal
 
