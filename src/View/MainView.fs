@@ -102,16 +102,28 @@ module MainView =
                 }
 
             state, Cmd.none
-        | ClearFilterContinent ->
+        | FilterAnimalListByDLC dlcList ->
             let state =
                 { state with
-                    continentListFilter = None
+                    dlcListFilter = Some dlcList
                 }
 
-            state, Cmd.ofMsg ShowAnimalList
-        | FilterAnimalListByDLC dlcList -> // TODO: ausprogrammieren
             state, Cmd.none
-        | RemoveDlcFromFilterList dlc -> state, Cmd.none
+        | RemoveDlcFromFilterList dlc ->
+            let newDlcList : Dlc List =
+                match state.dlcListFilter with
+                | Some dlcList -> (List.except [ dlc ] dlcList)
+                | None -> []
+
+            let state =
+                { state with
+                    dlcListFilter =
+                        match newDlcList with
+                        | [] -> None
+                        | dlcList -> Some dlcList
+                }
+
+            state, Cmd.none
         | ShowFilterView ->
             let state = { state with viewMode = FilterView }
             state, Cmd.none
@@ -151,19 +163,24 @@ module MainView =
                         Button.create [
                             Button.content "Filter" //TODO: Click Event -> Filter "Fenster" öffnen
                             Button.onClick (fun _ -> dispatch ShowFilterView)
-
                         ]
-
                     ]
-
                 ]
-                let fullanimalList =
-                    state.animalMap |> Map.toList |> List.map snd
 
                 let animalList =
-                    match state.continentListFilter with
-                    | None -> fullanimalList
-                    | Some continentListFilter -> filtercontinent fullanimalList continentListFilter
+                    state.animalMap
+                    |> Map.toList
+                    |> List.map snd
+                    // Kontinentfilter
+                    |> (fun animalList ->
+                        match state.continentListFilter with
+                        | None -> animalList
+                        | Some continentListFilter -> filtercontinent animalList continentListFilter)
+                    // DLCfilter
+                    |> (fun animalList ->
+                        match state.dlcListFilter with
+                        | None -> animalList
+                        | Some dlcListFilter -> filterDLC animalList dlcListFilter)
 
                 ListBox.create [
                     ListBox.dataItems animalList

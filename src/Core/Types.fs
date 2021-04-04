@@ -141,7 +141,6 @@ module Types =
         | ShowAnimalList
         | FilterAnimalListByContinent of Continent List
         | RemoveContinentFromFilterList of Continent
-        | ClearFilterContinent
         | FilterAnimalListByDLC of Dlc List
         | RemoveDlcFromFilterList of Dlc
         | ShowFilterView

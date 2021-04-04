@@ -42,6 +42,16 @@ module FilterView =
 
         ToggleButton.create [
             ToggleButton.isChecked dlcInState
+            ToggleButton.onClick (
+                (fun _ ->
+                    match dlcInState with
+                    | false ->
+                        (dlc :: dlcList)
+                        |> FilterAnimalListByDLC
+                        |> dispatch
+                    | true -> dlc |> RemoveDlcFromFilterList |> dispatch),
+                OnChangeOf(dlcInState, dlcList)
+            )
             ToggleButton.content dlc
             ToggleButton.margin 10.
             ToggleButton.padding (40., 14.)
@@ -100,7 +110,6 @@ module FilterView =
                         renderToggleFilterButtonDLC Arctic dlcList dispatch
                         renderToggleFilterButtonDLC Aquatic dlcList dispatch
                         renderToggleFilterButtonDLC Australia dlcList dispatch
-                        renderToggleFilterButtonDLC Arctic dlcList dispatch
                         renderToggleFilterButtonDLC Deluxe dlcList dispatch
                         renderToggleFilterButtonDLC SouthAmerica dlcList dispatch
                         renderToggleFilterButtonDLC SoutheastAsia dlcList dispatch
@@ -125,11 +134,12 @@ module FilterView =
                         Button.create [
                             Button.content "Filter anwenden"
                             Button.onClick (
-                                (fun _ ->
-                                    match state.continentListFilter with
-                                    | Some _ -> dispatch ShowAnimalList
-                                    | None -> ClearFilterContinent |> dispatch),
-                                OnChangeOf state.continentListFilter
+                                (fun _ -> ShowAnimalList |> dispatch)
+                            // (fun _ ->
+                            //     match state.continentListFilter with
+                            //    | Some _ -> dispatch ShowAnimalList
+                            //    | None -> ClearFilterContinent |> dispatch),
+                            //OnChangeOf state.continentListFilter
                             )
                         ]
                     ]
