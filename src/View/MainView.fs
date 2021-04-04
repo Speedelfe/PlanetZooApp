@@ -11,6 +11,7 @@ module MainView =
     open PlanetZooApp.ViewHelpers
     open PlanetZooApp.DetailView
     open PlanetZooApp.FilterView
+    open PlanetZooApp.FilterFunctions
     open Avalonia.FuncUI.Components
     open Elmish
 

@@ -7,13 +7,14 @@
     <Compile Include="src/Core/Types.fs" />
     <Compile Include="src/Core/ZooAnimal.fs"/>
     <Compile Include="src/Core/Functions.fs" />
+    <Compile Include="src/Core/FilterFunctions.fs"/>
     <Compile Include="src/View/ViewHelpers.fs" />
     <Compile Include="src/View/ViewNaturalHabitat.fs" />
     <Compile Include="src/View/ViewSpeciesData.fs" />
     <Compile Include="src/View/DetailView.fs" />
     <Compile Include="src/View/FilterView.fs" />
     <Compile Include="src/View/MainView.fs" />
-    <Compile Include="src/Core/Program.fs" />
+    <Compile Include="src/Program.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia.Desktop" Version="0.10.0" />
