@@ -32,7 +32,8 @@ type MainWindow() as this =
         Program.mkProgram MainView.init MainView.update MainView.view
         |> Program.withHost this
 #if DEBUG
-        |> Program.withTrace (fun msg _ -> printfn $"Got Message: {msg}")
+        |> Program.withTrace (fun msg model -> printfn $"Got Message: {msg} Input: {model.continentListFilter}")
+
 #endif
         |> Program.run
 
