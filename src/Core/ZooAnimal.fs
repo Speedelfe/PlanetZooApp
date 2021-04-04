@@ -490,7 +490,7 @@ module ZooAnimal =
                     Some [
                         "Kleine Sudaninsel (Komodo, Rinca, Flores, Gili, Motang)"
                     ]
-                dlc = Some Delux
+                dlc = Some Deluxe
                 nameGerman = "Komodowaran"
             }
         // L
@@ -609,14 +609,190 @@ module ZooAnimal =
                     Some [
                         "Sierra Leona, Liberia, Guinea, Elfenbeinküste"
                     ]
-                dlc = Some Delux
+                dlc = Some Deluxe
                 nameGerman = "Zwergflusspferd"
             }
-        | "" ->
+        // R
+        | "Red Kangaroo" ->
             { animal with
-                region = Some [ "" ]
+                region = Some [ "Australien" ]
+                dlc = Some Australia
+                nameGerman = "Rotes Riesenkänguru"
+            }
+        | "Red Panda" ->
+            { animal with
+                region = Some [ "Ost-Himalaya, Südwestchina" ]
                 dlc = None
-                nameGerman = ""
+                nameGerman = "Kleiner Panda"
+            }
+        | "Red Ruffed Lemur" ->
+            { animal with
+                region = Some [ "Madagaskar" ]
+                dlc = None
+                nameGerman = "Roter Vari"
+            }
+        | "Red-Eyed Tree Frog" ->
+            { animal with
+                region =
+                    Some [
+                        "Mexiko, Guatemala, Honduras, Nicaragua, Costa Rica, Panama, Kolumbien"
+                    ]
+                dlc = Some SouthAmerica
+                nameGerman = "Rotaugenlaubfrosch"
+            }
+        | "Reindeer" ->
+            { animal with
+                region =
+                    Some [
+                        "Russland (Sibirien), Kanada, USA (Alsaka), Norwegen, Dänemark, Finnland, Grönland"
+                    ]
+                dlc = Some Arctic
+                nameGerman = "Rentier"
+            }
+        | "Reticulated Giraffe" ->
+            { animal with
+                region = Some [ "Somalia, Äthiopien, Kenia" ]
+                dlc = None
+                nameGerman = "Netzgiraffe"
+            }
+        | "Ring Tailed Lemur" ->
+            { animal with
+                region = Some [ "Madagaskar" ]
+                dlc = None
+                nameGerman = "Katta"
+            }
+        // S
+        | "Sable Antelope" ->
+            { animal with
+                region =
+                    Some [
+                        "Mosambik, Simbabwe, Königreich Eswatini, Lesotho, Malawi, Südafrika, Botswana"
+                    ]
+                dlc = None
+                nameGerman = "Rappenantilope"
+            }
+        | "Saltwater Crocodile" ->
+            { animal with
+                region =
+                    Some [
+                        "Südostasien, Ostindien, Norden von Australien"
+                    ]
+                dlc = None
+                nameGerman = "Leistenkrokodil"
+            }
+        | "Siberian Tiger" ->
+            { animal with
+                region =
+                    Some [
+                        "Osten von China, Osten von Russland, Nordkorea, Mongolei"
+                    ]
+                dlc = None
+                nameGerman = "Siribrischer Tiger"
+            }
+        | "Snow Leopard" ->
+            { animal with
+                region =
+                    Some [
+                        "China, Sudsibirien, Himalaya, Mongolei"
+                    ]
+                dlc = None
+                nameGerman = "Schneeleopard"
+            }
+        | "Southern Cassowary" ->
+            { animal with
+                region =
+                    Some [
+                        "Australien, Papua-Neuguinea, Indonesien"
+                    ]
+                dlc = Some Australia
+                nameGerman = "Helmkasuar"
+            }
+        | "Spotted Hyena" ->
+            { animal with
+                region = Some [ "Subsahara-Afrika" ]
+                dlc = None
+                nameGerman = "Tüpfelhyäne"
+            }
+        | "Springbok" ->
+            { animal with
+                region = Some [ "Namibia, Botswana, Südafrika" ]
+                dlc = None
+                nameGerman = "Springbock"
+            }
+        | "Sun Bear" -> // TODO: muss noch komplett gesetzt werden
+            { animal with
+                region =
+                    Some [
+                        "Malaysia, Indonesien, Brunei, Thailand, Kambodscha, Vietnam, Myanmar, Laos, Bangladesch, Indien"
+                    ]
+                dlc = Some SoutheastAsia
+                nameGerman = "Sonnenbär"
+            }
+        // T
+        | "Thomson's Gazelle" ->
+            { animal with
+                region = Some [ "Tansania, Kenia" ]
+                dlc = Some Deluxe
+                nameGerman = "Thomson-Gazelle"
+            }
+        | "Timber Wolf" ->
+            { animal with
+                region =
+                    Some [
+                        "Großteil der nördlichen Hemisphäre"
+                    ]
+                dlc = None
+                nameGerman = "Timberwolf"
+            }
+        | "Titan Beetle" ->
+            { animal with
+                region =
+                    Some [
+                        "Venezuela, Kolumbien, Ecuador, Peru, Guyanas, Brasilien"
+                    ]
+                dlc = None
+                nameGerman = "Riesenbockkäfer"
+            }
+        // W
+        | "West African Lion" ->
+            { animal with
+                region = Some [ "Senegal, Mali, Niger" ]
+                dlc = None
+                nameGerman = "Westafrikanischer Löwe"
+            }
+        | "Western Chimpanzee" ->
+            { animal with
+                region =
+                    Some [
+                        "Guinea, Senegal, Liberia, Sierra Leona, Elfenbeinküste"
+                    ]
+                dlc = None
+                nameGerman = "Westlicher Simpanse"
+            }
+        | "Western Diamandback Rattlesnake" ->
+            { animal with
+                region = Some [ "USA, Mexiko" ]
+                dlc = None
+                nameGerman = "Texas-Klapperschlange"
+            }
+        | "Western Lowland Gorilla" ->
+            { animal with
+                region =
+                    Some [
+                        "Angola, Kamerun, Zentralafrikanische Republik, Äquatorialguinea, Gabun, Demokratische Republik Kongo"
+                    ]
+                dlc = None
+                nameGerman = "Westlicher Flachlandgorilla"
+            }
+        // Y
+        | "Yallow Anaconda" ->
+            { animal with
+                region =
+                    Some [
+                        "Paraguay, Bolivien, Argentinien, Brasilien"
+                    ]
+                dlc = None
+                nameGerman = "Gelbe Anakonda"
             }
 
         | _ -> animal

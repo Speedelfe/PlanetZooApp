@@ -30,7 +30,7 @@ module Types =
         | Aquatic
         | Arctic
         | Australia
-        | Delux
+        | Deluxe
         | [<JsonUnionCase(Case = "South America")>] SouthAmerica
         | [<JsonUnionCase(Case = "Southeast Asia")>] SoutheastAsia
 
