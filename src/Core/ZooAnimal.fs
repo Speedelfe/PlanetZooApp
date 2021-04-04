@@ -228,6 +228,53 @@ module ZooAnimal =
                 dlc = Some Aquatic
                 nameGerman = "Brauen-Glattstirnkaiman"
             }
+        // D
+        | "Dall Sheep" ->
+            { animal with
+                region = Some [ "Usa (Alaska), Kanada" ]
+                dlc = Some Arctic
+                nameGerman = "Dall-Schaf"
+            }
+        | "Dhole" -> //TODO: muss komplett gesetzt werden
+            { animal with
+                region =
+                    Some [
+                        "China, Indien, Malaysia, Thailand, Mongolai, Russland,Vietnam, Kambodscha, Laos, Myanmar, Bangladesch, Bhutan, Nepal"
+                    ]
+                dlc = Some SoutheastAsia
+                nameGerman = "Rothund"
+            }
+        | "Diamondback Terrapin" -> //TODO: muss komplett gesetzt werden
+            { animal with
+                region = Some [ "Osten der USA" ]
+                dlc = Some Aquatic
+                nameGerman = "Diamantschildkröte"
+            }
+        | "Dingo" ->
+            { animal with
+                region = Some [ "Australien" ]
+                dlc = Some Australia
+                nameGerman = "Dingo"
+            }
+        // E
+        | "Eastern Blue Tongued Lizard" ->
+            { animal with
+                region = Some [ "Australien" ]
+                dlc = Some Australia
+                nameGerman = "Blauzungenskink"
+            }
+        | "Eastern Brown Snake" ->
+            { animal with
+                region = Some [ "Australien, Neuguinea" ]
+                dlc = None
+                nameGerman = "Östliche Braunschlange"
+            }
+        | "Formosan Black Bear" ->
+            { animal with
+                region = Some [ "Taiwan" ]
+                dlc = None
+                nameGerman = "Taiwanischer Schwarzbär"
+            }
         | _ -> animal
 
     let createZooAnimalFromJson (json: ZooAnimalJson) =
