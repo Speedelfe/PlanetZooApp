@@ -275,6 +275,168 @@ module ZooAnimal =
                 dlc = None
                 nameGerman = "Taiwanischer Schwarzbär"
             }
+        // G
+        | "Galapagos Giant Tortoise" ->
+            { animal with
+                region = Some [ "Galapagos-Inseln" ]
+                dlc = None
+                nameGerman = "Galapagos-Riesenschildkröte"
+            }
+        | "Gemsbok" ->
+            { animal with
+                region = Some [ "Namibia, Botswana, Südafrika" ]
+                dlc = None
+                nameGerman = "Spießbock"
+            }
+        | "Gharial" ->
+            { animal with
+                region = Some [ "Bangladesch, Nepal, Indien" ]
+                dlc = None
+                nameGerman = "Gangesgavial"
+            }
+        | "Giant Anteater" ->
+            { animal with
+                region =
+                    Some [
+                        "Honduras, Nicaragua, Costa Rica, Panama, Kolumbien, Venezuela, Ecuador, Guyana, Suriname, Französisch-Guyana, Brasilien, Argentinien, Peru, Bolivien, Paraguay"
+                    ]
+                dlc = Some SouthAmerica
+                nameGerman = "Großer Ameisenbär"
+            }
+        | "Giant Burrowing Cockroach" ->
+            { animal with
+                region = Some [ "Australien" ]
+                dlc = None
+                nameGerman = "Australische Großschabe"
+            }
+        | "Giant Desert Hairy Scorpion" ->
+            { animal with
+                region = Some [ "Süden der USA, Mexiko" ]
+                dlc = None
+                nameGerman = "Haariger Wüstenskorpion"
+            }
+        | "Giant Forest Scorpion" ->
+            { animal with
+                region = Some [ "Sri Lanka, Indien" ]
+                dlc = None
+                nameGerman = "Indischer Riesenskorpion"
+            }
+        | "Giant Leaf Insect" -> // TODO: muss komplett gesetzt werden
+            { animal with
+                region = Some [ "Westmalaysia" ]
+                dlc = Some SoutheastAsia
+                nameGerman = "Großes Wandelndes Blatt"
+            }
+        | "Giant Otter" -> // TODO: muss komplett gesetzt werden
+            { animal with
+                region =
+                    Some [
+                        "Bolivien, Brasilien, Ecuador, Französisch-Guyana, Guyana, Kolumbien, Paraguay, Peru, Suriname, Venezuela"
+                    ]
+                dlc = Some Aquatic
+                nameGerman = "Riesenotter"
+            }
+        | "Giant Panda" ->
+            { animal with
+                region = Some [ "Zentralchina" ]
+                dlc = None
+                nameGerman = "Großer Panda"
+            }
+        | "Giant Tiger Land Snail" ->
+            { animal with
+                region =
+                    Some [
+                        "Sierra Leona, Liberia, Elfenbeinküste, Togo, Benin, Ghana, Nigeria"
+                    ]
+                dlc = None
+                nameGerman = "Echte Achatschnecke"
+            }
+        | "Gila Monster" ->
+            { animal with
+                region = Some [ "Süden der USA, Norden Mexikos" ]
+                dlc = None
+                nameGerman = "Gila-Krustenechse"
+            }
+        | "Golden Poison Frog" ->
+            { animal with
+                region = Some [ "Kolumbien" ]
+                dlc = None
+                nameGerman = "Schrecklicher Pfeilgiftfrosch"
+            }
+        | "Goliath Beetle" ->
+            { animal with
+                region =
+                    Some [
+                        "Kamerun, Zentralafrikanische Republik, Demokratische Republik Kongo, Gabun,  Kenia, Nigeria, Tansania, Uganda"
+                    ]
+                dlc = None
+                nameGerman = "Goliathkäfer"
+            }
+        | "Goliath Birdeater" ->
+            { animal with
+                region =
+                    Some [
+                        "Suriname, Guyana, Französisch-Guyana, Brasilien, Venezuela"
+                    ]
+                dlc = None
+                nameGerman = "Goliath-Vogelspinne"
+            }
+        | "Goliath Frog" ->
+            { animal with
+                region = Some [ "Kamerun, Äquatorialguinea" ]
+                dlc = None
+                nameGerman = "Goliathfrosch"
+            }
+        | "Greater Flamingo" ->
+            { animal with
+                region =
+                    Some [
+                        "Bangladesch, Pakistan, Indien, Sri Lanka, Türkei, Israel, Libanon, Vereinigen Arabische Emirate, Kuwait, Bahrain, Spanien, Albanien, Mazedonien, Griechenland, Zypern, Portugal, Italien "
+                    ]
+                dlc = None
+                nameGerman = "Rosaflamingo"
+            }
+        | "Green Iguana" ->
+            { animal with
+                region =
+                    Some [
+                        "Mexiko, Brasilien, Ecuador, Kribik, Süden der USA"
+                    ]
+                dlc = None
+                nameGerman = "Grüner Leguan"
+            }
+        | "Grizzly Bear" ->
+            { animal with
+                region =
+                    Some [
+                        "Kanada, Norden der USA (haupsächlich Alaska)"
+                    ]
+                dlc = None
+                nameGerman = "Grizzlybär"
+            }
+        // H
+        | "Himalayan Brown Bear" ->
+            { animal with
+                region =
+                    Some [
+                        "Norden von Afghanistan, Norden von Pakistan, Norden von Indien, Westchina, Nepal, Kasachstan"
+                    ]
+                dlc = None
+                nameGerman = "Isabellbär"
+            }
+        | "Hippopotamus" ->
+            { animal with
+                region = Some [ "Subsahara-Afrika, alle Länder" ]
+                dlc = None
+                nameGerman = "Flusspferd"
+            }
+        | "" ->
+            { animal with
+                region = Some [ "" ]
+                dlc = None
+                nameGerman = ""
+            }
+
         | _ -> animal
 
     let createZooAnimalFromJson (json: ZooAnimalJson) =
