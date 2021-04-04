@@ -430,6 +430,188 @@ module ZooAnimal =
                 dlc = None
                 nameGerman = "Flusspferd"
             }
+        // I
+        | "Indian Elephant" ->
+            { animal with
+                region =
+                    Some [
+                        "Indien,Nepal,Bangladesch, Bhutan, Myanmar, Thailand, Malaysia, Laos, China, Kambodscha, Vietnam"
+                    ]
+                dlc = None
+                nameGerman = "Indischer Elefant"
+            }
+        | "Indian Peafowl" ->
+            { animal with
+                region = Some [ "Indischer Subkontinent" ]
+                dlc = None
+                nameGerman = "Blauer Pfau"
+            }
+        | "Indian Rhinoceros" ->
+            { animal with
+                region = Some [ "Nepal, Indien, Bhutan" ]
+                dlc = None
+                nameGerman = "Panzernashorn"
+            }
+        // J
+        | "Jaguar" ->
+            { animal with
+                region =
+                    Some [
+                        "Mexiko, Kolumbien, Venezuela, Ecuador, Peru, Bolivien, Paraguay, Uruguay, Brasilien, Guyana, Suriname, Panama, Costa, Rica, Französisch-Guyana,Nicaragua, Honduras, El Salvador, Guatemala, Belize"
+                    ]
+                dlc = Some SouthAmerica
+                nameGerman = "Jaguar"
+            }
+        | "Japanese Macaque" ->
+            { animal with
+                region = Some [ "Japan" ]
+                dlc = None
+                nameGerman = "Japanmakak"
+            }
+        // K
+        | "King Penguin" -> // TODO: muss noch komplett gesetzt werden
+            { animal with
+                region =
+                    Some [
+                        "Falklandinseln, Südgeogien und Südliche Sandwichinseln, Prinz-Edward-Inseln, Crozetinseln, Marion-Insel, Heard- und McDonaldinseln, Macquarieinsel, Argentinien, Chile"
+                    ]
+                dlc = Some Aquatic
+                nameGerman = "Königspinguin"
+            }
+        | "Koala" ->
+            { animal with
+                region = Some [ "Australien" ]
+                dlc = Some Australia
+                nameGerman = "Koala"
+            }
+        | "Komodo Dragon" ->
+            { animal with
+                region =
+                    Some [
+                        "Kleine Sudaninsel (Komodo, Rinca, Flores, Gili, Motang)"
+                    ]
+                dlc = Some Delux
+                nameGerman = "Komodowaran"
+            }
+        // L
+        | "Lehmann's Poison Frog" ->
+            { animal with
+                region = Some [ "Kolumbien" ]
+                dlc = None
+                nameGerman = "Lehmanns Pfeilgiftfrosch"
+            }
+        | "Lesser Antillean Iguana" ->
+            { animal with
+                region = Some [ "Kleine Antillen" ]
+                dlc = None
+                nameGerman = "Grüner Inselleguan"
+            }
+        | "Llama" ->
+            { animal with
+                region =
+                    Some [
+                        "Ecuador, Peru, Bolivien, CHile, Argentinien"
+                    ]
+                dlc = Some SouthAmerica
+                nameGerman = "Lama"
+            }
+        // M
+        | "Malayan Tapir" ->
+            { animal with
+                region =
+                    Some [
+                        "Malaysia, Indonesien, Thailand"
+                    ]
+                dlc = Some SoutheastAsia
+                nameGerman = "Malaysischer Tapir"
+            }
+        | "Mandrill" ->
+            { animal with
+                region =
+                    Some [
+                        "Kamerun, Gabun, Äquatorialguinea, Republik Kongo"
+                    ]
+                dlc = None
+                nameGerman = "Mandrill"
+            }
+        | "Mexican Red Knee Tarantula" ->
+            { animal with
+                region = Some [ "Mexiko" ]
+                dlc = None
+                nameGerman = "Mexikanische Rotknie-Vogelspinne"
+            }
+        // N
+        | "Nil Monitor" ->
+            { animal with
+                region = Some [ "Subsahara-Afrika" ]
+                dlc = None
+                nameGerman = "Nilwaran"
+            }
+        | "Nyala" ->
+            { animal with
+                region =
+                    Some [
+                        "Malawi, Mosambik, Südafrika, Königreich Eswatini, Simbabwe, Botswana, Namibia"
+                    ]
+                dlc = None
+                nameGerman = "Nyala"
+            }
+        // O
+        | "Okapi" ->
+            { animal with
+                region = Some [ "" ]
+                dlc = None
+                nameGerman = "Okapi"
+            }
+        // P
+        | "Plains Zebra" ->
+            { animal with
+                region = Some [ "Osten und Süden von Afrika" ]
+                dlc = None
+                nameGerman = "Steppenzebra"
+            }
+        | "Polar Bear" ->
+            { animal with
+                region =
+                    Some [
+                        "Kanada, USA (Alaska), Grönland, Norwegen (Svalbard), Russland, Island"
+                    ]
+                dlc = Some Arctic
+                nameGerman = "Eisbär"
+            }
+        | "Proboscis Monkey" -> // TODO: muss noch komplett gesetzt werden
+            { animal with
+                region =
+                    Some [
+                        "Borneo (Indonesien, Malaysia, Brunei)"
+                    ]
+                dlc = Some SoutheastAsia
+                nameGerman = "Nasenaffe"
+            }
+        | "Pronghorn Antelope" ->
+            { animal with
+                region = Some [ "Usa, Kanada, Mexiko" ]
+                dlc = None
+                nameGerman = "Gabelbock"
+            }
+        | "Puff Adder" ->
+            { animal with
+                region =
+                    Some [
+                        "Subsahara-Afrika und Süden des Mittleren Ostens"
+                    ]
+                dlc = None
+                nameGerman = "Puffotter"
+            }
+        | "Pygmy Hippo" ->
+            { animal with
+                region =
+                    Some [
+                        "Sierra Leona, Liberia, Guinea, Elfenbeinküste"
+                    ]
+                dlc = Some Delux
+                nameGerman = "Zwergflusspferd"
+            }
         | "" ->
             { animal with
                 region = Some [ "" ]
