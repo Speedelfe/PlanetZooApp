@@ -9,16 +9,23 @@ open PlanetZooApp.ZooAnimal
 open PlanetZooApp.Types
 
 module FilterFunctions =
+    // let filtercontinent (animalList: ZooAnimal List) (continentList: Continent List) : ZooAnimal List =
+    //     let mutable resultList : ZooAnimal list = []
+
+    //     for animal in animalList do
+    //         for continent in animal.continent do
+    //             for wantedContinent in continentList do
+    //                 if continent = wantedContinent then
+    //                     resultList <- animal :: resultList
+
+    //     List.rev resultList
+
     let filtercontinent (animalList: ZooAnimal List) (continentList: Continent List) : ZooAnimal List =
-        let mutable resultList : ZooAnimal list = []
-
-        for animal in animalList do
-            for continent in animal.continent do
-                for wantedContinent in continentList do
-                    if continent = wantedContinent then
-                        resultList <- animal :: resultList
-
-        List.rev resultList
+        animalList
+        |> List.filter
+            (fun animal ->
+                animal.continent
+                |> List.exists (fun continent -> List.contains continent continentList))
 
     let filterDLC (animalList: ZooAnimal list) (dlcList: Dlc list) : ZooAnimal List =
         let mutable resultList : ZooAnimal list = []

@@ -42,6 +42,12 @@ module Functions =
                     Map.empty
         }
 
+    let loadAnimalRegionList (animalList: ZooAnimal list) =
+        animalList
+        |> List.choose (fun animal -> animal.region)
+        |> List.concat
+        |> Set.ofList
+
     type ImageDownloadResult =
         | AlreadyDownloaded of string
         | HasToBeDownloaded of (unit -> Async<string>)
