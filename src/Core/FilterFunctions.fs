@@ -32,6 +32,18 @@ module FilterFunctions =
                         resultList <- animal :: resultList
 
         List.rev resultList
+
+    let filterBiome (animalList: ZooAnimal list) (biomeList: Biome List) : ZooAnimal List =
+        let mutable resultList : ZooAnimal list = []
+
+        for animal in animalList do
+            for biome in animal.biome do
+                for wantedBiome in biomeList do
+                    if biome = wantedBiome then
+                        resultList <- animal :: resultList
+
+        List.rev resultList
+
 (*let doIWantThisAnimal (animal: ZooAnimal) =
                 List.exists (fun continent -> List.contains continent continentList) animal.continent
 

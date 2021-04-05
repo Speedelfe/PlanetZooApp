@@ -13,48 +13,39 @@ module FilterView =
     open Avalonia.FuncUI.Components
     open Elmish
 
-    let renderToggleFilterButtonContinent (continent: Continent) (continentList: Continent List) dispatch : IView =
-        let continentInState = (List.contains continent continentList)
+    let renderToggleButtonFilter addMsg removeMsg filter filterList dispatch : IView =
+        let filterOptionInState = (List.contains filter filterList)
 
         ToggleButton.create [
-            ToggleButton.isChecked continentInState
+            ToggleButton.isChecked filterOptionInState
             ToggleButton.onClick (
                 (fun _ ->
-                    match continentInState with
-                    | false ->
-                        (continent :: continentList)
-                        |> FilterAnimalListByContinent
-                        |> dispatch
-                    | true ->
-                        continent
-                        |> RemoveContinentFromFilterList
-                        |> dispatch),
-                OnChangeOf(continentInState, continentList)
+                    match filterOptionInState with
+                    | false -> (filter :: filterList) |> addMsg |> dispatch
+                    | true -> filter |> removeMsg |> dispatch),
+                OnChangeOf(filterOptionInState, filterList)
             )
-            ToggleButton.content continent
+            ToggleButton.content (string filter)
             ToggleButton.margin 10.
             ToggleButton.padding (40., 14.)
         ]
         :> IView
 
-    let renderToggleFilterButtonDLC (dlc: Dlc) (dlcList: Dlc List) dispatch : IView =
-        let dlcInState = (List.contains dlc dlcList)
+    let renderToggleFilterButtonContinent =
+        renderToggleButtonFilter FilterAnimalListByContinent RemoveContinentFromFilterList
 
-        ToggleButton.create [
-            ToggleButton.isChecked dlcInState
-            ToggleButton.onClick (
-                (fun _ ->
-                    match dlcInState with
-                    | false ->
-                        (dlc :: dlcList)
-                        |> FilterAnimalListByDLC
-                        |> dispatch
-                    | true -> dlc |> RemoveDlcFromFilterList |> dispatch),
-                OnChangeOf(dlcInState, dlcList)
-            )
-            ToggleButton.content dlc
-            ToggleButton.margin 10.
-            ToggleButton.padding (40., 14.)
+    let renderToggleFilterButtonDLC =
+        renderToggleButtonFilter FilterAnimalListByDLC RemoveDlcFromFilterList
+
+    let renderToggleFilterButtonBiome =
+        renderToggleButtonFilter FilterAnimalListByBiome RemoveBiomeFromFilterList
+
+    let renderFilterHeadline label : IView =
+        TextBlock.create [
+            TextBlock.dock Dock.Top
+            TextBlock.fontSize 20.
+            TextBlock.margin 10.
+            TextBlock.text label
         ]
         :> IView
 
@@ -67,11 +58,7 @@ module FilterView =
         DockPanel.create [
             DockPanel.dock Dock.Top
             DockPanel.children [
-                TextBlock.create [
-                    TextBlock.dock Dock.Top
-                    TextBlock.fontSize 20.
-                    TextBlock.text "Continents"
-                ]
+                renderFilterHeadline "Continets"
                 WrapPanel.create [
                     WrapPanel.dock Dock.Top
                     WrapPanel.margin (20., 10.)
@@ -98,11 +85,7 @@ module FilterView =
         DockPanel.create [
             DockPanel.dock Dock.Top
             DockPanel.children [
-                TextBlock.create [
-                    TextBlock.dock Dock.Top
-                    TextBlock.fontSize 20.
-                    TextBlock.text "DLCs"
-                ]
+                renderFilterHeadline "DLCs"
                 WrapPanel.create [
                     WrapPanel.dock Dock.Top
                     WrapPanel.margin (20., 10.)
@@ -119,6 +102,32 @@ module FilterView =
         ]
         :> IView
 
+    let viewBiomeFilterOption (state: State) dispatch : IView =
+        let biomeList : Biome List =
+            match state.biomeListFilter with
+            | Some biomeList -> biomeList
+            | None -> []
+
+        DockPanel.create [
+            DockPanel.dock Dock.Top
+            DockPanel.children [
+                renderFilterHeadline "Biome"
+                WrapPanel.create [
+                    WrapPanel.dock Dock.Top
+                    WrapPanel.margin (20., 10.)
+                    WrapPanel.children [
+                        renderToggleFilterButtonBiome Biome.Aquatic biomeList dispatch
+                        renderToggleFilterButtonBiome Desert biomeList dispatch
+                        renderToggleFilterButtonBiome Grassland biomeList dispatch
+                        renderToggleFilterButtonBiome Taiga biomeList dispatch
+                        renderToggleFilterButtonBiome Temperate biomeList dispatch
+                        renderToggleFilterButtonBiome Tropical biomeList dispatch
+                        renderToggleFilterButtonBiome Tundra biomeList dispatch
+                    ]
+                ]
+            ]
+        ]
+        :> IView
 
     let viewFilterView (state: State) dispatch : IView =
         DockPanel.create [
@@ -135,11 +144,7 @@ module FilterView =
                             Button.content "Filter anwenden"
                             Button.onClick (
                                 (fun _ -> ShowAnimalList |> dispatch)
-                            // (fun _ ->
-                            //     match state.continentListFilter with
-                            //    | Some _ -> dispatch ShowAnimalList
-                            //    | None -> ClearFilterContinent |> dispatch),
-                            //OnChangeOf state.continentListFilter
+
                             )
                         ]
                     ]
@@ -147,6 +152,7 @@ module FilterView =
 
                 viewContinentsFilterOptions state dispatch
                 viewDLCFilterOption state dispatch
+                viewBiomeFilterOption state dispatch
                 StackPanel.create []
             ]
         ]

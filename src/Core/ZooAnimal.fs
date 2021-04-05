@@ -149,7 +149,7 @@ module ZooAnimal =
                 dlc = None
                 nameGerman = "Brasilianische Wanderspinne"
             }
-        | "Brazilien Salmon Pink Tarantula" ->
+        | "Brazilian Salmon Pink Tarantula" ->
             { animal with
                 region = Some [ "Brasilien" ]
                 dlc = None

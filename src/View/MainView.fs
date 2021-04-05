@@ -22,6 +22,7 @@ module MainView =
                 animalMap = Map.empty
                 continentListFilter = None
                 dlcListFilter = None
+                biomeListFilter = None
                 viewMode = ListView
             }
 
@@ -124,6 +125,28 @@ module MainView =
                 }
 
             state, Cmd.none
+        | FilterAnimalListByBiome biomeList ->
+            let state =
+                { state with
+                    biomeListFilter = Some biomeList
+                }
+
+            state, Cmd.none
+        | RemoveBiomeFromFilterList biome ->
+            let newBiomeList : Biome List =
+                match state.biomeListFilter with
+                | Some biomeList -> (List.except [ biome ] biomeList)
+                | None -> []
+
+            let state =
+                { state with
+                    biomeListFilter =
+                        match newBiomeList with
+                        | [] -> None
+                        | biomeList -> Some biomeList
+                }
+
+            state, Cmd.none
         | ShowFilterView ->
             let state = { state with viewMode = FilterView }
             state, Cmd.none
@@ -181,6 +204,11 @@ module MainView =
                         match state.dlcListFilter with
                         | None -> animalList
                         | Some dlcListFilter -> filterDLC animalList dlcListFilter)
+                    // BiomeFilter
+                    |> (fun animalList ->
+                        match state.biomeListFilter with
+                        | None -> animalList
+                        | Some biomeListFilter -> filterBiome animalList biomeListFilter)
 
                 ListBox.create [
                     ListBox.dataItems animalList
