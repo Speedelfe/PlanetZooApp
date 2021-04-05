@@ -13,6 +13,15 @@ module FilterView =
     open Avalonia.FuncUI.Components
     open Elmish
 
+    let renderFilterHeadline label : IView =
+        TextBlock.create [
+            TextBlock.dock Dock.Top
+            TextBlock.fontSize 20.
+            TextBlock.margin 10.
+            TextBlock.text label
+        ]
+        :> IView
+
     let renderToggleButtonFilter addMsg removeMsg filter filterList dispatch : IView =
         let filterOptionInState = (List.contains filter filterList)
 
@@ -27,7 +36,8 @@ module FilterView =
             )
             ToggleButton.content (string filter)
             ToggleButton.margin 10.
-            ToggleButton.padding (40., 14.)
+            ToggleButton.height 40.
+            ToggleButton.padding (20., 5.)
         ]
         :> IView
 
@@ -40,14 +50,7 @@ module FilterView =
     let renderToggleFilterButtonBiome =
         renderToggleButtonFilter FilterAnimalListByBiome RemoveBiomeFromFilterList
 
-    let renderFilterHeadline label : IView =
-        TextBlock.create [
-            TextBlock.dock Dock.Top
-            TextBlock.fontSize 20.
-            TextBlock.margin 10.
-            TextBlock.text label
-        ]
-        :> IView
+
 
     let viewContinentsFilterOptions (state: State) dispatch : IView =
         let continentList : Continent List =
@@ -58,7 +61,7 @@ module FilterView =
         DockPanel.create [
             DockPanel.dock Dock.Top
             DockPanel.children [
-                renderFilterHeadline "Continets"
+                renderFilterHeadline "Continents"
                 WrapPanel.create [
                     WrapPanel.dock Dock.Top
                     WrapPanel.margin (20., 10.)
