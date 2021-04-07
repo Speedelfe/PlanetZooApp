@@ -51,6 +51,15 @@ module FilterFunctions =
 
         List.rev resultList
 
+    let filterVivarium (animalList: ZooAnimal list) : ZooAnimal list =
+        animalList
+        |> List.filter (fun animal -> animal.exhibit = true)
+
+    let filterNotVivarium (animalList: ZooAnimal list) : ZooAnimal list =
+        animalList
+        |> List.filter (fun animal -> animal.exhibit = false)
+
+
 (*let doIWantThisAnimal (animal: ZooAnimal) =
                 List.exists (fun continent -> List.contains continent continentList) animal.continent
 

@@ -23,6 +23,8 @@ module MainView =
                 continentListFilter = None
                 dlcListFilter = None
                 biomeListFilter = None
+                vivariumFilter = false
+                notVivariumFilter = false
                 viewMode = ListView
             }
 
@@ -147,6 +149,26 @@ module MainView =
                 }
 
             state, Cmd.none
+        | FilterAnimalListByVivarium isVivarium ->
+            let state =
+                { state with
+                    vivariumFilter =
+                        match isVivarium with
+                        | true -> true
+                        | false -> false
+                }
+
+            state, Cmd.none
+        | FilterAnimalListByNotVivarium isNotVivarium ->
+            let state =
+                { state with
+                    notVivariumFilter =
+                        match isNotVivarium with
+                        | true -> true
+                        | false -> false
+                }
+
+            state, Cmd.none
         | ShowFilterView ->
             let state = { state with viewMode = FilterView }
             state, Cmd.none
@@ -209,6 +231,14 @@ module MainView =
                         match state.biomeListFilter with
                         | None -> animalList
                         | Some biomeListFilter -> filterBiome animalList biomeListFilter)
+                    |> (fun animalList ->
+                        match state.vivariumFilter with
+                        | false -> animalList
+                        | true -> filterVivarium animalList)
+                    |> (fun animalList ->
+                        match state.notVivariumFilter with
+                        | false -> animalList
+                        | true -> filterNotVivarium animalList)
 
                 ListBox.create [
                     ListBox.dataItems animalList

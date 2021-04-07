@@ -132,6 +132,52 @@ module FilterView =
         ]
         :> IView
 
+    let viewHabitationFilter (state: State) dispatch : IView =
+        let isVivariumFiltered : bool = state.vivariumFilter
+        let isNotVivariumFiltered : bool = state.notVivariumFilter
+
+        DockPanel.create [
+            DockPanel.dock Dock.Top
+            DockPanel.children [
+                renderFilterHeadline "Vivarium/Gehege"
+                WrapPanel.create [
+                    WrapPanel.dock Dock.Top
+                    WrapPanel.margin (20., 10.)
+                    WrapPanel.children [
+                        ToggleButton.create [
+                            ToggleButton.isChecked isVivariumFiltered
+                            ToggleButton.onClick (
+                                (fun _ ->
+                                    not isVivariumFiltered
+                                    |> FilterAnimalListByVivarium
+                                    |> dispatch),
+                                OnChangeOf(isVivariumFiltered)
+                            )
+                            ToggleButton.content "Vivarium"
+                            ToggleButton.margin 10.
+                            ToggleButton.height 40.
+                            ToggleButton.padding (20., 5.)
+                        ]
+                        ToggleButton.create [
+                            ToggleButton.isChecked isNotVivariumFiltered
+                            ToggleButton.onClick (
+                                (fun _ ->
+                                    not isNotVivariumFiltered
+                                    |> FilterAnimalListByNotVivarium
+                                    |> dispatch),
+                                OnChangeOf(isNotVivariumFiltered)
+                            )
+                            ToggleButton.content "Gehege"
+                            ToggleButton.margin 10.
+                            ToggleButton.height 40.
+                            ToggleButton.padding (20., 5.)
+                        ]
+                    ]
+                ]
+            ]
+        ]
+        :> IView
+
     let viewFilterView (state: State) dispatch : IView =
         DockPanel.create [
             DockPanel.children [
@@ -156,6 +202,7 @@ module FilterView =
                 viewContinentsFilterOptions state dispatch
                 viewDLCFilterOption state dispatch
                 viewBiomeFilterOption state dispatch
+                viewHabitationFilter state dispatch
                 StackPanel.create []
             ]
         ]
