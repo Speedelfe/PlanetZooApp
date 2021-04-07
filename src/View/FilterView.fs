@@ -17,7 +17,7 @@ module FilterView =
         TextBlock.create [
             TextBlock.dock Dock.Top
             TextBlock.fontSize 20.
-            TextBlock.margin 10.
+            TextBlock.margin 5.
             TextBlock.text label
         ]
         :> IView
@@ -35,7 +35,7 @@ module FilterView =
                 OnChangeOf(filterOptionInState, filterList)
             )
             ToggleButton.content (string filter)
-            ToggleButton.margin 10.
+            ToggleButton.margin 5.
             ToggleButton.height 40.
             ToggleButton.padding (20., 5.)
         ]
@@ -154,7 +154,7 @@ module FilterView =
                                 OnChangeOf(isVivariumFiltered)
                             )
                             ToggleButton.content "Vivarium"
-                            ToggleButton.margin 10.
+                            ToggleButton.margin 5.
                             ToggleButton.height 40.
                             ToggleButton.padding (20., 5.)
                         ]
@@ -168,7 +168,7 @@ module FilterView =
                                 OnChangeOf(isNotVivariumFiltered)
                             )
                             ToggleButton.content "Gehege"
-                            ToggleButton.margin 10.
+                            ToggleButton.margin 5.
                             ToggleButton.height 40.
                             ToggleButton.padding (20., 5.)
                         ]
