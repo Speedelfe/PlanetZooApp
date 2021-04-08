@@ -231,10 +231,12 @@ module MainView =
                         match state.biomeListFilter with
                         | None -> animalList
                         | Some biomeListFilter -> filterBiome animalList biomeListFilter)
+                    // Vivarium Tier Filter
                     |> (fun animalList ->
                         match state.vivariumFilter with
                         | false -> animalList
                         | true -> filterVivarium animalList)
+                    // Gehege Tier Filter
                     |> (fun animalList ->
                         match state.notVivariumFilter with
                         | false -> animalList
