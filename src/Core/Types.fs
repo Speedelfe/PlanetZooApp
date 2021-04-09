@@ -86,7 +86,7 @@ module Types =
             latin_name: string
             category: string
             description: string
-            image_url: string
+            image_url: string option
             slug: string
             key: string
         }
@@ -110,7 +110,7 @@ module Types =
             latin_name: string
             category: string
             description: string
-            image_url: string
+            image_url: string option
             image_path: string option
             slug: string
         }

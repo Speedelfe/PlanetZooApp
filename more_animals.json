@@ -64,7 +64,6 @@
         "latin_name": "Babyrousa celebensis",
         "category": "",
         "description": "",
-        "image_url": "https://cms-cdn.zaonce.net/2019-10/speciesimagezoopedia_babirusa.jpg",
         "slug": "babirusa",
         "key": "babirusa"
     },
@@ -133,8 +132,75 @@
         "latin_name": "Arctictis binturong",
         "category": "",
         "description": "",
-        "image_url": "https://cms-cdn.zaonce.net/2019-10/speciesimagezoopedia_binturong.jpg",
         "slug": "binturong",
         "key": "binturong"
+    },
+    {
+        "name": "Clouded Leopard",
+        "continent": [
+            "Asia"
+        ],
+        "biome": [
+            "Tropical",
+            "Temperate"
+        ],
+        "can_swim": true,
+        "status": "Vulnerable",
+        "exhibit": false,
+        "dominance": "Keine",
+        "relationship_human": "Scheu",
+        "mating_system": "Promiskuitiv",
+        "life_expectancy": {
+            "male": 15,
+            "female": 15
+        },
+        "habitat_requirements": {
+            "guest_enter": false,
+            "exhibit": false,
+            "land": 534,
+            "land_additional": 0,
+            "water_additional": 0,
+            "climbable_additional": 0,
+            "water": 0,
+            "climbable": 81,
+            "humidity": {
+                "min": 0,
+                "max": 0
+            },
+            "temperature": {
+                "min": 6,
+                "max": 42
+            },
+            "fence": {
+                "grade": 2,
+                "height": 3.0,
+                "climbproof": true
+            },
+            "group_male": {
+                "size": {
+                    "min": 1,
+                    "max": 1
+                }
+            },
+            "group_female": {
+                "size": {
+                    "min": 1,
+                    "max": 1
+                }
+            },
+            "group_mixed": {
+                "size": {
+                    "min": 1,
+                    "max": 2
+                },
+                "male": 1,
+                "female": 1
+            }
+        },
+        "latin_name": "Neofelis nebulosa",
+        "category": "",
+        "description": "",
+        "slug": "clouded-leopard",
+        "key": "clouded-leopard"
     }
 ]

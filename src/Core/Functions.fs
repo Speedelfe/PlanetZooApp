@@ -13,6 +13,8 @@ module Functions =
         "https://raw.githubusercontent.com/olmobuining/zoopedia-data/master/mixed-data.json"
 
     let animalDataPath = "./animal-data.json"
+    let animalDataAdditionalPath = "./more_animals.json"
+
 
     let downloadFile () =
         let wc = new WebClient()
@@ -20,11 +22,11 @@ module Functions =
         wc.DownloadFileTaskAsync(dataUrl, animalDataPath)
         |> Async.AwaitTask
 
-    let loadFile () =
-        match File.Exists animalDataPath with
+    let loadFile dataPath =
+        match File.Exists dataPath with
         | false -> []
         | true ->
-            File.ReadAllText animalDataPath
+            File.ReadAllText dataPath
             |> Json.deserialize<ZooAnimalJson list>
 
     let loadAnimalData () =
@@ -33,7 +35,12 @@ module Functions =
                 do! downloadFile ()
 
             return
-                loadFile ()
+                [
+                    animalDataPath
+                    animalDataAdditionalPath
+                ]
+                |> List.map loadFile
+                |> List.concat
                 |> List.fold
                     (fun map animalJson ->
                         let animal = (createZooAnimalFromJson animalJson)

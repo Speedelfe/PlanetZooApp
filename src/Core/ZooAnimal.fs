@@ -52,7 +52,7 @@ module ZooAnimal =
                 latin_name = "Babyrousa celebensis"
                 category = ""
                 description = ""
-                image_url = "https://cms-cdn.zaonce.net/2019-10/speciesimagezoopedia_babirusa.jpg"
+                image_url = Some "https://cms-cdn.zaonce.net/2019-10/speciesimagezoopedia_babirusa.jpg"
                 image_path = None
                 slug = "babirusa"
             }

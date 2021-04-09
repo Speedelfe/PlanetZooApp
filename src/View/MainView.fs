@@ -47,13 +47,13 @@ module MainView =
             state, Cmd.none
         | LookForImageJob ->
             let chooser key animal =
-                match animal.image_path with
-                | Some _ -> None
-                | None -> Some(key, animal)
+                match animal.image_url, animal.image_path with
+                | Some url, None -> Some(key, url)
+                | _ -> None
 
             let cmd =
                 match Map.tryPick chooser state.animalMap with
-                | Some (key, animal) -> DownloadImage(key, animal.image_url) |> Cmd.ofMsg
+                | Some (key, url) -> DownloadImage(key, url) |> Cmd.ofMsg
                 | None -> Cmd.none
 
             state, cmd
@@ -66,17 +66,15 @@ module MainView =
             state, cmd
         | SaveImage (key, imgPath) ->
             let state =
-                { state with
-                    animalMap =
-                        Map.change
-                            key
-                            (Option.map
-                                (fun animal ->
-                                    { animal with
-                                        image_path = Some imgPath
-                                    }))
-                            state.animalMap
-                }
+                let setImagePath animal =
+                    { animal with
+                        image_path = Some imgPath
+                    }
+
+                let animalMap =
+                    Map.change key (Option.map setImagePath) state.animalMap
+
+                { state with animalMap = animalMap }
 
             state, Cmd.ofMsg LookForImageJob
         | AsyncError ex -> raise ex
