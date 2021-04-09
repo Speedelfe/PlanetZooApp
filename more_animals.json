@@ -1,0 +1,140 @@
+[
+    {
+        "name": "Babirusa",
+        "continent": [
+            "Asia"
+        ],
+        "biome": [
+            "Tropical",
+            "Grassland"
+        ],
+        "can_swim": true,
+        "status": "Vulnerable",
+        "exhibit": false,
+        "dominance": "Männchen kämpfen um das Paarungsrecht. Der Rang der Weibchen in einer Gruppe hängt von ihem Alter ab.",
+        "relationship_human": "Selbstsicher",
+        "mating_system": "Promiskuitiv",
+        "life_expectancy": {
+            "male": 18,
+            "female": 18
+        },
+        "habitat_requirements": {
+            "guest_enter": false,
+            "exhibit": false,
+            "land": 290,
+            "land_additional": 0,
+            "water_additional": 0,
+            "climbable_additional": 0,
+            "water": 0,
+            "climbable": 0,
+            "humidity": {
+                "min": 0,
+                "max": 0
+            },
+            "temperature": {
+                "min": 16,
+                "max": 42
+            },
+            "fence": {
+                "grade": 1,
+                "height": 0.5,
+                "climbproof": false
+            },
+            "group_male": {
+                "size": {
+                    "min": 1,
+                    "max": 2
+                }
+            },
+            "group_female": {
+                "size": {
+                    "min": 1,
+                    "max": 4
+                }
+            },
+            "group_mixed": {
+                "size": {
+                    "min": 1,
+                    "max": 4
+                },
+                "male": 1,
+                "female": 3
+            }
+        },
+        "latin_name": "Babyrousa celebensis",
+        "category": "",
+        "description": "",
+        "image_url": "https://cms-cdn.zaonce.net/2019-10/speciesimagezoopedia_babirusa.jpg",
+        "slug": "babirusa",
+        "key": "babirusa"
+    },
+    {
+        "name": "Binturong",
+        "continent": [
+            "Asia"
+        ],
+        "biome": [
+            "Tropical",
+            "Temperate"
+        ],
+        "can_swim": true,
+        "status": "Vulnerable",
+        "exhibit": false,
+        "dominance": "Keine",
+        "relationship_human": "Scheu",
+        "mating_system": "Monogam",
+        "life_expectancy": {
+            "male": 22,
+            "female": 22
+        },
+        "habitat_requirements": {
+            "guest_enter": true,
+            "exhibit": false,
+            "land": 182,
+            "land_additional": 0,
+            "water_additional": 0,
+            "climbable_additional": 0,
+            "water": 0,
+            "climbable": 40,
+            "humidity": {
+                "min": 0,
+                "max": 0
+            },
+            "temperature": {
+                "min": 13,
+                "max": 42
+            },
+            "fence": {
+                "grade": 2,
+                "height": 3.0,
+                "climbproof": true
+            },
+            "group_male": {
+                "size": {
+                    "min": 2,
+                    "max": 5
+                }
+            },
+            "group_female": {
+                "size": {
+                    "min": 2,
+                    "max": 5
+                }
+            },
+            "group_mixed": {
+                "size": {
+                    "min": 2,
+                    "max": 5
+                },
+                "male": 5,
+                "female": 5
+            }
+        },
+        "latin_name": "Arctictis binturong",
+        "category": "",
+        "description": "",
+        "image_url": "https://cms-cdn.zaonce.net/2019-10/speciesimagezoopedia_binturong.jpg",
+        "slug": "binturong",
+        "key": "binturong"
+    }
+]
