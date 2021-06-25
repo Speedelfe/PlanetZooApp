@@ -206,7 +206,7 @@
     {
         "name": "Breitmaulnashorn",
         "continent": [
-            "Afrika"
+            "Africa"
         ],
         "biome": [
             "Grassland"
@@ -269,5 +269,73 @@
         "description": "",
         "slug": "breitmaulnashorn",
         "key": "breitmaulnashorn"
+    },
+    {
+        "name": "Brillenpinguin",
+        "continent": [
+            "Africa"
+        ],
+        "biome": [
+            "Aquatic",
+            "Desert"
+        ],
+        "can_swim": true,
+        "status": "Stark gefährdet",
+        "exhibit": false,
+        "dominance": "Keine",
+        "relationship_human": "Neutral",
+        "mating_system": "Monogam",
+        "life_expectancy": {
+            "male": 14,
+            "female": 14
+        },
+        "habitat_requirements": {
+            "guest_enter": true,
+            "exhibit": false,
+            "land": 180,
+            "land_additional": 0,
+            "water_additional": 67,
+            "climbable_additional": 0,
+            "water": 135,
+            "climbable": 0,
+            "humidity": {
+                "min": 0,
+                "max": 0
+            },
+            "temperature": {
+                "min": 3,
+                "max": 43
+            },
+            "fence": {
+                "grade": 2,
+                "height": 1.5,
+                "climbproof": false
+            },
+            "group_male": {
+                "size": {
+                    "min": 6,
+                    "max": 500
+                }
+            },
+            "group_female": {
+                "size": {
+                    "min": 6,
+                    "max": 500
+                }
+            },
+            "group_mixed": {
+                "size": {
+                    "min": 6,
+                    "max": 500
+                },
+                "male": 500,
+                "female": 500
+            }
+        },
+        "latin_name": "Spheniscus demersus",
+        "category": "",
+        "description": "",
+        "slug": "brillenpinguin",
+        "key": "brillenpinguin"
     }
 ]

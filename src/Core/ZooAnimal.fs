@@ -211,10 +211,20 @@ module ZooAnimal =
             }
         | "Breitmaulnashorn" ->
             { animal with
-                region = Some ["Südafrika, Angola, Sambia, Zimbabwe, Malawi, Mosambik, Namibia, Botswana, Lesotho, Königreich Eswatini"]
+                region =
+                    Some [
+                        "Südafrika, Angola, Sambia, Zimbabwe, Malawi, Mosambik, Namibia, Botswana, Lesotho, Königreich Eswatini"
+                    ]
                 dlc = Some Africa
                 nameGerman = "Breitmaulnashorn"
             }
+        | "Brillenpinguin" ->
+            { animal with
+                region = Some [ "Namibia und Südafrika" ]
+                dlc = Some Africa
+                nameGerman = "Brillenpinguin"
+            }
+
         // C
         | "Cheetah" ->
             { animal with

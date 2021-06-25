@@ -66,7 +66,7 @@ module FilterView =
                     WrapPanel.dock Dock.Top
                     WrapPanel.margin (20., 10.)
                     WrapPanel.children [
-                        renderToggleFilterButtonContinent Africa continentList dispatch
+                        renderToggleFilterButtonContinent Continent.Africa continentList dispatch
                         renderToggleFilterButtonContinent Asia continentList dispatch
                         renderToggleFilterButtonContinent CentralAmerica continentList dispatch
                         renderToggleFilterButtonContinent Europe continentList dispatch
