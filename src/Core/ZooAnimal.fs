@@ -209,6 +209,12 @@ module ZooAnimal =
                 dlc = None
                 nameGerman = "Brasilianische Riesenvogelspinne"
             }
+        | "Breitmaulnashorn" ->
+            { animal with
+                region = Some ["Südafrika, Angola, Sambia, Zimbabwe, Malawi, Mosambik, Namibia, Botswana, Lesotho, Königreich Eswatini"]
+                dlc = Some Africa
+                nameGerman = "Breitmaulnashorn"
+            }
         // C
         | "Cheetah" ->
             { animal with

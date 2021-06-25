@@ -27,12 +27,14 @@ module Types =
     type Region = string
 
     type Dlc =
+        | Africa
         | Aquatic
         | Arctic
         | Australia
         | Deluxe
         | [<JsonUnionCase(Case = "South America")>] SouthAmerica
         | [<JsonUnionCase(Case = "Southeast Asia")>] SoutheastAsia
+
 
     type LifeExpectancy = { male: int; female: int }
 
