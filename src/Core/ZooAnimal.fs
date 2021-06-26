@@ -842,6 +842,22 @@ module ZooAnimal =
 
         | _ -> animal
 
+    let regionListToStringArray (regionList: string) =
+        let regionArray = regionList.Split ','
+        Array.toList regionArray
+
+    let zooAnimalRegionNacharbeit (animal: ZooAnimal) =
+        let newRegion =
+            match animal.region with
+            | None -> None
+            | Some region ->
+                region
+                |> List.head
+                |> regionListToStringArray
+                |> Some
+
+        { animal with region = newRegion }
+
     let createZooAnimalFromJson (json: ZooAnimalJson) =
         {
             name = json.name
@@ -866,3 +882,4 @@ module ZooAnimal =
             slug = json.slug
         }
         |> nacharbeiten
+        |> zooAnimalRegionNacharbeit

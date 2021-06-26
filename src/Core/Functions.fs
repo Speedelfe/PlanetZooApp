@@ -15,7 +15,6 @@ module Functions =
     let animalDataPath = "./animal-data.json"
     let animalDataAdditionalPath = "./more_animals.json"
 
-
     let downloadFile () =
         let wc = new WebClient()
 
@@ -44,7 +43,6 @@ module Functions =
                 |> List.fold
                     (fun map animalJson ->
                         let animal = (createZooAnimalFromJson animalJson)
-
                         Map.add (AnimalKey animalJson.key) animal map)
                     Map.empty
         }
@@ -92,3 +90,19 @@ module Functions =
                 }
 
             HasToBeDownloaded job
+
+    let regionListToStringArray (regionList: string) =
+        let regionArray = regionList.Split ','
+        Array.toList regionArray
+
+    let zooAnimalRegionNacharbeit (animal: ZooAnimal) =
+        let newRegion =
+            match animal.region with
+            | None -> None
+            | Some region ->
+                region
+                |> List.head
+                |> regionListToStringArray
+                |> Some
+
+        { animal with region = newRegion }
