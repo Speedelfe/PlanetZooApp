@@ -204,7 +204,7 @@
         "key": "clouded-leopard"
     },
     {
-        "name": "Breitmaulnashorn",
+        "name": "Southern White Rhinoceros",
         "continent": [
             "Africa"
         ],
@@ -214,9 +214,9 @@
         "can_swim": false,
         "status": "Potenziell gefährdet",
         "exhibit": false,
-        "dominance": "Dominante Männchen beanspruchen Reviere und die Weibchen darin",
-        "relationship_human": "Selbstsicher",
-        "mating_system": "Polygyn",
+        "dominance": "Dominant male claims territory and females within",
+        "relationship_human": "Confident",
+        "mating_system": "Polygynous",
         "life_expectancy": {
             "male": 46,
             "female": 46
@@ -267,11 +267,11 @@
         "latin_name": "Ceratotherium simum simum",
         "category": "",
         "description": "",
-        "slug": "breitmaulnashorn",
-        "key": "breitmaulnashorn"
+        "slug": "southern_white_rhinoceros",
+        "key": "southern_white_rhinoceros"
     },
     {
-        "name": "Brillenpinguin",
+        "name": "African Penguin",
         "continent": [
             "Africa"
         ],
@@ -280,11 +280,11 @@
             "Desert"
         ],
         "can_swim": true,
-        "status": "Stark gefährdet",
+        "status": "Endangered",
         "exhibit": false,
-        "dominance": "Keine",
+        "dominance": "None",
         "relationship_human": "Neutral",
-        "mating_system": "Monogam",
+        "mating_system": "Monogamous",
         "life_expectancy": {
             "male": 14,
             "female": 14
@@ -335,7 +335,74 @@
         "latin_name": "Spheniscus demersus",
         "category": "",
         "description": "",
-        "slug": "brillenpinguin",
-        "key": "brillenpinguin"
+        "slug": "african_penguin",
+        "key": "african_penguin"
+    },
+    {
+        "name": "Fennec Fox",
+        "continent": [
+            "Africa"
+        ],
+        "biome": [
+            "Desert"
+        ],
+        "can_swim": true,
+        "status": "Least concern",
+        "exhibit": false,
+        "dominance": "Alpha male and alpha female",
+        "relationship_human": "Shy",
+        "mating_system": "Monogamous",
+        "life_expectancy": {
+            "male": 14,
+            "female": 14
+        },
+        "habitat_requirements": {
+            "guest_enter": true,
+            "exhibit": false,
+            "land": 182,
+            "land_additional": 0,
+            "water_additional": 0,
+            "climbable_additional": 0,
+            "water": 0,
+            "climbable": 0,
+            "humidity": {
+                "min": 0,
+                "max": 0
+            },
+            "temperature": {
+                "min": 3,
+                "max": 43
+            },
+            "fence": {
+                "grade": 2,
+                "height": 1.5,
+                "climbproof": false
+            },
+            "group_male": {
+                "size": {
+                    "min": 1,
+                    "max": 5
+                }
+            },
+            "group_female": {
+                "size": {
+                    "min": 1,
+                    "max": 5
+                }
+            },
+            "group_mixed": {
+                "size": {
+                    "min": 1,
+                    "max": 10
+                },
+                "male": 6,
+                "female": 6
+            }
+        },
+        "latin_name": "Vulpes zerda",
+        "category": "",
+        "description": "",
+        "slug": "fennec_fox",
+        "key": "fennec_fox"
     }
 ]

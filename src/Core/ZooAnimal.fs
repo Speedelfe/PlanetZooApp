@@ -115,6 +115,13 @@ module ZooAnimal =
                 dlc = Some Arctic
                 nameGerman = "Polarwolf"
             }
+        | "African Penguin" -> //TODO: muss komplett gesetzt werden
+            { animal with
+                region = Some [ "Namibia und Südafrika" ]
+                dlc = Some Africa
+                nameGerman = "Brillenpinguin"
+            }
+
         // B
         | "Babirusa" -> //TODO: muss komplett gesetzt werden
             { animal with
@@ -209,22 +216,6 @@ module ZooAnimal =
                 dlc = None
                 nameGerman = "Brasilianische Riesenvogelspinne"
             }
-        | "Breitmaulnashorn" ->
-            { animal with
-                region =
-                    Some [
-                        "Südafrika, Angola, Sambia, Zimbabwe, Malawi, Mosambik, Namibia, Botswana, Lesotho, Königreich Eswatini"
-                    ]
-                dlc = Some Africa
-                nameGerman = "Breitmaulnashorn"
-            }
-        | "Brillenpinguin" ->
-            { animal with
-                region = Some [ "Namibia und Südafrika" ]
-                dlc = Some Africa
-                nameGerman = "Brillenpinguin"
-            }
-
         // C
         | "Cheetah" ->
             { animal with
@@ -344,6 +335,15 @@ module ZooAnimal =
                 region = Some [ "Taiwan" ]
                 dlc = None
                 nameGerman = "Taiwanischer Schwarzbär"
+            }
+        | "Fennec Fox" -> // TODO: muss noch komplett gesetzt werden
+            { animal with
+                region =
+                    Some [
+                        "Morocco, Algeria, Tunisia, Libya, Egypt, Western Sahara, Mauritania, Mali, Niger, Chad, Sudan"
+                    ]
+                dlc = Some Africa
+                nameGerman = "Fennek"
             }
         // G
         | "Galapagos Giant Tortoise" ->
@@ -797,6 +797,15 @@ module ZooAnimal =
                     ]
                 dlc = Some SoutheastAsia
                 nameGerman = "Sonnenbär"
+            }
+        | "Southern White Rhinoceros" -> // TODO: muss noch komplett gesetzt werden
+            { animal with
+                region =
+                    Some [
+                        "Südafrika, Angola, Sambia, Zimbabwe, Malawi, Mosambik, Namibia, Botswana, Lesotho, Königreich Eswatini"
+                    ]
+                dlc = Some Africa
+                nameGerman = "Breitmaulnashorn"
             }
         // T
         | "Thomson's Gazelle" ->
