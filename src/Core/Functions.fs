@@ -91,18 +91,10 @@ module Functions =
 
             HasToBeDownloaded job
 
-    let regionListToStringArray (regionList: string) =
-        let regionArray = regionList.Split ','
-        Array.toList regionArray
-
-    let zooAnimalRegionNacharbeit (animal: ZooAnimal) =
-        let newRegion =
+    let regionsFromAnimalList (animalList: ZooAnimal list) =
+        let folder (set: Set<Region>) (animal: ZooAnimal) : Set<Region> =
             match animal.region with
-            | None -> None
-            | Some region ->
-                region
-                |> List.head
-                |> regionListToStringArray
-                |> Some
+            | None -> set
+            | Some region -> region |> Set.ofList |> Set.union set
 
-        { animal with region = newRegion }
+        List.fold folder Set.empty animalList

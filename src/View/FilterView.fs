@@ -188,6 +188,13 @@ module FilterView =
         :> IView
 
     let viewFilterView (state: State) dispatch : IView =
+        let regions =
+            state.animalMap
+            |> Map.toList
+            |> List.map snd
+            |> regionsFromAnimalList
+            |> printfn "%A"
+
         DockPanel.create [
             DockPanel.children [
                 StackPanel.create [

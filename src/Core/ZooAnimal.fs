@@ -586,7 +586,7 @@ module ZooAnimal =
         // O
         | "Okapi" ->
             { animal with
-                region = Some [ "" ]
+                region = None // TODO: Regionen ergänzen
                 dlc = None
                 nameGerman = "Okapi"
             }
@@ -843,8 +843,9 @@ module ZooAnimal =
         | _ -> animal
 
     let regionListToStringArray (regionList: string) =
-        let regionArray = regionList.Split ','
-        Array.toList regionArray
+        regionList.Split ','
+        |> Array.toList
+        |> List.map (fun el -> el.Trim())
 
     let zooAnimalRegionNacharbeit (animal: ZooAnimal) =
         let newRegion =
