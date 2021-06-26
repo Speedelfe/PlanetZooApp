@@ -610,6 +610,15 @@ module ZooAnimal =
                 dlc = None
                 nameGerman = "Mexikanische Rotknie-Vogelspinne"
             }
+        | "Meerkat" -> // TODO: muss noch komplett gesetzt werden
+            { animal with
+                region =
+                    Some [
+                        "Angola, Namibia, Botswana, South Africa, Lesotho"
+                    ]
+                dlc = Some Africa
+                nameGerman = "Erdmännchen"
+            }
         // N
         | "Nile Monitor" ->
             { animal with

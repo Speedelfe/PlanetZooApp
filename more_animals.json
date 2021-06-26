@@ -218,8 +218,8 @@
         "relationship_human": "Confident",
         "mating_system": "Polygynous",
         "life_expectancy": {
-            "male": 46,
-            "female": 46
+            "male": 43,
+            "female": 43
         },
         "habitat_requirements": {
             "guest_enter": false,
@@ -286,8 +286,8 @@
         "relationship_human": "Neutral",
         "mating_system": "Monogamous",
         "life_expectancy": {
-            "male": 14,
-            "female": 14
+            "male": 27,
+            "female": 27
         },
         "habitat_requirements": {
             "guest_enter": true,
@@ -353,8 +353,8 @@
         "relationship_human": "Shy",
         "mating_system": "Monogamous",
         "life_expectancy": {
-            "male": 14,
-            "female": 14
+            "male": 12,
+            "female": 12
         },
         "habitat_requirements": {
             "guest_enter": true,
@@ -404,5 +404,73 @@
         "description": "",
         "slug": "fennec_fox",
         "key": "fennec_fox"
+    },
+    {
+        "name": "Meerkat",
+        "continent": [
+            "Africa"
+        ],
+        "biome": [
+            "Desert",
+            "Grassland"
+        ],
+        "can_swim": true,
+        "status": "Least concern",
+        "exhibit": false,
+        "dominance": "Alpha female in matriarchal society",
+        "relationship_human": "Neutral",
+        "mating_system": "Polyandrous",
+        "life_expectancy": {
+            "male": 15,
+            "female": 15
+        },
+        "habitat_requirements": {
+            "guest_enter": true,
+            "exhibit": false,
+            "land": 180,
+            "land_additional": 0,
+            "water_additional": 0,
+            "climbable_additional": 0,
+            "water": 0,
+            "climbable": 0,
+            "humidity": {
+                "min": 0,
+                "max": 0
+            },
+            "temperature": {
+                "min": 13,
+                "max": 43
+            },
+            "fence": {
+                "grade": 2,
+                "height": 1.2,
+                "climbproof": false
+            },
+            "group_male": {
+                "size": {
+                    "min": 2,
+                    "max": 12
+                }
+            },
+            "group_female": {
+                "size": {
+                    "min": 2,
+                    "max": 3
+                }
+            },
+            "group_mixed": {
+                "size": {
+                    "min": 2,
+                    "max": 30
+                },
+                "male": 20,
+                "female": 20
+            }
+        },
+        "latin_name": "Suricata suricatta",
+        "category": "",
+        "description": "",
+        "slug": "meerkat",
+        "key": "meerkat"
     }
 ]
