@@ -211,7 +211,7 @@
         "biome": [
             "Grassland"
         ],
-        "can_swim": false,
+        "can_swim": true,
         "status": "Potenziell gefährdet",
         "exhibit": false,
         "dominance": "Dominant male claims territory and females within",
@@ -472,5 +472,72 @@
         "description": "",
         "slug": "meerkat",
         "key": "meerkat"
+    },
+    {
+        "name": "Sacred Scarab Beetle",
+        "continent": [
+            "Africa"
+        ],
+        "biome": [
+            "Desert"
+        ],
+        "can_swim": false,
+        "status": "Data deficient",
+        "exhibit": true,
+        "dominance": "None, though males may fight over females and dung balls",
+        "relationship_human": "Neutral",
+        "mating_system": "Polygamous",
+        "life_expectancy": {
+            "male": 5,
+            "female": 5
+        },
+        "habitat_requirements": {
+            "guest_enter": false,
+            "exhibit": true,
+            "land": 0,
+            "land_additional": 0,
+            "water_additional": 0,
+            "climbable_additional": 0,
+            "water": 0,
+            "climbable": 0,
+            "humidity": {
+                "min": 40,
+                "max": 60
+            },
+            "temperature": {
+                "min": 20,
+                "max": 35
+            },
+            "fence": {
+                "grade": 0,
+                "height": 0,
+                "climbproof": false
+            },
+            "group_male": {
+                "size": {
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            "group_female": {
+                "size": {
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            "group_mixed": {
+                "size": {
+                    "min": 1,
+                    "max": 25
+                },
+                "male": 0,
+                "female": 0
+            }
+        },
+        "latin_name": "Scarabeus sacer",
+        "category": "",
+        "description": "",
+        "slug": "sacred_scarab_beetle",
+        "key": "sacred_scarab_beetle"
     }
 ]

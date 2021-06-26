@@ -816,6 +816,15 @@ module ZooAnimal =
                 dlc = Some Africa
                 nameGerman = "Breitmaulnashorn"
             }
+        | "Sacred Scarab Beetle" -> // TODO: muss noch komplett gesetzt werden
+            { animal with
+                region =
+                    Some [
+                        "Morocco, Western Sahara, Algeria, Tunisia, Libya, Egypt, Saudi Arabia, Israel, Lebanon, Syria, Italy, France"
+                    ]
+                dlc = Some Africa
+                nameGerman = "Heiliger Pillendreher"
+            }
         // T
         | "Thomson's Gazelle" ->
             { animal with
