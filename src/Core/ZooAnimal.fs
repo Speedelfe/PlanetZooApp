@@ -4,59 +4,7 @@ open PlanetZooApp.Types
 
 module ZooAnimal =
 
-    let addMoreAnimals () =
-        [
-            {
-                name = "Babirusa"
-                nameGerman = "Babirusa"
-                continent = [ Asia ]
-                biome = [ Tropical; Grassland ]
-                region = Some [ "Indonesien" ]
-                dlc = Some SoutheastAsia
-                can_swim = true
-                status = "Vulnerable"
-                exhibit = false
-                dominance = "Männchen kämpfen um das Paarungsrecht. Der Rang der Weibchen in einer Gruppe hängt von ihem Alter ab."
-                relationship_human = Some "Selbstsicher"
-                mating_system = "Promiskuitiv"
-                life_expectancy = { male = 18; female = 18 }
-                habitat_requirements =
-                    {
-                        guest_enter = Some false
-                        exhibit = false
-                        land_ = Some 290
-                        land_additional = Some 0
-                        water_additional = Some 0
-                        climbable_additional = Some 0
-                        water = Some 0
-                        climbable = Some 0
-                        humidity = { min = 0; max = 0 }
-                        temperature = { min = 16; max = 42 }
-                        fence =
-                            Some
-                                {
-                                    grade = 1
-                                    height = 0.5
-                                    climbproof = false
-                                }
-                        group_male = Some { size = { min = 1; max = 2 } }
-                        group_female = Some { size = { min = 1; max = 4 } }
-                        group_mixed =
-                            Some
-                                {
-                                    size = { min = 1; max = 4 }
-                                    male = 1
-                                    female = 3
-                                }
-                    }
-                latin_name = "Babyrousa celebensis"
-                category = ""
-                description = ""
-                image_url = Some "https://cms-cdn.zaonce.net/2019-10/speciesimagezoopedia_babirusa.jpg"
-                image_path = None
-                slug = "babirusa"
-            }
-        ]
+    let addMoreAnimals () = []
 
     let nacharbeiten (animal: ZooAnimal) =
         match animal.name with

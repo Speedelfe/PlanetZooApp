@@ -36,7 +36,20 @@ module DetailView =
                 ]
                 TextBlock.create [
                     TextBlock.margin 10.
-                    TextBlock.text (dlcToString animal.dlc)
+                    TextBlock.text (
+                        animal.dlc
+                        (*|> Option.map (fun dlc ->
+                            let dlcString = dlcToString dlc
+                            $"DLC: {dlcString}"
+                        )*)
+                        (*|> Option.map (fun dlc ->
+                            dlcToString dlc
+                            |> sprintf "DLC: %s"
+                        )*)
+                        //|> Option.map (dlcToString >> (fun dlcString -> $"DLC: {dlcString}"))
+                        |> Option.map (dlcToString >> sprintf "DLC: %s")
+                        |> Option.defaultValue ""
+                    )
                 ]
             ]
         ]

@@ -22,7 +22,7 @@ module FilterView =
         ]
         :> IView
 
-    let renderToggleButtonFilter addMsg removeMsg filter filterList dispatch : IView =
+    let renderToggleButtonFilter addMsg removeMsg toString dispatch filterList filter : IView =
         let filterOptionInState = (List.contains filter filterList)
 
         ToggleButton.create [
@@ -34,7 +34,7 @@ module FilterView =
                     | true -> filter |> removeMsg |> dispatch),
                 OnChangeOf(filterOptionInState, filterList)
             )
-            ToggleButton.content (string filter)
+            ToggleButton.content ((toString filter): string)
             ToggleButton.margin 5.
             ToggleButton.height 40.
             ToggleButton.padding (20., 5.)
@@ -42,13 +42,13 @@ module FilterView =
         :> IView
 
     let renderToggleFilterButtonContinent =
-        renderToggleButtonFilter FilterAnimalListByContinent RemoveContinentFromFilterList
+        renderToggleButtonFilter FilterAnimalListByContinent RemoveContinentFromFilterList continentToString
 
     let renderToggleFilterButtonDLC =
-        renderToggleButtonFilter FilterAnimalListByDLC RemoveDlcFromFilterList
+        renderToggleButtonFilter FilterAnimalListByDLC RemoveDlcFromFilterList dlcToString
 
     let renderToggleFilterButtonBiome =
-        renderToggleButtonFilter FilterAnimalListByBiome RemoveBiomeFromFilterList
+        renderToggleButtonFilter FilterAnimalListByBiome RemoveBiomeFromFilterList string
 
 
 
@@ -58,6 +58,9 @@ module FilterView =
             | Some continentList -> continentList
             | None -> []
 
+        let renderToggleFilterButtonContinent =
+            renderToggleFilterButtonContinent dispatch continentList
+
         DockPanel.create [
             DockPanel.dock Dock.Top
             DockPanel.children [
@@ -66,13 +69,13 @@ module FilterView =
                     WrapPanel.dock Dock.Top
                     WrapPanel.margin (20., 10.)
                     WrapPanel.children [
-                        renderToggleFilterButtonContinent Continent.Africa continentList dispatch
-                        renderToggleFilterButtonContinent Asia continentList dispatch
-                        renderToggleFilterButtonContinent CentralAmerica continentList dispatch
-                        renderToggleFilterButtonContinent Europe continentList dispatch
-                        renderToggleFilterButtonContinent Continent.SouthAmerica continentList dispatch
-                        renderToggleFilterButtonContinent NorthAmerica continentList dispatch
-                        renderToggleFilterButtonContinent Oceania continentList dispatch
+                        renderToggleFilterButtonContinent Continent.Africa
+                        renderToggleFilterButtonContinent Asia
+                        renderToggleFilterButtonContinent CentralAmerica
+                        renderToggleFilterButtonContinent Europe
+                        renderToggleFilterButtonContinent Continent.SouthAmerica
+                        renderToggleFilterButtonContinent NorthAmerica
+                        renderToggleFilterButtonContinent Oceania
                     ]
                 ]
             ]
@@ -85,6 +88,9 @@ module FilterView =
             | Some dlcList -> dlcList
             | None -> []
 
+        let renderToggleFilterButtonDLC =
+            renderToggleFilterButtonDLC dispatch dlcList
+
         DockPanel.create [
             DockPanel.dock Dock.Top
             DockPanel.children [
@@ -93,12 +99,12 @@ module FilterView =
                     WrapPanel.dock Dock.Top
                     WrapPanel.margin (20., 10.)
                     WrapPanel.children [
-                        renderToggleFilterButtonDLC Arctic dlcList dispatch
-                        renderToggleFilterButtonDLC Aquatic dlcList dispatch
-                        renderToggleFilterButtonDLC Australia dlcList dispatch
-                        renderToggleFilterButtonDLC Deluxe dlcList dispatch
-                        renderToggleFilterButtonDLC SouthAmerica dlcList dispatch
-                        renderToggleFilterButtonDLC SoutheastAsia dlcList dispatch
+                        renderToggleFilterButtonDLC Arctic
+                        renderToggleFilterButtonDLC Aquatic
+                        renderToggleFilterButtonDLC Australia
+                        renderToggleFilterButtonDLC Deluxe
+                        renderToggleFilterButtonDLC SouthAmerica
+                        renderToggleFilterButtonDLC SoutheastAsia
                     ]
                 ]
             ]
@@ -111,6 +117,9 @@ module FilterView =
             | Some biomeList -> biomeList
             | None -> []
 
+        let renderToggleFilterButtonBiome =
+            renderToggleFilterButtonBiome dispatch biomeList
+
         DockPanel.create [
             DockPanel.dock Dock.Top
             DockPanel.children [
@@ -119,13 +128,13 @@ module FilterView =
                     WrapPanel.dock Dock.Top
                     WrapPanel.margin (20., 10.)
                     WrapPanel.children [
-                        renderToggleFilterButtonBiome Biome.Aquatic biomeList dispatch
-                        renderToggleFilterButtonBiome Desert biomeList dispatch
-                        renderToggleFilterButtonBiome Grassland biomeList dispatch
-                        renderToggleFilterButtonBiome Taiga biomeList dispatch
-                        renderToggleFilterButtonBiome Temperate biomeList dispatch
-                        renderToggleFilterButtonBiome Tropical biomeList dispatch
-                        renderToggleFilterButtonBiome Tundra biomeList dispatch
+                        renderToggleFilterButtonBiome Biome.Aquatic
+                        renderToggleFilterButtonBiome Desert
+                        renderToggleFilterButtonBiome Grassland
+                        renderToggleFilterButtonBiome Taiga
+                        renderToggleFilterButtonBiome Temperate
+                        renderToggleFilterButtonBiome Tropical
+                        renderToggleFilterButtonBiome Tundra
                     ]
                 ]
             ]

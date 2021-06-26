@@ -44,14 +44,15 @@ module ViewHelpers =
     let fencetoString2 (fence: Fence option) =
         fence
         |> function
-        | Some ({ climbproof = true } as value) -> $"Grade {value.grade}, >{value.height}m, Climb Proof"
-        | Some ({ climbproof = false } as value) -> $"Grade {value.grade}, >{value.height}m"
-        | None -> ""
+            | Some ({ climbproof = true } as value) -> $"Grade {value.grade}, >{value.height}m, Climb Proof"
+            | Some ({ climbproof = false } as value) -> $"Grade {value.grade}, >{value.height}m"
+            | None -> ""
 
-    let dlcToString (dlc: Dlc option) =
+    let dlcToString (dlc: Dlc) =
         match dlc with
-        | Some dlc -> $" DLC: {dlc}"
-        | None -> ""
+        | SoutheastAsia -> "Southeast Asia"
+        | SouthAmerica -> "South America"
+        | dlc -> string dlc
 
     let continentToString (continent: Continent) =
         match continent with
