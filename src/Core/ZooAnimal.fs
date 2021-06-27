@@ -11,13 +11,13 @@ module ZooAnimal =
         // A
         | "Aardvark" ->
             { animal with
-                region = Some [ "Subsahara-Afrika" ]
+                region = Some [ "Sub-Saharan Africa" ]
                 dlc = None
                 nameGerman = "Erdferkel"
             }
         | "African Buffalo" ->
             { animal with
-                region = Some [ "Subsahara-Afrika" ]
+                region = Some [ "Sub-Saharan Africa" ]
                 dlc = None
                 nameGerman = "Kaffernbüffel"
             }
@@ -25,55 +25,52 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Subsahara-Afrika: Kenia, Tansania, Botswana, Simbabw, Namibia, Angola"
+                        "Sub-Saharan Africa" //Original Sub-Saharan Africa: Kenia, Tansania, Botswana, Simbabw, Namibia, Angola
                     ]
                 dlc = None
                 nameGerman = "Afrikanischer Elefant"
             }
+        | "African Penguin" -> //TODO: muss komplett gesetzt werden
+            { animal with
+                region = Some [ "Namibia, South Africa" ]
+                dlc = Some Africa
+                nameGerman = "Brillenpinguin"
+            }
         | "African Wild Dog" ->
             { animal with
-                region = Some [ "Subsahara-Afrika " ]
+                region = Some [ "Sub-Saharan Africa" ]
                 dlc = None
                 nameGerman = "Afrikanischer Wildhund"
             }
         | "Aldabra Giant Tortoise" ->
             { animal with
-                region = Some [ "Sechellen" ]
+                region = Some [ "Seychelles" ]
                 dlc = None
                 nameGerman = "Aldabra-Riesenschildkröte"
             }
         | "Amazonian Giant Centipede" ->
             { animal with
-                region =
-                    Some [
-                        "Überall in Südamerika und der Karibik"
-                    ]
+                region = Some [ "South America, Caribbean" ]
                 dlc = None
                 nameGerman = "Brasilianischer Riesenläufer"
             }
         | "American Bison" ->
             { animal with
-                region = Some [ "Kanada, USA" ]
+                region = Some [ "Canada, USA" ]
                 dlc = None
                 nameGerman = "Amerikanischer Bison"
             }
         | "Arctic Wolf" ->
             { animal with
-                region = Some [ "Kanada, Grönland" ]
+                region = Some [ "Canada, Greenland" ]
                 dlc = Some Arctic
                 nameGerman = "Polarwolf"
-            }
-        | "African Penguin" -> //TODO: muss komplett gesetzt werden
-            { animal with
-                region = Some [ "Namibia und Südafrika" ]
-                dlc = Some Africa
-                nameGerman = "Brillenpinguin"
             }
 
         // B
         | "Babirusa" -> //TODO: muss komplett gesetzt werden
             { animal with
-                region = Some [ "Indonesien" ]
+                region = Some [ "Indonesia" ]
                 dlc = Some SoutheastAsia
                 nameGerman = "Babirusa"
             }
@@ -81,7 +78,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Mongolei, China, Himalaya, Sibirien"
+                        "Mongolia, China, Himalayas, Sibiria"
                     ]
                 dlc = None
                 nameGerman = "Trampeltier"
@@ -90,7 +87,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Belize, Kolmbien, Costa Rica, Guatemala, Honduras, Mexiko, Nicaragua, Panama"
+                        "Belize, Colombia, Costa Rica, Guatemala, Honduras, Mexico, Nicaragua, Panama"
                     ]
                 dlc = None
                 nameGerman = "Mittelamerikanischer Tapir"
@@ -99,7 +96,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Indien, Bangladesch, Nepal, Bhutan, China, Myanmar"
+                        "India, Bangladesh, Nepal, Bhutan, China, Myanmar"
                     ]
                 dlc = None
                 nameGerman = "Königstiger"
@@ -108,7 +105,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Philippinen, Bhutan, Thailand, Malaysia, Indonesien, Brunei, Singapur, Laos, Vietnam, Myanmar, Kambodscha, Bangladesch, China, Indien, Nepal"
+                        "Philippines, Bhutan, Thailand, Malaysia, Indonesia, Brunei, Singapore, Laos, Vietnam, Myanmar, Cambodia, Bangladesh, China, India, Nepal"
                     ]
                 dlc = Some SoutheastAsia
                 nameGerman = "Binturong"
@@ -117,14 +114,17 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Südafrika, Swasiland, Lesotho, Namibia"
+                        "South Africa, Eswatini, Lesotho, Namibia"
                     ]
                 dlc = None
                 nameGerman = "Weißschwanzgnu"
             }
         | "Boa Constrictor" ->
             { animal with
-                region = Some [ "Kanada,Grönland" ]
+                region =
+                    Some [
+                        "Colombia, Ecuador, Peru, Venezuela, Trinidad and Tobago, Guyana, Suriname, French Guiana, Brazil, Bolivia, Uruguay, Argentina"
+                    ]
                 dlc = None
                 nameGerman = "Abgottschlange"
             }
@@ -132,44 +132,45 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Kamerun, Zentralafrikanische Republik, Republik Kongo, Demokratische Republik Kongo, Elfenbeinküste, Äquatorialguinea, Gabun, Ghana, Liberia, Sierra Leone, Südsudan"
+                        "Cameroon, Central African Republic, Republic of Congo, Democratic Republic of Congo, Ivory Coast, Equatorial Guinea, Gabon, Ghana, Liberia, Sierra Leone, Sudan"
                     ]
                 dlc = None
                 nameGerman = "Bongo"
             }
         | "Bonobo" ->
             { animal with
-                region = Some [ "Demokratische Republik Kongo" ]
+                region = Some [ "Democratic Republic of Congo" ]
                 dlc = None
                 nameGerman = "Bonobo"
             }
         | "Bornean Orangutan" ->
             { animal with
-                region = Some [ "Borneo, Malaysia, Indonesien" ]
+                region = Some [ "Borneo, Malaysia, Indonesia" ]
                 dlc = None
                 nameGerman = "Borneo-Orang-Utan"
+            }
+        | "Brazilian Salmon Pink Tarantula" ->
+            { animal with
+                region = Some [ "Brazil" ]
+                dlc = None
+                nameGerman = "Brasilianische Riesenvogelspinne"
             }
         | "Brazilian Wandering Spider" ->
             { animal with
                 region =
                     Some [
-                        "Brasilien, Kolumbien, Venezuela, Ecuador, Peru, Bolivien, Paraguay, Argentinien"
+                        "Brazil, Colombia, Venezuela, Ecuador, Peru, Bolivia, Paraguay, Argentina"
                     ]
                 dlc = None
                 nameGerman = "Brasilianische Wanderspinne"
             }
-        | "Brazilian Salmon Pink Tarantula" ->
-            { animal with
-                region = Some [ "Brasilien" ]
-                dlc = None
-                nameGerman = "Brasilianische Riesenvogelspinne"
-            }
+
         // C
         | "Cheetah" ->
             { animal with
                 region =
                     Some [
-                        "Niger, Sudan, Äthiopien, Kenia, Tansania, Namibia, Botswana"
+                        "Niger, Sudan, Ethiopia, Kenya, Tanzania, Namibia, Botswana"
                     ]
                 dlc = None
                 nameGerman = "Gepard"
@@ -178,7 +179,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Indien, Nepal, Bhutan, Bangladesch, Myanmar, Süden von China, Hainan, Taiwan"
+                        "India, Nepal, Bhutan, Bangladesh, Myanmar, China, Hainan, Taiwan"
                     ]
                 dlc = None
                 nameGerman = "Chinesisches Schuppentier"
@@ -187,20 +188,20 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Malaysia, Thailand, Kambodscha, Vietnam, Laos, Myanmar, China, Nepal, Bhutan, Bangladesch, Indien"
+                        "Malaysia, Thailand, Cambodia, Vietnam, Laos, Myanmar, China, Nepal, Bhutan, Bangladesh, India"
                     ]
                 dlc = Some SoutheastAsia
                 nameGerman = "Nebelparder"
             }
         | "Colombian White-Faced Capuchin Monkey" ->
             { animal with
-                region = Some [ "Panama, Kolumbien, Ecuador" ]
+                region = Some [ "Panama, Colombia, Ecuador" ]
                 dlc = Some Dlc.SouthAmerica
                 nameGerman = "Weißschulter-Kapuzineraffe"
             }
         | "Common Death Adder" ->
             { animal with
-                region = Some [ "Australien" ]
+                region = Some [ "Australia" ]
                 dlc = None
                 nameGerman = "Todesotter"
             }
@@ -208,31 +209,22 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Ganz Afrika, mit Ausnahme der Wüsten und Regenwälder"
+                        "Africa" // Original Ganz Afrika, mit Ausnahme der Wüsten und Regenwälder
                     ]
                 dlc = None
                 nameGerman = "Afrikanischer Strauß"
             }
         | "Common Warthog" ->
             { animal with
-                region = Some [ "Subsahara-Afrika" ]
+                region = Some [ "Sub-Saharan Africa" ]
                 dlc = None
                 nameGerman = "Warzenschwein"
-            }
-        | "Crey Seal" ->
-            { animal with
-                region =
-                    Some [
-                        "Großbritanien, Irland, Island, Norwegen, Dändemark, Frankreich, Niederlande, Berlgien, Deutschland, Schweden, Finnland, Estland, Lettland, Litauen, Polen, Russland, Kanada, USA"
-                    ]
-                dlc = Some Aquatic
-                nameGerman = "Kegelrobbe"
             }
         | "Cuvier's Dwarf Caiman" ->
             { animal with
                 region =
                     Some [
-                        "Bolivien, Brasilien, Ecuador, Französisch-Guyana, Guyana, Kolumbien, Paraguay, Peru, Suriname, Venezuela"
+                        "Bolivia, Brazil, Colombia, Ecuador, French Guiana, Guyana, Paraguay, Peru, Suriname, Venezuela"
                     ]
                 dlc = Some Aquatic
                 nameGerman = "Brauen-Glattstirnkaiman"
@@ -240,7 +232,7 @@ module ZooAnimal =
         // D
         | "Dall Sheep" ->
             { animal with
-                region = Some [ "Usa (Alaska), Kanada" ]
+                region = Some [ "Alaska, Canada" ]
                 dlc = Some Arctic
                 nameGerman = "Dall-Schaf"
             }
@@ -248,41 +240,35 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "China, Indien, Malaysia, Thailand, Mongolai, Russland,Vietnam, Kambodscha, Laos, Myanmar, Bangladesch, Bhutan, Nepal"
+                        "China, India, Malaysia, Thailand, Mongolia, Russia, Vietnam, Cambodia, Laos, Myanmar, Bangladesh, Bhutan, Nepal"
                     ]
                 dlc = Some SoutheastAsia
                 nameGerman = "Rothund"
             }
         | "Diamondback Terrapin" -> //TODO: muss komplett gesetzt werden
             { animal with
-                region = Some [ "Osten der USA" ]
+                region = Some [ "USA" ] // Original Eastern territories in the USA
                 dlc = Some Aquatic
                 nameGerman = "Diamantschildkröte"
             }
         | "Dingo" ->
             { animal with
-                region = Some [ "Australien" ]
+                region = Some [ "Australia" ]
                 dlc = Some Australia
                 nameGerman = "Dingo"
             }
         // E
         | "Eastern Blue Tongued Lizard" ->
             { animal with
-                region = Some [ "Australien" ]
+                region = Some [ "Australia" ]
                 dlc = Some Australia
                 nameGerman = "Blauzungenskink"
             }
         | "Eastern Brown Snake" ->
             { animal with
-                region = Some [ "Australien, Neuguinea" ]
+                region = Some [ "Australia, New Guinea" ]
                 dlc = None
                 nameGerman = "Östliche Braunschlange"
-            }
-        | "Formosan Black Bear" ->
-            { animal with
-                region = Some [ "Taiwan" ]
-                dlc = None
-                nameGerman = "Taiwanischer Schwarzbär"
             }
         | "Fennec Fox" -> // TODO: muss noch komplett gesetzt werden
             { animal with
@@ -293,22 +279,31 @@ module ZooAnimal =
                 dlc = Some Africa
                 nameGerman = "Fennek"
             }
+        | "Formosan Black Bear" ->
+            { animal with
+                region = Some [ "Taiwan" ]
+                dlc = None
+                nameGerman = "Taiwanischer Schwarzbär"
+            }
         // G
         | "Galapagos Giant Tortoise" ->
             { animal with
-                region = Some [ "Galapagos-Inseln" ]
+                region = Some [ "Galapagos Islands" ]
                 dlc = None
                 nameGerman = "Galapagos-Riesenschildkröte"
             }
         | "Gemsbok" ->
             { animal with
-                region = Some [ "Namibia, Botswana, Südafrika" ]
+                region =
+                    Some [
+                        "Namibia, Botswana, South Africa"
+                    ]
                 dlc = None
                 nameGerman = "Spießbock"
             }
         | "Gharial" ->
             { animal with
-                region = Some [ "Bangladesch, Nepal, Indien" ]
+                region = Some [ "Bangladesh, Nepal, India" ]
                 dlc = None
                 nameGerman = "Gangesgavial"
             }
@@ -316,32 +311,32 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Honduras, Nicaragua, Costa Rica, Panama, Kolumbien, Venezuela, Ecuador, Guyana, Suriname, Französisch-Guyana, Brasilien, Argentinien, Peru, Bolivien, Paraguay"
+                        "Honduras, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Ecuador, Guyana, Suriname, French Guiana, Brazil, Argentina, Peru, Bolivia, Paraguay"
                     ]
                 dlc = Some SouthAmerica
                 nameGerman = "Großer Ameisenbär"
             }
         | "Giant Burrowing Cockroach" ->
             { animal with
-                region = Some [ "Australien" ]
+                region = Some [ "Australia" ]
                 dlc = None
                 nameGerman = "Australische Großschabe"
             }
         | "Giant Desert Hairy Scorpion" ->
             { animal with
-                region = Some [ "Süden der USA, Mexiko" ]
+                region = Some [ "USA, Mexico" ]
                 dlc = None
                 nameGerman = "Haariger Wüstenskorpion"
             }
         | "Giant Forest Scorpion" ->
             { animal with
-                region = Some [ "Sri Lanka, Indien" ]
+                region = Some [ "Sri Lanka, India" ]
                 dlc = None
                 nameGerman = "Indischer Riesenskorpion"
             }
         | "Giant Leaf Insect" -> // TODO: muss komplett gesetzt werden
             { animal with
-                region = Some [ "Westmalaysia" ]
+                region = Some [ "Malaysia" ]
                 dlc = Some SoutheastAsia
                 nameGerman = "Großes Wandelndes Blatt"
             }
@@ -349,14 +344,14 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Bolivien, Brasilien, Ecuador, Französisch-Guyana, Guyana, Kolumbien, Paraguay, Peru, Suriname, Venezuela"
+                        "Bolivia, Brazil, Ecuador, French Guiana, Guyana, Colombia, Paraguay, Peru, Suriname, Venezuela"
                     ]
                 dlc = Some Aquatic
                 nameGerman = "Riesenotter"
             }
         | "Giant Panda" ->
             { animal with
-                region = Some [ "Zentralchina" ]
+                region = Some [ "China" ]
                 dlc = None
                 nameGerman = "Großer Panda"
             }
@@ -364,20 +359,20 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Sierra Leona, Liberia, Elfenbeinküste, Togo, Benin, Ghana, Nigeria"
+                        "Sierra Leone, Liberia, Ivory Coast, Togo, Benin, Ghana, Nigeria"
                     ]
                 dlc = None
                 nameGerman = "Echte Achatschnecke"
             }
         | "Gila Monster" ->
             { animal with
-                region = Some [ "Süden der USA, Norden Mexikos" ]
+                region = Some [ "USA, Mexico" ]
                 dlc = None
                 nameGerman = "Gila-Krustenechse"
             }
         | "Golden Poison Frog" ->
             { animal with
-                region = Some [ "Kolumbien" ]
+                region = Some [ "Colombia" ]
                 dlc = None
                 nameGerman = "Schrecklicher Pfeilgiftfrosch"
             }
@@ -385,7 +380,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Kamerun, Zentralafrikanische Republik, Demokratische Republik Kongo, Gabun,  Kenia, Nigeria, Tansania, Uganda"
+                        "Cameroon, Central African Republic, Republic of Congo, Gabon, Kenya, Nigeria, Tanzania, Uganda"
                     ]
                 dlc = None
                 nameGerman = "Goliathkäfer"
@@ -394,14 +389,14 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Suriname, Guyana, Französisch-Guyana, Brasilien, Venezuela"
+                        "Suriname, Guyana, French Guiana, Brazil, Venezuela"
                     ]
                 dlc = None
                 nameGerman = "Goliath-Vogelspinne"
             }
         | "Goliath Frog" ->
             { animal with
-                region = Some [ "Kamerun, Äquatorialguinea" ]
+                region = Some [ "Cameroon, Equatorial Guinea" ]
                 dlc = None
                 nameGerman = "Goliathfrosch"
             }
@@ -409,7 +404,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Bangladesch, Pakistan, Indien, Sri Lanka, Türkei, Israel, Libanon, Vereinigen Arabische Emirate, Kuwait, Bahrain, Spanien, Albanien, Mazedonien, Griechenland, Zypern, Portugal, Italien "
+                        "Bangladesh, Pakistan, India, Sri Lanka, Turkey, Israel, Lebanon, United Arab Emirates, Kuwait, Bahrain, Spain, Albania, Macedonia, Greece, Cyprus, Portugal, Italy"
                     ]
                 dlc = None
                 nameGerman = "Rosaflamingo"
@@ -418,17 +413,23 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Mexiko, Brasilien, Ecuador, Kribik, Süden der USA"
+                        "Mexico, Brazil, Ecuador, Caribbean, USA"
                     ]
                 dlc = None
                 nameGerman = "Grüner Leguan"
             }
-        | "Grizzly Bear" ->
+        | "Grey Seal" ->
             { animal with
                 region =
                     Some [
-                        "Kanada, Norden der USA (haupsächlich Alaska)"
+                        "UK, Ireland, Iceland, Norway, Denmark, France, Netherlands, Belgium, Germany, Sweden, Finland, Estonia, Latvia, Lithunia, Poland, Russia, Canada, USA"
                     ]
+                dlc = Some Aquatic
+                nameGerman = "Kegelrobbe"
+            }
+        | "Grizzly Bear" ->
+            { animal with
+                region = Some [ "Canada, Alaska" ]
                 dlc = None
                 nameGerman = "Grizzlybär"
             }
@@ -437,14 +438,14 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Norden von Afghanistan, Norden von Pakistan, Norden von Indien, Westchina, Nepal, Kasachstan"
+                        "Afghanistan, Pakistan, India, China, Nepal, Kazakhstan"
                     ]
                 dlc = None
                 nameGerman = "Isabellbär"
             }
         | "Hippopotamus" ->
             { animal with
-                region = Some [ "Subsahara-Afrika, alle Länder" ]
+                region = Some [ "Sub-Saharan Africa" ]
                 dlc = None
                 nameGerman = "Flusspferd"
             }
@@ -453,20 +454,20 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Indien,Nepal,Bangladesch, Bhutan, Myanmar, Thailand, Malaysia, Laos, China, Kambodscha, Vietnam"
+                        "India, Nepal,Bangladesh, Bhutan, Myanmar, Thailand, Malaysia, Laos, China, Cambodia, Vietnam"
                     ]
                 dlc = None
                 nameGerman = "Indischer Elefant"
             }
         | "Indian Peafowl" ->
             { animal with
-                region = Some [ "Indischer Subkontinent" ]
+                region = Some [ "India" ]
                 dlc = None
                 nameGerman = "Blauer Pfau"
             }
         | "Indian Rhinoceros" ->
             { animal with
-                region = Some [ "Nepal, Indien, Bhutan" ]
+                region = Some [ "Nepal, India, Bhutan" ]
                 dlc = None
                 nameGerman = "Panzernashorn"
             }
@@ -475,7 +476,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Mexiko, Kolumbien, Venezuela, Ecuador, Peru, Bolivien, Paraguay, Uruguay, Brasilien, Guyana, Suriname, Panama, Costa, Rica, Französisch-Guyana,Nicaragua, Honduras, El Salvador, Guatemala, Belize"
+                        "Mexico, Colombia, Venezuela, Ecuador, Peru, Bolivia, Paraguay, Uruguay, Brazil, Guyana, Suriname, Panama, Costa Rica, French Guiana, Nicaragua, Honduras, El Salvador, Guatemala, Belize"
                     ]
                 dlc = Some SouthAmerica
                 nameGerman = "Jaguar"
@@ -491,14 +492,14 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Falklandinseln, Südgeogien und Südliche Sandwichinseln, Prinz-Edward-Inseln, Crozetinseln, Marion-Insel, Heard- und McDonaldinseln, Macquarieinsel, Argentinien, Chile"
+                        "Falkland Island, Geogien, Sandwich Islands, Prince Edward Island, Crozet Islands, Marion Island, Heard Island, McDonald Islands, Macquarie Islands, Argentina, Chile"
                     ]
                 dlc = Some Aquatic
                 nameGerman = "Königspinguin"
             }
         | "Koala" ->
             { animal with
-                region = Some [ "Australien" ]
+                region = Some [ "Australia" ]
                 dlc = Some Australia
                 nameGerman = "Koala"
             }
@@ -506,7 +507,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Kleine Sudaninsel (Komodo, Rinca, Flores, Gili, Motang)"
+                        "Indonesia" // Original Island of Indonesia (Komodo, Rinca, Flores, Gili Motang)
                     ]
                 dlc = Some Deluxe
                 nameGerman = "Komodowaran"
@@ -514,13 +515,13 @@ module ZooAnimal =
         // L
         | "Lehmann's Poison Frog" ->
             { animal with
-                region = Some [ "Kolumbien" ]
+                region = Some [ "Colombia" ]
                 dlc = None
                 nameGerman = "Lehmanns Pfeilgiftfrosch"
             }
         | "Lesser Antillean Iguana" ->
             { animal with
-                region = Some [ "Kleine Antillen" ]
+                region = Some [ "Lesser Antilles" ]
                 dlc = None
                 nameGerman = "Grüner Inselleguan"
             }
@@ -528,7 +529,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Ecuador, Peru, Bolivien, CHile, Argentinien"
+                        "Ecuador, Peru, Bolivia, Chile, Argentina"
                     ]
                 dlc = Some SouthAmerica
                 nameGerman = "Lama"
@@ -536,10 +537,7 @@ module ZooAnimal =
         // M
         | "Malayan Tapir" ->
             { animal with
-                region =
-                    Some [
-                        "Malaysia, Indonesien, Thailand"
-                    ]
+                region = Some [ "Malaysia, Indonesia, Thailand" ]
                 dlc = Some SoutheastAsia
                 nameGerman = "Malaysischer Tapir"
             }
@@ -547,16 +545,10 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Kamerun, Gabun, Äquatorialguinea, Republik Kongo"
+                        "Cameroon, Gabon, Equatorial Guinea, Republic of Congo"
                     ]
                 dlc = None
                 nameGerman = "Mandrill"
-            }
-        | "Mexican Red Knee Tarantula" ->
-            { animal with
-                region = Some [ "Mexiko" ]
-                dlc = None
-                nameGerman = "Mexikanische Rotknie-Vogelspinne"
             }
         | "Meerkat" -> // TODO: muss noch komplett gesetzt werden
             { animal with
@@ -567,10 +559,16 @@ module ZooAnimal =
                 dlc = Some Africa
                 nameGerman = "Erdmännchen"
             }
+        | "Mexican Red Knee Tarantula" ->
+            { animal with
+                region = Some [ "Mexico" ]
+                dlc = None
+                nameGerman = "Mexikanische Rotknie-Vogelspinne"
+            }
         // N
         | "Nile Monitor" ->
             { animal with
-                region = Some [ "Subsahara-Afrika" ]
+                region = Some [ "Sub-Saharan Africa" ]
                 dlc = None
                 nameGerman = "Nilwaran"
             }
@@ -578,7 +576,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Malawi, Mosambik, Südafrika, Königreich Eswatini, Simbabwe, Botswana, Namibia"
+                        "Malawi, Mozambique, South Africa, Eswatini, Zimbabwe, Botswana, Namibia"
                     ]
                 dlc = None
                 nameGerman = "Nyala"
@@ -586,14 +584,14 @@ module ZooAnimal =
         // O
         | "Okapi" ->
             { animal with
-                region = None // TODO: Regionen ergänzen
+                region = Some [ "Democratic Republic of Congo" ]
                 dlc = None
                 nameGerman = "Okapi"
             }
         // P
         | "Plains Zebra" ->
             { animal with
-                region = Some [ "Osten und Süden von Afrika" ]
+                region = Some [ "Africa" ]
                 dlc = None
                 nameGerman = "Steppenzebra"
             }
@@ -601,23 +599,20 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Kanada, USA (Alaska), Grönland, Norwegen (Svalbard), Russland, Island"
+                        "Canada, Alaska, Greenland, Svalbard, Russia, Iceland"
                     ]
                 dlc = Some Arctic
                 nameGerman = "Eisbär"
             }
         | "Proboscis Monkey" -> // TODO: muss noch komplett gesetzt werden
             { animal with
-                region =
-                    Some [
-                        "Borneo (Indonesien, Malaysia, Brunei)"
-                    ]
+                region = Some [ "Borneo" ]
                 dlc = Some SoutheastAsia
                 nameGerman = "Nasenaffe"
             }
         | "Pronghorn Antelope" ->
             { animal with
-                region = Some [ "Usa, Kanada, Mexiko" ]
+                region = Some [ "USA, Canada, Mexico" ]
                 dlc = None
                 nameGerman = "Gabelbock"
             }
@@ -625,7 +620,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Subsahara-Afrika und Süden des Mittleren Ostens"
+                        "Sub-Saharan Africa, Middle East"
                     ]
                 dlc = None
                 nameGerman = "Puffotter"
@@ -634,7 +629,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Sierra Leona, Liberia, Guinea, Elfenbeinküste"
+                        "Sierra Leone, Liberia, Guinea, Ivory Coast"
                     ]
                 dlc = Some Deluxe
                 nameGerman = "Zwergflusspferd"
@@ -642,19 +637,19 @@ module ZooAnimal =
         // R
         | "Red Kangaroo" ->
             { animal with
-                region = Some [ "Australien" ]
+                region = Some [ "Australia" ]
                 dlc = Some Australia
                 nameGerman = "Rotes Riesenkänguru"
             }
         | "Red Panda" ->
             { animal with
-                region = Some [ "Ost-Himalaya, Südwestchina" ]
+                region = Some [ "Himalayas, China" ]
                 dlc = None
                 nameGerman = "Kleiner Panda"
             }
         | "Red Ruffed Lemur" ->
             { animal with
-                region = Some [ "Madagaskar" ]
+                region = Some [ "Madagascar" ]
                 dlc = None
                 nameGerman = "Roter Vari"
             }
@@ -662,7 +657,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Mexiko, Guatemala, Honduras, Nicaragua, Costa Rica, Panama, Kolumbien"
+                        "Mexico, Guatemala, Honduras, Nicaragua, Costa Rica, Panama, Colombia"
                     ]
                 dlc = Some SouthAmerica
                 nameGerman = "Rotaugenlaubfrosch"
@@ -671,20 +666,20 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Russland (Sibirien), Kanada, USA (Alsaka), Norwegen, Dänemark, Finnland, Grönland"
+                        "Sibiria, Canada, Alaska, Norway, Denmark, Finland, Greenland"
                     ]
                 dlc = Some Arctic
                 nameGerman = "Rentier"
             }
         | "Reticulated Giraffe" ->
             { animal with
-                region = Some [ "Somalia, Äthiopien, Kenia" ]
+                region = Some [ "Somalia, Ethiopia, Kenya" ]
                 dlc = None
                 nameGerman = "Netzgiraffe"
             }
         | "Ring Tailed Lemur" ->
             { animal with
-                region = Some [ "Madagaskar" ]
+                region = Some [ "Madagascar" ]
                 dlc = None
                 nameGerman = "Katta"
             }
@@ -693,17 +688,23 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Mosambik, Simbabwe, Königreich Eswatini, Lesotho, Malawi, Südafrika, Botswana"
+                        "Mozambique, Zimbabwe, Eswatini, Lesotho, Malawi, South Africa, Botswana"
                     ]
                 dlc = None
                 nameGerman = "Rappenantilope"
             }
-        | "Saltwater Crocodile" ->
+        | "Sacred Scarab Beetle" -> // TODO: muss noch komplett gesetzt werden
             { animal with
                 region =
                     Some [
-                        "Südostasien, Ostindien, Norden von Australien"
+                        "Morocco, Sahara, Algeria, Tunisia, Libya, Egypt, Saudi Arabia, Israel, Lebanon, Syria, Italy, France"
                     ]
+                dlc = Some Africa
+                nameGerman = "Heiliger Pillendreher"
+            }
+        | "Saltwater Crocodile" ->
+            { animal with
+                region = Some [ "Asia, India, Australia" ]
                 dlc = None
                 nameGerman = "Leistenkrokodil"
             }
@@ -711,7 +712,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Osten von China, Osten von Russland, Nordkorea, Mongolei"
+                        "China, Russia, North Korea, Mongolia"
                     ]
                 dlc = None
                 nameGerman = "Siribrischer Tiger"
@@ -720,7 +721,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "China, Sudsibirien, Himalaya, Mongolei"
+                        "China, Sibiria, Himalayas, Mongolia"
                     ]
                 dlc = None
                 nameGerman = "Schneeleopard"
@@ -729,20 +730,32 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Australien, Papua-Neuguinea, Indonesien"
+                        "Australia, Papua New Guinea, Indonesia"
                     ]
                 dlc = Some Australia
                 nameGerman = "Helmkasuar"
             }
+        | "Southern White Rhinoceros" -> // TODO: muss noch komplett gesetzt werden
+            { animal with
+                region =
+                    Some [
+                        "South Africa, Angola, Zambia, Zimbabwe, Malawi, Mozambique, Namibia, Botswana, Lesotho, Eswatini"
+                    ]
+                dlc = Some Africa
+                nameGerman = "Breitmaulnashorn"
+            }
         | "Spotted Hyena" ->
             { animal with
-                region = Some [ "Subsahara-Afrika" ]
+                region = Some [ "Sub-Saharan Africa" ]
                 dlc = None
                 nameGerman = "Tüpfelhyäne"
             }
         | "Springbok" ->
             { animal with
-                region = Some [ "Namibia, Botswana, Südafrika" ]
+                region =
+                    Some [
+                        "Namibia, Botswana, South Africa"
+                    ]
                 dlc = None
                 nameGerman = "Springbock"
             }
@@ -750,33 +763,15 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Malaysia, Indonesien, Brunei, Thailand, Kambodscha, Vietnam, Myanmar, Laos, Bangladesch, Indien"
+                        "Malaysia, Indonesia, Brunei, Thailand, Cambodia, Vietnam, Myanmar, Laos, Bangladesh, India"
                     ]
                 dlc = Some SoutheastAsia
                 nameGerman = "Sonnenbär"
             }
-        | "Southern White Rhinoceros" -> // TODO: muss noch komplett gesetzt werden
-            { animal with
-                region =
-                    Some [
-                        "Südafrika, Angola, Sambia, Zimbabwe, Malawi, Mosambik, Namibia, Botswana, Lesotho, Königreich Eswatini"
-                    ]
-                dlc = Some Africa
-                nameGerman = "Breitmaulnashorn"
-            }
-        | "Sacred Scarab Beetle" -> // TODO: muss noch komplett gesetzt werden
-            { animal with
-                region =
-                    Some [
-                        "Morocco, Western Sahara, Algeria, Tunisia, Libya, Egypt, Saudi Arabia, Israel, Lebanon, Syria, Italy, France"
-                    ]
-                dlc = Some Africa
-                nameGerman = "Heiliger Pillendreher"
-            }
         // T
         | "Thomson's Gazelle" ->
             { animal with
-                region = Some [ "Tansania, Kenia" ]
+                region = Some [ "Tanzania, Kenya" ]
                 dlc = Some Deluxe
                 nameGerman = "Thomson-Gazelle"
             }
@@ -784,7 +779,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Großteil der nördlichen Hemisphäre"
+                        "USA, Canada, Greenland, Spain, Italy, Norway, Sweden, Russia, Finland, China, India"
                     ]
                 dlc = None
                 nameGerman = "Timberwolf"
@@ -793,7 +788,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Venezuela, Kolumbien, Ecuador, Peru, Guyanas, Brasilien"
+                        "Venezuela, Colombia, Ecuador, Peru, The Guianas, Brazil"
                     ]
                 dlc = None
                 nameGerman = "Riesenbockkäfer"
@@ -809,14 +804,14 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Guinea, Senegal, Liberia, Sierra Leona, Elfenbeinküste"
+                        "Guinea, Senegal, Liberia, Sierra Leone, Ivory Coast"
                     ]
                 dlc = None
                 nameGerman = "Westlicher Simpanse"
             }
         | "Western Diamondback Rattlesnake" ->
             { animal with
-                region = Some [ "USA, Mexiko" ]
+                region = Some [ "USA, Mexico" ]
                 dlc = None
                 nameGerman = "Texas-Klapperschlange"
             }
@@ -824,7 +819,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Angola, Kamerun, Zentralafrikanische Republik, Äquatorialguinea, Gabun, Demokratische Republik Kongo"
+                        "Angola, Cameroon, Central African Republic, Equatorial Guinea, Gabon, Democratic Republic of Congo"
                     ]
                 dlc = None
                 nameGerman = "Westlicher Flachlandgorilla"
@@ -834,7 +829,7 @@ module ZooAnimal =
             { animal with
                 region =
                     Some [
-                        "Paraguay, Bolivien, Argentinien, Brasilien"
+                        "Paraguay, Bolivia, Argentina, Brazil"
                     ]
                 dlc = None
                 nameGerman = "Gelbe Anakonda"
