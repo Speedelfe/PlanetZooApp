@@ -1,0 +1,38 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  deploy:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        dotnet: [5.0.203]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build for debug before releasing
+        run: dotnet build
+      - name: Bundle releases
+        run: dotnet fsi ./scripts/bundle.fsx
+      # For now I simply make a continuous build
+      - name: Release files
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          automatic_release_tag: latest
+          prerelease: false
+          title: Continuous Build
+          files: |
+            LICENSE
+            deploy/*
