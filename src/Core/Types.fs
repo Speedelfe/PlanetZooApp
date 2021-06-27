@@ -131,6 +131,7 @@ module Types =
             continentListFilter: Continent List option
             dlcListFilter: Dlc List Option
             biomeListFilter: Biome List Option
+            regionListFilter: Region List Option
             vivariumFilter: bool
             notVivariumFilter: bool
             viewMode: ViewMode
@@ -150,6 +151,8 @@ module Types =
         | RemoveDlcFromFilterList of Dlc
         | FilterAnimalListByBiome of Biome List
         | RemoveBiomeFromFilterList of Biome
+        | FilterAnimalListByRegion of Region List
+        | RemoveRegionFromFilterList of Region
         | FilterAnimalListByVivarium of bool
         | FilterAnimalListByNotVivarium of bool
         | ShowFilterView

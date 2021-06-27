@@ -23,6 +23,7 @@ module MainView =
                 continentListFilter = None
                 dlcListFilter = None
                 biomeListFilter = None
+                regionListFilter = None
                 vivariumFilter = false
                 notVivariumFilter = false
                 viewMode = ListView
@@ -147,6 +148,28 @@ module MainView =
                 }
 
             state, Cmd.none
+        | FilterAnimalListByRegion regionList ->
+            let state =
+                { state with
+                    regionListFilter = Some regionList
+                }
+
+            state, Cmd.none
+        | RemoveRegionFromFilterList region ->
+            let newRegionList : Region List =
+                match state.regionListFilter with
+                | Some regionList -> (List.except [ region ] regionList)
+                | None -> []
+
+            let state =
+                { state with
+                    regionListFilter =
+                        match newRegionList with
+                        | [] -> None
+                        | regionList -> Some regionList
+                }
+
+            state, Cmd.none
         | FilterAnimalListByVivarium isVivarium ->
             let state =
                 { state with
@@ -229,6 +252,11 @@ module MainView =
                         match state.biomeListFilter with
                         | None -> animalList
                         | Some biomeListFilter -> filterBiome animalList biomeListFilter)
+                    // RegionFilter
+                    |> (fun animalList ->
+                        match state.regionListFilter with
+                        | None -> animalList
+                        | Some regionListFilter -> filterRegion animalList regionListFilter)
                     // Vivarium Tier Filter
                     |> (fun animalList ->
                         match state.vivariumFilter with
@@ -250,9 +278,7 @@ module MainView =
                         OnChangeOf animalList
                     )
                 ]
-
             ]
-
         ]
         :> IView
 

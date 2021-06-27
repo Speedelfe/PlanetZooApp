@@ -50,6 +50,9 @@ module FilterView =
     let renderToggleFilterButtonBiome =
         renderToggleButtonFilter FilterAnimalListByBiome RemoveBiomeFromFilterList string
 
+    let renderToggleFilterButtonRegion =
+        renderToggleButtonFilter FilterAnimalListByRegion RemoveRegionFromFilterList string
+
 
 
     let viewContinentsFilterOptions (state: State) dispatch : IView =
@@ -112,10 +115,8 @@ module FilterView =
         :> IView
 
     let viewBiomeFilterOption (state: State) dispatch : IView =
-        let biomeList : Biome List =
-            match state.biomeListFilter with
-            | Some biomeList -> biomeList
-            | None -> []
+        let biomeList =
+            state.biomeListFilter |> Option.defaultValue []
 
         let renderToggleFilterButtonBiome =
             renderToggleFilterButtonBiome dispatch biomeList
@@ -140,6 +141,39 @@ module FilterView =
             ]
         ]
         :> IView
+
+    let viewRegionFilterOption (state: State) dispatch : IView =
+        let regions =
+            state.animalMap
+            |> Map.toList
+            |> List.map snd
+            |> regionsFromAnimalList
+            |> Set.toList
+
+        let filteredRegionList =
+            match state.regionListFilter with
+            | Some regionList -> regionList
+            | None -> []
+
+        let renderToggleFilterButtonRegion =
+            renderToggleFilterButtonRegion dispatch filteredRegionList
+
+        DockPanel.create [
+            DockPanel.dock Dock.Top
+            DockPanel.children [
+                renderFilterHeadline "Region"
+                WrapPanel.create [
+                    WrapPanel.dock Dock.Top
+                    WrapPanel.margin (20., 10.)
+                    WrapPanel.children [
+                        for region in regions do
+                            renderToggleFilterButtonRegion region
+                    ]
+                ]
+            ]
+        ]
+        :> IView
+
 
     let viewHabitationFilter (state: State) dispatch : IView =
         let isVivariumFiltered : bool = state.vivariumFilter
@@ -188,13 +222,6 @@ module FilterView =
         :> IView
 
     let viewFilterView (state: State) dispatch : IView =
-        let regions =
-            state.animalMap
-            |> Map.toList
-            |> List.map snd
-            |> regionsFromAnimalList
-            |> printfn "%A"
-
         DockPanel.create [
             DockPanel.children [
                 StackPanel.create [
@@ -214,12 +241,23 @@ module FilterView =
                         ]
                     ]
                 ]
+                ScrollViewer.create [
+                    ScrollViewer.horizontalScrollBarVisibility ScrollBarVisibility.Disabled
+                    ScrollViewer.content (
+                        StackPanel.create [
+                            StackPanel.children [
+                                viewContinentsFilterOptions state dispatch
+                                viewDLCFilterOption state dispatch
+                                viewBiomeFilterOption state dispatch
+                                viewRegionFilterOption state dispatch
+                                viewHabitationFilter state dispatch
+                            ]
+                        ]
 
-                viewContinentsFilterOptions state dispatch
-                viewDLCFilterOption state dispatch
-                viewBiomeFilterOption state dispatch
-                viewHabitationFilter state dispatch
-                StackPanel.create []
+
+                    //StackPanel.create []
+                    )
+                ]
             ]
         ]
         :> IView
