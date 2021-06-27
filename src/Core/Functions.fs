@@ -9,16 +9,20 @@ open PlanetZooApp.ZooAnimal
 open Types
 
 module Functions =
-    let dataUrl =
+    let mainDataUrl =
         "https://raw.githubusercontent.com/olmobuining/zoopedia-data/master/mixed-data.json"
+
+    let additionalDataUrl =
+        "https://raw.githubusercontent.com/Speedelfe/PlanetZooApp/main/more_animals.json"
+
 
     let animalDataPath = "./animal-data.json"
     let animalDataAdditionalPath = "./more_animals.json"
 
-    let downloadFile () =
+    let downloadFile (fileUrl: string) (filePath: string) =
         let wc = new WebClient()
 
-        wc.DownloadFileTaskAsync(dataUrl, animalDataPath)
+        wc.DownloadFileTaskAsync(fileUrl, filePath)
         |> Async.AwaitTask
 
     let loadFile dataPath =
@@ -31,7 +35,10 @@ module Functions =
     let loadAnimalData () =
         async {
             if not (File.Exists animalDataPath) then
-                do! downloadFile ()
+                do! downloadFile mainDataUrl animalDataPath
+
+            if not (File.Exists animalDataAdditionalPath) then
+                do! downloadFile additionalDataUrl animalDataAdditionalPath
 
             return
                 [
