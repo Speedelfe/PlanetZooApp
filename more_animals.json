@@ -539,5 +539,351 @@
         "description": "",
         "slug": "sacred_scarab_beetle",
         "key": "sacred_scarab_beetle"
+    },
+    {
+        "name": "King Penguin",
+        "continent": [
+            "Antarctica",
+            "South America"
+        ],
+        "biome": [
+            "Aquatic",
+            "Tundra"
+        ],
+        "can_swim": true,
+        "status": "Least concern",
+        "exhibit": false,
+        "dominance": "None.",
+        "relationship_human": "Confident",
+        "mating_system": "Monogamous",
+        "life_expectancy": {
+            "male": 26,
+            "female": 26
+        },
+        "habitat_requirements": {
+            "guest_enter": true,
+            "exhibit": false,
+            "land": 200,
+            "land_additional": 0,
+            "water_additional": 86,
+            "climbable_additional": 0,
+            "water": 144,
+            "climbable": 0,
+            "humidity": {
+                "min": 0,
+                "max": 0
+            },
+            "temperature": {
+                "min": -20,
+                "max": 17
+            },
+            "fence": {
+                "grade": 2,
+                "height": 1.5,
+                "climbproof": false
+            },
+            "group_male": {
+                "size": {
+                    "min": 6,
+                    "max": 500
+                }
+            },
+            "group_female": {
+                "size": {
+                    "min": 6,
+                    "max": 500
+                }
+            },
+            "group_mixed": {
+                "size": {
+                    "min": 6,
+                    "max": 500
+                },
+                "male": 500,
+                "female": 500
+            }
+        },
+        "latin_name": "Aptenodytes patagonicus patagonicus",
+        "category": "",
+        "description": "",
+        "slug": "king_penguin",
+        "key": "king_penguin"
+    },
+    {
+        "name": "Grey Seal",
+        "continent": [
+            "North America",
+            "Europe"
+        ],
+        "biome": [
+            "Aquatic",
+            "Tundra",
+            "Temperate"
+        ],
+        "can_swim": true,
+        "status": "Least concern",
+        "exhibit": false,
+        "dominance": "Male dominance hierarchy; old males tend to have their own harem",
+        "relationship_human": "Neutral",
+        "mating_system": "Polygynous",
+        "life_expectancy": {
+            "male": 25,
+            "female": 25
+        },
+        "habitat_requirements": {
+            "guest_enter": false,
+            "exhibit": false,
+            "land": 200,
+            "land_additional": 0,
+            "water_additional": 170,
+            "climbable_additional": 0,
+            "water": 300,
+            "climbable": 0,
+            "humidity": {
+                "min": 0,
+                "max": 0
+            },
+            "temperature": {
+                "min": -15,
+                "max": 26
+            },
+            "fence": {
+                "grade": 2,
+                "height": 1.8,
+                "climbproof": false
+            },
+            "group_male": {
+                "size": {
+                    "min": 3,
+                    "max": 3
+                }
+            },
+            "group_female": {
+                "size": {
+                    "min": 3,
+                    "max": 8
+                }
+            },
+            "group_mixed": {
+                "size": {
+                    "min": 3,
+                    "max": 8
+                },
+                "male": 2,
+                "female": 8
+            }
+        },
+        "latin_name": "Halichoerus grypus atlantica",
+        "category": "",
+        "description": "",
+        "slug": "grey_seal",
+        "key": "grey_seal"
+    },
+    {
+        "name": "Cuvier's Dwarf Caiman",
+        "continent": [
+            "South America"
+        ],
+        "biome": [
+            "Aquatic",
+            "Tropical",
+            "Temperate",
+            "Grassland"
+        ],
+        "can_swim": true,
+        "status": "Least concern",
+        "exhibit": false,
+        "dominance": "Aggression level equals dominance",
+        "relationship_human": "Confident",
+        "mating_system": "Polygynous",
+        "life_expectancy": {
+            "male": 50,
+            "female": 50
+        },
+        "habitat_requirements": {
+            "guest_enter": false,
+            "exhibit": false,
+            "land": 182,
+            "land_additional": 0,
+            "water_additional": 0,
+            "climbable_additional": 0,
+            "water": 79,
+            "climbable": 0,
+            "humidity": {
+                "min": 0,
+                "max": 0
+            },
+            "temperature": {
+                "min": 6,
+                "max": 42
+            },
+            "fence": {
+                "grade": 2,
+                "height": 1.5,
+                "climbproof": false
+            },
+            "group_male": {
+                "size": {
+                    "min": 1,
+                    "max": 1
+                }
+            },
+            "group_female": {
+                "size": {
+                    "min": 1,
+                    "max": 1
+                }
+            },
+            "group_mixed": {
+                "size": {
+                    "min": 1,
+                    "max": 2
+                },
+                "male": 1,
+                "female": 1
+            }
+        },
+        "latin_name": "Paleosuchus palpebrosus",
+        "category": "",
+        "description": "",
+        "slug": "cuviers_dwarf_caiman",
+        "key": "cuviers_dwarf_caiman"
+    },
+    {
+        "name": "Giant Otter",
+        "continent": [
+            "South America"
+        ],
+        "biome": [
+            "Aquatic",
+            "Tropical",
+            "Grassland"
+        ],
+        "can_swim": true,
+        "status": "Endangered",
+        "exhibit": false,
+        "dominance": "Dominant mated pair within familiy group",
+        "relationship_human": "Confident",
+        "mating_system": "Monogamous",
+        "life_expectancy": {
+            "male": 17,
+            "female": 17
+        },
+        "habitat_requirements": {
+            "guest_enter": false,
+            "exhibit": false,
+            "land": 360,
+            "land_additional": 0,
+            "water_additional": 72,
+            "climbable_additional": 0,
+            "water": 144,
+            "climbable": 0,
+            "humidity": {
+                "min": 0,
+                "max": 0
+            },
+            "temperature": {
+                "min": 10,
+                "max": 42
+            },
+            "fence": {
+                "grade": 2,
+                "height": 1.8,
+                "climbproof": false
+            },
+            "group_male": {
+                "size": {
+                    "min": 2,
+                    "max": 9
+                }
+            },
+            "group_female": {
+                "size": {
+                    "min": 2,
+                    "max": 6
+                }
+            },
+            "group_mixed": {
+                "size": {
+                    "min": 2,
+                    "max": 15
+                },
+                "male": 9,
+                "female": 9
+            }
+        },
+        "latin_name": "Pteronura brasiliensis",
+        "category": "",
+        "description": "",
+        "slug": "giant_otter",
+        "key": "giant_otter"
+    },
+    {
+        "name": "Diamondback Terrapin",
+        "continent": [
+            "North America"
+        ],
+        "biome": [
+            "Aquatic",
+            "Temperate"
+        ],
+        "can_swim": false,
+        "status": "Vulnerable",
+        "exhibit": true,
+        "dominance": "None",
+        "relationship_human": "",
+        "mating_system": "Promiscuous",
+        "life_expectancy": {
+            "male": 35,
+            "female": 35
+        },
+        "habitat_requirements": {
+            "guest_enter": false,
+            "exhibit": false,
+            "land": 0,
+            "land_additional": 0,
+            "water_additional": 0,
+            "climbable_additional": 0,
+            "water": 0,
+            "climbable": 0,
+            "humidity": {
+                "min": 65,
+                "max": 80
+            },
+            "temperature": {
+                "min": 21,
+                "max": 32
+            },
+            "fence": {
+                "grade": 2,
+                "height": 1.8,
+                "climbproof": false
+            },
+            "group_male": {
+                "size": {
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            "group_female": {
+                "size": {
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            "group_mixed": {
+                "size": {
+                    "min": 1,
+                    "max": 8
+                },
+                "male": 0,
+                "female": 0
+            }
+        },
+        "latin_name": "Malaclemys terrapin terrapin",
+        "category": "",
+        "description": "",
+        "slug": "diamondback_terrapin",
+        "key": "diamondback_terrapin"
     }
 ]

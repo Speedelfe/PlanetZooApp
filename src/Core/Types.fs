@@ -8,6 +8,7 @@ module Types =
 
     type Continent =
         | Africa
+        | Antarctica
         | Asia
         | [<JsonUnionCase(Case = "Central America")>] CentralAmerica
         | Europe
