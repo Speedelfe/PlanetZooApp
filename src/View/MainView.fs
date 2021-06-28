@@ -27,6 +27,7 @@ module MainView =
                 vivariumFilter = false
                 notVivariumFilter = false
                 viewMode = ListView
+                isFiltered = false
             }
 
         (*loadFile ()*)
@@ -81,6 +82,9 @@ module MainView =
         | AsyncError ex -> raise ex
         | ShowAnimalList ->
             let state = { state with viewMode = ListView }
+            state, Cmd.none
+        | SetIsFiltered isFiltered ->
+            let state = { state with isFiltered = isFiltered }
             state, Cmd.none
         | FilterAnimalListByContinent continentList ->
             let state =
@@ -173,20 +177,22 @@ module MainView =
         | FilterAnimalListByVivarium isVivarium ->
             let state =
                 { state with
-                    vivariumFilter =
+                    vivariumFilter = isVivarium
+                    notVivariumFilter =
                         match isVivarium with
-                        | true -> true
-                        | false -> false
+                        | true -> not isVivarium
+                        | false -> isVivarium
                 }
 
             state, Cmd.none
         | FilterAnimalListByNotVivarium isNotVivarium ->
             let state =
                 { state with
-                    notVivariumFilter =
+                    notVivariumFilter = isNotVivarium
+                    vivariumFilter =
                         match isNotVivarium with
-                        | true -> true
-                        | false -> false
+                        | true -> not isNotVivarium
+                        | false -> isNotVivarium
                 }
 
             state, Cmd.none
@@ -227,7 +233,7 @@ module MainView =
                             TextBox.text "Suche nach Name" //TODO: Funktion zum Suchen nach Animal Name
                         ]
                         Button.create [
-                            Button.content "Filter" //TODO: Click Event -> Filter "Fenster" öffnen
+                            Button.content "Filter"
                             Button.onClick (fun _ -> dispatch ShowFilterView)
                         ]
                     ]

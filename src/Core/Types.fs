@@ -136,6 +136,7 @@ module Types =
             vivariumFilter: bool
             notVivariumFilter: bool
             viewMode: ViewMode
+            isFiltered: bool
         }
 
     type Msg =
@@ -146,6 +147,7 @@ module Types =
         | SaveImage of (AnimalKey * string)
         | AsyncError of exn
         | ShowAnimalList
+        | SetIsFiltered of bool
         | FilterAnimalListByContinent of Continent List
         | RemoveContinentFromFilterList of Continent
         | FilterAnimalListByDLC of Dlc List

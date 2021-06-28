@@ -9,16 +9,6 @@ open PlanetZooApp.ZooAnimal
 open PlanetZooApp.Types
 
 module FilterFunctions =
-    // let filtercontinent (animalList: ZooAnimal List) (continentList: Continent List) : ZooAnimal List =
-    //     let mutable resultList : ZooAnimal list = []
-
-    //     for animal in animalList do
-    //         for continent in animal.continent do
-    //             for wantedContinent in continentList do
-    //                 if continent = wantedContinent then
-    //                     resultList <- animal :: resultList
-
-    //     List.rev resultList
 
     let filtercontinent (animalList: ZooAnimal List) (continentList: Continent List) : ZooAnimal List =
         animalList
@@ -63,14 +53,26 @@ module FilterFunctions =
 
     let filterVivarium (animalList: ZooAnimal list) : ZooAnimal list =
         animalList
-        |> List.filter (fun animal -> animal.exhibit = true)
+        |> List.filter (fun animal -> animal.exhibit)
 
     let filterNotVivarium (animalList: ZooAnimal list) : ZooAnimal list =
         animalList
-        |> List.filter (fun animal -> animal.exhibit = false)
+        |> List.filter (fun animal -> not animal.exhibit)
 
+    let isFilterSet filter : bool =
+        match filter with
+        | Some _ -> true
+        | None -> false
 
-(*let doIWantThisAnimal (animal: ZooAnimal) =
-                List.exists (fun continent -> List.contains continent continentList) animal.continent
+(* let isAnimalListFiltered (state: State) : bool =
+        let mutable isFiltered = false
+        state.biomeListFilter |> isFilterSet
 
-        List.filter doIWantThisAnimal animalList*)
+        state.continentListFilter |> isFilterSet
+
+        state.dlcListFilter |> isFilterSet
+
+        state.regionListFilter |> isFilterSet
+
+        isFiltered <- state.notVivariumFilter
+        isFiltered = state.vivariumFilter *)

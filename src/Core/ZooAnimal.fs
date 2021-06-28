@@ -30,7 +30,7 @@ module ZooAnimal =
                 dlc = None
                 nameGerman = "Afrikanischer Elefant"
             }
-        | "African Penguin" -> //TODO: muss komplett gesetzt werden
+        | "African Penguin" ->
             { animal with
                 region = Some [ "Namibia, South Africa" ]
                 dlc = Some Africa
@@ -68,7 +68,7 @@ module ZooAnimal =
             }
 
         // B
-        | "Babirusa" -> //TODO: muss komplett gesetzt werden
+        | "Babirusa" ->
             { animal with
                 region = Some [ "Indonesia" ]
                 dlc = Some SoutheastAsia
@@ -101,7 +101,7 @@ module ZooAnimal =
                 dlc = None
                 nameGerman = "Königstiger"
             }
-        | "Binturong" -> //TODO: muss komplett gesetzt werden
+        | "Binturong" ->
             { animal with
                 region =
                     Some [
@@ -184,7 +184,7 @@ module ZooAnimal =
                 dlc = None
                 nameGerman = "Chinesisches Schuppentier"
             }
-        | "Clouded Leopard" -> // TODO: muss noch komplett gesetzt werden
+        | "Clouded Leopard" ->
             { animal with
                 region =
                     Some [
@@ -245,7 +245,7 @@ module ZooAnimal =
                 dlc = Some SoutheastAsia
                 nameGerman = "Rothund"
             }
-        | "Diamondback Terrapin" -> //TODO: muss komplett gesetzt werden
+        | "Diamondback Terrapin" ->
             { animal with
                 region = Some [ "USA" ] // Original Eastern territories in the USA
                 dlc = Some Aquatic
@@ -270,7 +270,7 @@ module ZooAnimal =
                 dlc = None
                 nameGerman = "Östliche Braunschlange"
             }
-        | "Fennec Fox" -> // TODO: muss noch komplett gesetzt werden
+        | "Fennec Fox" ->
             { animal with
                 region =
                     Some [
@@ -340,7 +340,7 @@ module ZooAnimal =
                 dlc = Some SoutheastAsia
                 nameGerman = "Großes Wandelndes Blatt"
             }
-        | "Giant Otter" -> // TODO: muss komplett gesetzt werden
+        | "Giant Otter" ->
             { animal with
                 region =
                     Some [
@@ -488,7 +488,7 @@ module ZooAnimal =
                 nameGerman = "Japanmakak"
             }
         // K
-        | "King Penguin" -> // TODO: muss noch komplett gesetzt werden
+        | "King Penguin" ->
             { animal with
                 region =
                     Some [
@@ -550,7 +550,7 @@ module ZooAnimal =
                 dlc = None
                 nameGerman = "Mandrill"
             }
-        | "Meerkat" -> // TODO: muss noch komplett gesetzt werden
+        | "Meerkat" ->
             { animal with
                 region =
                     Some [
@@ -693,7 +693,7 @@ module ZooAnimal =
                 dlc = None
                 nameGerman = "Rappenantilope"
             }
-        | "Sacred Scarab Beetle" -> // TODO: muss noch komplett gesetzt werden
+        | "Sacred Scarab Beetle" ->
             { animal with
                 region =
                     Some [
@@ -735,7 +735,7 @@ module ZooAnimal =
                 dlc = Some Australia
                 nameGerman = "Helmkasuar"
             }
-        | "Southern White Rhinoceros" -> // TODO: muss noch komplett gesetzt werden
+        | "Southern White Rhinoceros" ->
             { animal with
                 region =
                     Some [

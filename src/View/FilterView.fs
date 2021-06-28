@@ -13,12 +13,13 @@ module FilterView =
     open Avalonia.FuncUI.Components
     open Elmish
 
-    let renderFilterHeadline label : IView =
+    let renderFilterHeadline label (tip: string) : IView =
         TextBlock.create [
             TextBlock.dock Dock.Top
             TextBlock.fontSize 20.
             TextBlock.margin 5.
             TextBlock.text label
+            TextBlock.tip tip
         ]
         :> IView
 
@@ -53,8 +54,6 @@ module FilterView =
     let renderToggleFilterButtonRegion =
         renderToggleButtonFilter FilterAnimalListByRegion RemoveRegionFromFilterList string
 
-
-
     let viewContinentsFilterOptions (state: State) dispatch : IView =
         let continentList : Continent List =
             match state.continentListFilter with
@@ -67,7 +66,7 @@ module FilterView =
         DockPanel.create [
             DockPanel.dock Dock.Top
             DockPanel.children [
-                renderFilterHeadline "Continents"
+                renderFilterHeadline "Continents" "Es werden alle Tiere angezeigt die in min. einem der Gewählten Kontinente vorkommen."
                 WrapPanel.create [
                     WrapPanel.dock Dock.Top
                     WrapPanel.margin (20., 10.)
@@ -97,7 +96,7 @@ module FilterView =
         DockPanel.create [
             DockPanel.dock Dock.Top
             DockPanel.children [
-                renderFilterHeadline "DLCs"
+                renderFilterHeadline "DLCs" "Es werden alle Tiere angezeigt die in min. einem der Gewählten DLC vorhanden sind."
                 WrapPanel.create [
                     WrapPanel.dock Dock.Top
                     WrapPanel.margin (20., 10.)
@@ -124,7 +123,7 @@ module FilterView =
         DockPanel.create [
             DockPanel.dock Dock.Top
             DockPanel.children [
-                renderFilterHeadline "Biome"
+                renderFilterHeadline "Biome" "Es werden alle Tiere angezeigt die in min. einem der gewählten Biome vorkommen."
                 WrapPanel.create [
                     WrapPanel.dock Dock.Top
                     WrapPanel.margin (20., 10.)
@@ -161,7 +160,7 @@ module FilterView =
         DockPanel.create [
             DockPanel.dock Dock.Top
             DockPanel.children [
-                renderFilterHeadline "Region"
+                renderFilterHeadline "Region" "Es werden alle Tiere angezeigt die in min. einer der gewählten Regionen vorkommen."
                 WrapPanel.create [
                     WrapPanel.dock Dock.Top
                     WrapPanel.margin (20., 10.)
@@ -182,7 +181,7 @@ module FilterView =
         DockPanel.create [
             DockPanel.dock Dock.Top
             DockPanel.children [
-                renderFilterHeadline "Vivarium/Gehege"
+                renderFilterHeadline "Vivarium/Gehege" "Es werden alle Tiere angezeigt, die dem gewählten Gehegetyp entsprechen"
                 WrapPanel.create [
                     WrapPanel.dock Dock.Top
                     WrapPanel.margin (20., 10.)
