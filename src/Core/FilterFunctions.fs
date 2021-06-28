@@ -59,20 +59,15 @@ module FilterFunctions =
         animalList
         |> List.filter (fun animal -> not animal.exhibit)
 
-    let isFilterSet filter : bool =
-        match filter with
-        | Some _ -> true
-        | None -> false
+    let isFilterSet = Option.isSome
 
-(* let isAnimalListFiltered (state: State) : bool =
-        let mutable isFiltered = false
-        state.biomeListFilter |> isFilterSet
-
-        state.continentListFilter |> isFilterSet
-
-        state.dlcListFilter |> isFilterSet
-
-        state.regionListFilter |> isFilterSet
-
-        isFiltered <- state.notVivariumFilter
-        isFiltered = state.vivariumFilter *)
+    let isAnimalListFiltered (state: State) : bool =
+        [
+            state.biomeListFilter |> isFilterSet
+            state.continentListFilter |> isFilterSet
+            state.dlcListFilter |> isFilterSet
+            state.regionListFilter |> isFilterSet
+            state.notVivariumFilter
+            state.vivariumFilter
+        ]
+        |> List.exists id

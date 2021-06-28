@@ -45,8 +45,7 @@ module Functions =
                     animalDataPath
                     animalDataAdditionalPath
                 ]
-                |> List.map loadFile
-                |> List.concat
+                |> List.collect loadFile
                 |> List.fold
                     (fun map animalJson ->
                         let animal = (createZooAnimalFromJson animalJson)
