@@ -26,7 +26,7 @@ let tests =
                     dominance = ""
                     relationship_human = None
                     mating_system = ""
-                    life_expectancy = { male = 0; female = 0 }
+                    life_expectancy = { male = 0.0; female = 0.0 }
                     habitat_requirements =
                         {
                             guest_enter = None
