@@ -37,7 +37,7 @@ module Types =
         | [<JsonUnionCase(Case = "Southeast Asia")>] SoutheastAsia
 
 
-    type LifeExpectancy = { male: int; female: int }
+    type LifeExpectancy = { male: float; female: float }
 
     type Humidity = { min: int; max: int }
 

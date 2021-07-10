@@ -885,5 +885,348 @@
         "description": "",
         "slug": "diamondback_terrapin",
         "key": "diamondback_terrapin"
+    },
+    {
+        "name": "Dhole",
+        "continent": [
+            "Asia"
+        ],
+        "biome": [
+            "Taiga",
+            "Tropical",
+            "Grassland",
+            "Temperate"
+        ],
+        "can_swim": true,
+        "status": "Endangered",
+        "exhibit": false,
+        "dominance": "Alpha male and alpha female",
+        "relationship_human": "Confident",
+        "mating_system": "Monogamous",
+        "life_expectancy": {
+            "male": 13,
+            "female": 13
+        },
+        "habitat_requirements": {
+            "guest_enter": false,
+            "exhibit": false,
+            "land": 1162,
+            "land_additional": 0,
+            "water_additional": 0,
+            "climbable_additional": 0,
+            "water": 0,
+            "climbable": 0,
+            "humidity": {
+                "min": 0,
+                "max": 0
+            },
+            "temperature": {
+                "min": 3,
+                "max": 42
+            },
+            "fence": {
+                "grade": 2,
+                "height": 1.25,
+                "climbproof": false
+            },
+            "group_male": {
+                "size": {
+                    "min": 2,
+                    "max": 25
+                }
+            },
+            "group_female": {
+                "size": {
+                    "min": 2,
+                    "max": 25
+                }
+            },
+            "group_mixed": {
+                "size": {
+                    "min": 2,
+                    "max": 25
+                },
+                "male": 25,
+                "female": 13
+            }
+        },
+        "latin_name": "Cuan alpinus alpinus",
+        "category": "",
+        "description": "",
+        "slug": "dhole",
+        "key": "dhole"
+    },
+    {
+        "name": "Proboscis Monkey",
+        "continent": [
+            "Asia"
+        ],
+        "biome": [
+            "Aquatic",
+            "Tropical"
+        ],
+        "can_swim": true,
+        "status": "Endangered",
+        "exhibit": false,
+        "dominance": "1 alpha per group",
+        "relationship_human": "Confident",
+        "mating_system": "Polygynous",
+        "life_expectancy": {
+            "male": 21,
+            "female": 21
+        },
+        "habitat_requirements": {
+            "guest_enter": false,
+            "exhibit": false,
+            "land": 400,
+            "land_additional": 0,
+            "water_additional": 0,
+            "climbable_additional": 0,
+            "water": 0,
+            "climbable": 30,
+            "humidity": {
+                "min": 0,
+                "max": 0
+            },
+            "temperature": {
+                "min": 17,
+                "max": 42
+            },
+            "fence": {
+                "grade": 3,
+                "height": 4.5,
+                "climbproof": true
+            },
+            "group_male": {
+                "size": {
+                    "min": 3,
+                    "max": 13
+                }
+            },
+            "group_female": {
+                "size": {
+                    "min": 3,
+                    "max": 12
+                }
+            },
+            "group_mixed": {
+                "size": {
+                    "min": 3,
+                    "max": 19
+                },
+                "male": 9,
+                "female": 18
+            }
+        },
+        "latin_name": "Nasalis larvatus larvatus",
+        "category": "",
+        "description": "",
+        "slug": "proboscis_monkey",
+        "key": "proboscis_monkey"
+    },
+    {
+        "name": "Sun Bear",
+        "continent": [
+            "Asia"
+        ],
+        "biome": [
+            "Temperate",
+            "Tropical",
+            "Grassland"
+        ],
+        "can_swim": true,
+        "status": "Vulnerable",
+        "exhibit": false,
+        "dominance": "None",
+        "relationship_human": "Neutral",
+        "mating_system": "Promiscuous",
+        "life_expectancy": {
+            "male": 27.5,
+            "female": 27.5
+        },
+        "habitat_requirements": {
+            "guest_enter": false,
+            "exhibit": false,
+            "land": 920,
+            "land_additional": 0,
+            "water_additional": 0,
+            "climbable_additional": 0,
+            "water": 0,
+            "climbable": 56,
+            "humidity": {
+                "min": 0,
+                "max": 0
+            },
+            "temperature": {
+                "min": 6,
+                "max": 42
+            },
+            "fence": {
+                "grade": 4,
+                "height": 3.0,
+                "climbproof": true
+            },
+            "group_male": {
+                "size": {
+                    "min": 1,
+                    "max": 2
+                }
+            },
+            "group_female": {
+                "size": {
+                    "min": 1,
+                    "max": 2
+                }
+            },
+            "group_mixed": {
+                "size": {
+                    "min": 1,
+                    "max": 2
+                },
+                "male": 1,
+                "female": 1
+            }
+        },
+        "latin_name": "Helarctos malayanus",
+        "category": "",
+        "description": "",
+        "slug": "sun_bear",
+        "key": "sun_bear"
+    },
+    {
+        "name": "Malayan Tapir",
+        "continent": [
+            "Asia"
+        ],
+        "biome": [
+            "Temperate",
+            "Tropical",
+            "Aquatic"
+        ],
+        "can_swim": true,
+        "status": "Endangered",
+        "exhibit": false,
+        "dominance": "None",
+        "relationship_human": "Neutral",
+        "mating_system": "Monogamous",
+        "life_expectancy": {
+            "male": 30,
+            "female": 30
+        },
+        "habitat_requirements": {
+            "guest_enter": false,
+            "exhibit": false,
+            "land": 430,
+            "land_additional": 0,
+            "water_additional": 0,
+            "climbable_additional": 0,
+            "water": 37,
+            "climbable": 0,
+            "humidity": {
+                "min": 0,
+                "max": 0
+            },
+            "temperature": {
+                "min": 6,
+                "max": 42
+            },
+            "fence": {
+                "grade": 3,
+                "height": 2.0,
+                "climbproof": false
+            },
+            "group_male": {
+                "size": {
+                    "min": 1,
+                    "max": 1
+                }
+            },
+            "group_female": {
+                "size": {
+                    "min": 1,
+                    "max": 1
+                }
+            },
+            "group_mixed": {
+                "size": {
+                    "min": 1,
+                    "max": 2
+                },
+                "male": 1,
+                "female": 1
+            }
+        },
+        "latin_name": "Tapirus indicus",
+        "category": "",
+        "description": "",
+        "slug": "malayan_tapir",
+        "key": "malayan_tapir"
+    },
+    {
+        "name": "Giant Malaysian Leaf Insect",
+        "continent": [
+            "Asia"
+        ],
+        "biome": [
+            "Tropical"
+        ],
+        "can_swim": true,
+        "status": "Data deficient",
+        "exhibit": true,
+        "dominance": "None",
+        "relationship_human": "",
+        "mating_system": "Promiscuous or parthenogenic (asexual reproduction of females)",
+        "life_expectancy": {
+            "male": 1.5,
+            "female": 1.5
+        },
+        "habitat_requirements": {
+            "guest_enter": false,
+            "exhibit": true,
+            "land": 0,
+            "land_additional": 0,
+            "water_additional": 0,
+            "climbable_additional": 0,
+            "water": 0,
+            "climbable": 0,
+            "humidity": {
+                "min": 40,
+                "max": 60
+            },
+            "temperature": {
+                "min": 22,
+                "max": 30
+            },
+            "fence": {
+                "grade": 0,
+                "height": 0,
+                "climbproof": false
+            },
+            "group_male": {
+                "size": {
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            "group_female": {
+                "size": {
+                    "min": 0,
+                    "max": 0
+                }
+            },
+            "group_mixed": {
+                "size": {
+                    "min": 1,
+                    "max": 8
+                },
+                "male": 0,
+                "female": 0
+            }
+        },
+        "latin_name": "Phyllium giganteum",
+        "category": "",
+        "description": "",
+        "slug": "giant_malaysian_leaf_insect",
+        "key": "giant_malaysian_leaf_insect"
     }
 ]

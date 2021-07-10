@@ -236,7 +236,7 @@ module ZooAnimal =
                 dlc = Some Arctic
                 nameGerman = "Dall-Schaf"
             }
-        | "Dhole" -> //TODO: muss komplett gesetzt werden
+        | "Dhole" ->
             { animal with
                 region =
                     Some [
@@ -334,7 +334,7 @@ module ZooAnimal =
                 dlc = None
                 nameGerman = "Indischer Riesenskorpion"
             }
-        | "Giant Leaf Insect" -> // TODO: muss komplett gesetzt werden
+        | "Giant Malaysian Leaf Insect" ->
             { animal with
                 region = Some [ "Malaysia" ]
                 dlc = Some SoutheastAsia
@@ -604,7 +604,7 @@ module ZooAnimal =
                 dlc = Some Arctic
                 nameGerman = "Eisbär"
             }
-        | "Proboscis Monkey" -> // TODO: muss noch komplett gesetzt werden
+        | "Proboscis Monkey" ->
             { animal with
                 region = Some [ "Borneo" ]
                 dlc = Some SoutheastAsia
@@ -759,7 +759,7 @@ module ZooAnimal =
                 dlc = None
                 nameGerman = "Springbock"
             }
-        | "Sun Bear" -> // TODO: muss noch komplett gesetzt werden
+        | "Sun Bear" ->
             { animal with
                 region =
                     Some [
